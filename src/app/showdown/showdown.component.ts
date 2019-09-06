@@ -22,7 +22,7 @@ export class ShowdownComponent implements OnInit, OnChanges {
   );
 
   constructor(private elementRef: ElementRef) {
-
+    this.showdown.setFlavor('github');
   }
 
   ngOnInit() {
