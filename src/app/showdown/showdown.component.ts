@@ -1,7 +1,7 @@
 import {Component, ElementRef, Input, OnChanges, OnInit} from '@angular/core';
 import * as Showdown from 'showdown';
 import * as highLight from 'showdown-highlight';
-
+import * as math from './MathExtension';
 
 @Component({
   selector: 'app-showdown',
@@ -14,7 +14,10 @@ export class ShowdownComponent implements OnInit, OnChanges {
 
   showdown = new Showdown.Converter(
     {
-      extensions: [highLight]
+      extensions: [
+        highLight,
+        math
+      ]
     }
   );
 
@@ -30,7 +33,6 @@ export class ShowdownComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.render();
-    console.error('changes invoked');
   }
 
   render(): void {
