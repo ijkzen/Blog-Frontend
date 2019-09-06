@@ -3,7 +3,8 @@
 const katex = require('katex');
 let inlineConfig = {
   displayMode: false,
-  throwOnError: true
+  throwOnError: true,
+  output: "mathml"
 };
 
 let blockConfig = {
