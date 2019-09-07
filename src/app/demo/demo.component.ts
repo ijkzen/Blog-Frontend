@@ -14,7 +14,7 @@ export class DemoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get('../../assets/2019-09-04-算法导论4_1.md', {responseType: 'text'})
+    this.http.get('../../assets/demo.md', {responseType: 'text'})
       .subscribe(
         (rsp) => {
           this.value = rsp;
