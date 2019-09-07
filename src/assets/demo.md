@@ -1,398 +1,358 @@
-# Markdown For Typora
+---
+算法导论3-2
+---
 
-## Overview
+## 读书笔记
 
-**Markdown** is created by [Daring Fireball](http://daringfireball.net/); the original guideline is [here](http://daringfireball.net/projects/markdown/syntax). Its syntax, however, varies between different parsers or editors. **Typora** is using [GitHub Flavored Markdown][GFM].
+> 这一章节主要是回顾了一些关于数学的内容，下面是其中的重要内容。
 
-
-
-## Block Elements
-
-### Paragraph and line breaks
-
-A paragraph is simply one or more consecutive lines of text. In markdown source code, paragraphs are separated by two or more blank lines. In Typora, you only need one blank line (press `Return` once) to create a new paragraph.
-
-Press `Shift` + `Return` to create a single line break. Most other markdown parsers will ignore single line breaks, so in order to make other markdown parsers recognize your line break, you can leave two spaces at the end of the line, or insert `<br/>`.
-
-### Headers
-
-Headers use 1-6 hash (`#`) characters at the start of the line, corresponding to header levels 1-6. For example:
-
-``` markdown
-# This is an H1
-
-## This is an H2
-
-###### This is an H6
-```
-
-In Typora, input ‘#’s followed by title content, and press `Return` key will create a header.
-
-### Blockquotes
-
-Markdown uses email-style > characters for block quoting. They are presented as:
-
-``` markdown
-> This is a blockquote with two paragraphs. This is first paragraph.
+> **多重函数**
 >
-> This is second pragraph. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-
-
-
-> This is another blockquote with one paragraph. There is three empty line to seperate two blockquote.
-```
-
-In Typora, inputting ‘>’ followed by your quote contents will generate a quote block. Typora will insert a proper ‘>’ or line break for you. Nested block quotes (a block quote inside another block quote) by adding additional levels of ‘>’.
-
-### Lists
-
-Input `* list item 1` will create an unordered list - the `*` symbol can be replace with `+` or `-`.
-
-Input `1. list item 1` will create an ordered list - their markdown source code is as follows:
-
-``` markdown
-## un-ordered list
-*   Red
-*   Green
-*   Blue
-
-## ordered list
-1.  Red
-2. 	Green
-3.	Blue
-```
-
-### Task List
-
-Task lists are lists with items marked as either [ ] or [x] (incomplete or complete). For example:
-
-``` markdown
-- [ ] a task list item
-- [ ] list syntax required
-- [ ] normal **formatting**, @mentions, #1234 refs
-- [ ] incomplete
-- [x] completed
-```
-
-You can change the complete/incomplete state by clicking on the checkbox before the item.
-
-### (Fenced) Code Blocks
-
-Typora only supports fences in GitHub Flavored Markdown. Original code blocks in markdown are not supported.
-
-Using fences is easy: Input \`\`\` and press `return`. Add an optional language identifier after \`\`\` and we'll run it through syntax highlighting:
-
-``` markdown
-Here's an example:
-
-​```
-function test() {
-  console.log("notice the blank line before this function?");
-}
-​```
-
-syntax highlighting:
-​```ruby
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-​```
-```
-
-### Math Blocks
-
-You can render *LaTeX* mathematical expressions using **MathJax**.
-
-To add a mathematical expression, input double dollar and press the 'Return' key. This will trigger an input field which accepts *Tex/LaTex* source. For example:
-
-
-$$
-\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
-\mathbf{i} & \mathbf{j} & \mathbf{k} \\
-\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\
-\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\
-\end{vmatrix}
-$$
-
-
-In the markdown source file, the math block is a *LaTeX* expression wrapped by a pair of double dollar marks:
-
-``` markdown
-$$
-\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
-\mathbf{i} & \mathbf{j} & \mathbf{k} \\
-\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\
-\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\
-\end{vmatrix}
-$$
-```
-
-You can find more details [here](http://support.typora.io/Math/).
-
-### Tables
-
-Input `| First Header  | Second Header |` and press the `return` key. This will create a table with two columns.
-
-After a table is created, putting focus on that table will open up a toolbar for the table where you can resize, align, or delete the table. You can also use the context menu to copy and add/delete individual columns/rows.
-
-The full syntax for tables is described below, but it is not necessary to know the full syntax in detail as the markdown source code for tables is generated automatically by Typora.
-
-In markdown source code, they look like:
-
-``` markdown
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-```
-
-You can also include inline Markdown such as links, bold, italics, or strikethrough in the table.
-
-Finally, by including colons (`:`) within the header row, you can define text in that column to be left-aligned, right-aligned, or center-aligned:
-
-``` markdown
-| Left-Aligned  | Center Aligned  | Right Aligned |
-| :------------ |:---------------:| -----:|
-| col 3 is      | some wordy text | $1600 |
-| col 2 is      | centered        |   $12 |
-| zebra stripes | are neat        |    $1 |
-```
-
-A colon on the left-most side indicates a left-aligned column; a colon on the right-most side indicates a right-aligned column; a colon on both sides indicates a center-aligned column.
-
-### Footnotes
-
-``` markdown
-You can create footnotes like this[^footnote].
-
-[^footnote]: Here is the *text* of the **footnote**.
-```
-
-will produce:
-
-You can create footnotes like this[^footnote].
-
-[^footnote]: Here is the *text* of the **footnote**.
-
-Hover over the ‘footnote’ superscript to see content of the footnote.
-
-### Horizontal Rules
-
-Inputting `***` or `---` on a blank line and pressing `return` will draw a horizontal line.
-
-------
-
-### YAML Front Matter
-
-Typora now supports [YAML Front Matter](http://jekyllrb.com/docs/frontmatter/). Input `---` at the top of the article and then press `Return` to introduce a metadata block. Alternatively, you can insert a metadata block from the top menu of Typora.
-
-### Table of Contents (TOC)
-
-Input `[toc]` and press the `Return` key. This will create a  “Table of Contents” section. The TOC extracts all headers from the document, and its contents are updated automatically as you add to the document.
-
-## Span Elements
-
-Span elements will be parsed and rendered right after typing. Moving the cursor in middle of those span elements will expand those elements into markdown source. Below is an explanation of the syntax for each span element.
-
-### Links
-
-Markdown supports two styles of links: inline and reference.
-
-In both styles, the link text is delimited by [square brackets].
-
-To create an inline link, use a set of regular parentheses immediately after the link text’s closing square bracket. Inside the parentheses, put the URL where you want the link to point, along with an optional title for the link, surrounded in quotes. For example:
-
-``` markdown
-This is [an example](http://example.com/ "Title") inline link.
-
-[This link](http://example.net/) has no title attribute.
-```
-
-will produce:
-
-This is [an example](http://example.com/"Title") inline link. (`<p>This is <a href="http://example.com/" title="Title">`)
-
-[This link](http://example.net/) has no title attribute. (`<p><a href="http://example.net/">This link</a> has no`)
-
-#### Internal Links
-
-**You can set the href to headers**, which will create a bookmark that allow you to jump to that section after clicking. For example:
-
-Command(on Windows: Ctrl) + Click [This link](#block-elements) will jump to header `Block Elements`. To see how to write that, please move cursor or click that link with `⌘` key pressed to expand the element into markdown source.
-
-#### Reference Links
-
-Reference-style links use a second set of square brackets, inside which you place a label of your choosing to identify the link:
-
-``` markdown
-This is [an example][id] reference-style link.
-
-Then, anywhere in the document, you define your link label on a line by itself like this:
-
-[id]: http://example.com/  "Optional Title Here"
-```
-
-In Typora, they will be rendered like so:
-
-This is [an example][id] reference-style link.
-
-[id]: http://example.com/	"Optional Title Here"
-
-The implicit link name shortcut allows you to omit the name of the link, in which case the link text itself is used as the name. Just use an empty set of square brackets — for example, to link the word “Google” to the google.com web site, you could simply write:
-
-``` markdown
-[Google][]
-And then define the link:
-
-[Google]: http://google.com/
-```
-
-In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.
-
-### URLs
-
-Typora allows you to insert URLs as links, wrapped by `<`brackets`>`.
-
-`<i@typora.io>` becomes <i@typora.io>.
-
-Typora will also automatically link standard URLs. e.g: www.google.com.
-
-### Images
-
-Images have similar syntax as links, but they require an additional `!` char before the start of the link. The syntax for inserting an image looks like this:
-
-``` markdown
-![Alt text](/path/to/img.jpg)
-
-![Alt text](/path/to/img.jpg "Optional title")
-```
-
-You are able to use drag & drop to insert an image from an image file or your web browser. You can modify the markdown source code by clicking on the image. A relative path will be used if the image that is added using drag & drop is in same directory or sub-directory as the document you're currently editing.
-
-If you’re using markdown for building websites, you may specify a URL prefix for the image preview on your local computer with property `typora-root-url` in YAML Front Matters. For example, input `typora-root-url:/User/Abner/Website/typora.io/` in YAML Front Matters, and then `![alt](/blog/img/test.png)` will be treated as `![alt](file:///User/Abner/Website/typora.io/blog/img/test.png)` in Typora.
-
-You can find more details [here](https://support.typora.io/Images/).
-
-### Emphasis
-
-Markdown treats asterisks (`*`) and underscores (`_`) as indicators of emphasis. Text wrapped with one `*` or `_` will be wrapped with an HTML `<em>` tag. E.g:
-
-``` markdown
-*single asterisks*
-
-_single underscores_
-```
-
-output:
-
-*single asterisks*
-
-_single underscores_
-
-GFM will ignore underscores in words, which is commonly used in code and names, like this:
-
-> wow_great_stuff
+> 我们使用记号$f^{(i)}(n)$来表示函数$f(n)$重复$i$次作用于一个初值$n$上。形式化地，假设$f(n)$为实数集上的一个函数。对非负整数$i$，我们递归地定义
 >
-> do_this_and_do_that_and_another_thing.
+> 
+> $$
+> f^{(i)}(n)= \begin{cases}
+> n           &若i=0 \\
+> f(f^{(i-1)}(n)) & 若i>0
+> 
+> \end{cases}
+> $$
+> 
+>
+> 上述文字表述有一些复杂，简单来说本次函数的输入是**次级函数**的输出，这里次级函数指的是$f^{(i-1)}$，$f^{(i-1)}$的输出又取决于它的次级函数，由此递归至不可分解；
 
-To produce a literal asterisk or underscore at a position where it would otherwise be used as an emphasis delimiter, you can backslash escape it:
+> **多重对数函数**
+>
+> 
+> $$
+> \lg^{*}n = min\{i\ge0:\lg^{(i)}n\le1\}
+> $$
+> 
+>
+> 定义如上，也就是求取满足条件的$i$的最小值
 
-``` markdown
-\*this text is surrounded by literal asterisks\*
+举个例子：现在求$ \lg^*{16} $，过程如下：
+
+
+$$
+\begin{aligned}
+ & \lg{16} = 4   \\
+ & \lg{4} = 2  \\
+ & \lg{2} = 1 \\
+ \end{aligned}
+$$
+
+
+一共代入了三次函数，所以$\lg^*{16}=3$　
+
+> **斐波那契数**
+>
+> 定义如下：
+>
+> 
+> $$
+> F(n) = \begin{cases}
+> 0         & n =0 \\
+> 1          & n=1 \\
+> F(n-1)+F(n-2) & n\ge 2
+> \end{cases}
+> $$
+> 
+>
+> 注意此处的$n$皆为非负整数；
+>
+> 尽管斐波那契数的求取过程是递归的，但是它仍然有同项公式，如下：
+>
+> 
+> $$
+> F(n) = \frac{\phi^n -{\bar{\phi}}^n}{\sqrt{5}}
+> $$
+> 
+>
+> 此处这两个符号的值为：
+>
+> 
+> $$
+> \begin{aligned}
+> & \phi = \frac{1+\sqrt{5}}{2} = 1.61803 \\ 
+> & {\bar{\phi}} = \frac{1-\sqrt{5}}{2} = -0.61803
+> \end{aligned}
+> $$
+> 
+>
+> 又因为$\frac{\bar{\phi}^n}{\sqrt{5}}<\frac{1}{\sqrt{5}}<\frac{1}{2}$，所以最终的通项表达式如下：
+>
+> 
+> $$
+> F(n) = \lfloor \frac{\phi^{n}}{\sqrt{5}} + \frac{1}{2}\rfloor
+> $$
+> 
+
+## 课后习题
+
+> 证明： 若$f(n)$和$g(n)$是单调增的函数，则函数$f(n)+g(n)$和$f(g(n))$也是单调增，此外，若$f(n)$和$g(n)$是非负的，则$f(n)*g(n)$也是单调增的；
+
+由两个单调增的函数证明三个新函数的单调性；
+
+**对于$ f(n)+g(n) $**
+
+现有$n_1$和$n_2$，且$n_1<n_2$，因为$f(n)$和$g(n)$都是单调增函数，则有
+
+
+$$
+\begin{aligned}
+f(n_1)<f(n_2) \\
+g(n_1)<g(n_2)
+\end{aligned}
+$$
+
+
+两个不等式相加，则有$f(n_1)+g(n_1)<f(n_2)+g(n_2)$，证毕；
+
+**对于$ f(g(n)) $**
+
+现有$n_1$和$n_2$，且$n_1<n_2$，因为$g(n)$是单调增函数，则有$g(n_1)<g(n_2)$，又因为$f(n)$是单调增函数，所以有
+
+
+$$
+f(g(n_1))<f(g(n_2))
+$$
+
+
+证毕；
+
+**对于$ f(n)*g(n) $**
+
+现有$n_1$和$n_2$，且$n_1<n_2$，因为$f(n)$和$g(n)$都是单调增函数，则有
+
+
+$$
+\begin{aligned}
+f(n_1)<f(n_2) \\
+g(n_1)<g(n_2)
+\end{aligned}
+$$
+
+
+又因为$f(n)$和$g(n)$都是非负函数，不存在相乘后符号变换的问题，所以可以安全的将两个不等式相乘；
+
+
+$$
+f(n_1)*g(n_1)< f(n_2)*g(n_2)
+$$
+
+
+证毕；
+
+> 证明等式 (3.16)
+
+等式3.16：
+
+
+$$
+a^{\log_b{c}} = c^{\log_b{a}}
+$$
+
+
+令$M=\log_b{c}$和$N=\log_b{a}$，则有
+
+
+$$
+c = b^M \\
+a = b^N
+$$
+
+
+将等式3.16中的$a和c$用上面的式子替换掉，则有
+
+
+$$
+\begin{aligned}
+\color{red}左式： &({b^N})^{\log_b{b^M}} & = ({b^N})^M \\ 
+                 &                      & = b^{NM} \\
+                      \\
+ \color{red}右式： &(b^M)^{\log_b{b^N}}  & = (b^M)^N \\
+                  &                     & = b^{MN}
+\end{aligned}
+$$
+
+
+左右两边相等，**证毕**；
+
+> 证明等式(3.19)。并证明$ n! = \omega(2^n)且n! = o(n^n) $。
+
+等式3.19：
+
+
+$$
+\lg{(n!)} = \theta{(n\lg{n})}
+$$
+
+
+因为 $n!=n\ast(n-1)\dots\ast2\ast1$ ，所以
+
+
+$$
+\lg{(n!)} = \lg{n} + \lg{(n-1)}+...+\lg2+\lg1
+$$
+
+
+毫无疑问，存在$c\ge1$，对于所有$n>0$，有$0\le{\lg{(n!})}\le{cn\lg{n}}$成立，即$\lg{n!}=o(n\lg{n})$；
+
+以此同时，存在$c\rightarrow0$，对于所有$n>0$，有$0\le{cn\lg{n}}\le{\lg{(n!)}}$成立，即$\lg{n!}=\omega{(n\lg{n})}$
+
+综上作述，$\lg{n!}=\theta({n\lg{n}})$，证毕；
+
+**对于$ n! = \omega({2^n}) $**
+
+
+$$
+\forall{c>0}, \exists{n_0>0}，使得对所有的n\ge{n_0},有0\le{c2^n}\le{n!}
+$$
+
+
+**证毕**；
+
+**对于 $ n!= o(n^n)$**
+
+
+$$
+\forall{c>0}, \exists{n_0>0}，使得对所有的n\ge{n_0},有0\le{n!}\le{cn^n}
+$$
+
+
+证毕；
+
+> 函数$\lceil{\lg{n}}\rceil !$多项式有界吗？函数$\lceil{\lg{\lg{n}}}\rceil !$多项式有界吗？
+
+对于多项式$f(n)$有界，其具体含义是
+
+
+$$
+存在常数c,k和n_0, 当n\ge{n_0}时, 使得f(n)<cn^k
+$$
+
+
+将不等式两边取对数
+
+
+$$
+\lg{f(n)} < \lg{cn^k} \\
+\lg{f(n)} = o(\lg{n})
+$$
+
+
+**对于函数$\lceil{\lg{n}}\rceil {!} $**
+
+
+$$
+\begin{aligned}
+f(n) & = \lceil{\lg{n}}\rceil !\\[2ex]
+\lg{f(n)} &= \lg{(\lceil\lg{n}\rceil}!) \\[2ex]
+          & = \lceil\lg{n}\rceil * \lg{(\lceil\lg{n}\rceil)} > o(\lg{n})
+\end{aligned}
+$$
+
+
+
+
+
+所以函数$\lceil\lg{n}\rceil!$没有界；
+
+**对于函数$\lceil{\lg{(\lg{n})}}\rceil!$**
+
+
+$$
+\begin{aligned}
+f(n) &= \lceil{\lg{(\lg{n})}}\rceil! \\[2ex]
+\lg{f(n)} &= \lg{\lceil{\lg{(\lg{n})}}\rceil!} \\[2ex]
+          &=\lceil\lg{(\lg{n})}\rceil * \lg{(\lceil\lg{(\lg{n})}\rceil)} \\[2ex] 
+          &=\theta({\lg(\lg{n})}*\lg{(\lg{(\lg{n})})}) \\[2ex]
+          &=O(\lg{\lg{n}}*\lg{\lg{n}})\\[2ex]
+          &=O(\lg{n})
+\end{aligned}
+$$
+
+
+所以函数$\lceil{\lg{(\lg{n})}}\rceil!$有界；
+
+> 如下两个函数，哪一个渐近更大些：$\lg(\lg^{\ast}{n})$还是$\lg^{\ast}{\lg{n}}$?
+
+这道题有点类似$f(n)=\sqrt{n}/2$和$f(n)=\sqrt{n/2}$，毫无疑问是$\color{red}{后者}$大；
+
+> 证明：黄金分割率$\phi$及其共轭数$\bar\phi$都满足方程$x^2=x+1$
+
+初中数学不再赘述；
+
+> 用归纳法证明斐波那契通项公式:
+>
+> 
+> $$
+> F_i = \frac{\phi^i-\bar\phi^i}{\sqrt{5}}
+> $$
+
+首先
+
+
+$$
+\begin{aligned}& \phi = \frac{1+\sqrt{5}}{2} = 1.61803 \\ & {\bar{\phi}} = \frac{1-\sqrt{5}}{2} = -0.61803\end{aligned}
+$$
+
+
+
+当$i=1$时，$F_1=\frac{\sqrt{5}}{\sqrt{5}}=1$，成立；
+
+假设当$i=n$时，$F_n=\frac{\phi^n-\bar\phi^n}{\sqrt{5}}$，成立；
+
+当$i=n+1$时，
+
+
+$$
+\begin{aligned}
+F_{n+1} &= F_n + F_{n-1} \\[2ex]
+        &=\frac{\phi^n-\bar\phi^n}{\sqrt{5}} + \frac{\phi^{n-1}-\bar\phi^{n-1}}{\sqrt{5}} \\[2ex]
+        &=\frac{(\phi^n+\phi^{n-1})-(\bar\phi^n+\bar\phi^{n-1})}{\sqrt{5}} \\[2ex]
+        &=\frac{\phi^{n+1}-\bar\phi^{n+1}}{\sqrt{5}}
+\end{aligned}
+$$
+
+
+**证毕**；
+
+> 证明：$k\ln{k}=\theta(n)蕴含着k=\theta({n/\ln{n}})$。
+
+根据条件：
+
+
+$$
+存在c_1,c_2, 使得c_1n\le{k\ln{k}}\le{c_2n}
+$$
+
+
+$\color{red} {不等式左边}$
+
+两边取对数，
+
+
+$$
+\ln{c_1}+\ln{n}\le{\ln{k}+\ln{(\ln{k})}} \\[2ex]
+\ln{n} = O{(\ln{k})}
+$$
+
+
+即存在$c_3$，使得$\ln{n}\le{c_3\ln{k}}$，即$\frac{n}{\ln{n}}\ge\frac{n}{c_3\ln{k}}\ge\frac{k}{c_2c_3}$成立，即$\frac{n}{\ln{n}}=\Omega(k)$;
+
+$\color{red} {不等式右边}$
+
+推导过程同不等式的右边相似，不再赘述；
+
+结论$\frac{n}{\ln{n}}=\theta{(k)}$，由于$\theta$的对称性，得到$k=\theta(\frac{n}{\ln{n}})$;
+
+**证毕**；
+
+```mermaid
+graph TD
+    Start --> Stop
 ```
 
-Typora recommends using the `*` symbol.
-
-### Strong
-
-A double `*` or `_` will cause its enclosed contents to be wrapped with an HTML `<strong>` tag, e.g:
-
-``` markdown
-**double asterisks**
-
-__double underscores__
-```
-
-output:
-
-**double asterisks**
-
-__double underscores__
-
-Typora recommends using the `**` symbol.
-
-### Code
-
-To indicate an inline span of code, wrap it with backtick quotes (`). Unlike a pre-formatted code block, a code span indicates code within a normal paragraph. For example:
-
-``` markdown
-Use the `printf()` function.
-```
-
-will produce:
-
-Use the `printf()` function.
-
-### Strikethrough
-
-GFM adds syntax to create strikethrough text, which is missing from standard Markdown.
-
-`~~Mistaken text.~~` becomes ~~Mistaken text.~~
-
-### Underlines
-
-Underline is powered by raw HTML.
-
-`<u>Underline</u>` becomes <u>Underline</u>.
-
-### Emoji :smile:
-
-Input emoji with syntax `:smile:`.
-
-User can trigger auto-complete suggestions for emoji by pressing `ESC` key, or trigger it automatically after enabling it on preference panel. Also, inputting UTF-8 emoji characters directly is also supported by going to `Edit` -> `Emoji & Symbols` in the menu bar (macOS).
-
-### Inline Math
-
-To use this feature, please enable it first in the `Preference` Panel -> `Markdown` Tab. Then, use dollar to wrap a TeX command. For example: $\lim_{x \to \infty} \exp(-x) = 0$ will be rendered as LaTeX command.
-
-To trigger inline preview for inline math: input dollar, then press the `ESC` key, then input a TeX command.
-
-You can find more details [here](http://support.typora.io/Math/).
-
-### Subscript
-
-To use this feature, please enable it first in the `Preference` Panel -> `Markdown` Tab. Then, use `~` to wrap subscript content. For example: `H~2~O`, `X~long\ text~`/
-
-### Superscript
-
-To use this feature, please enable it first in the `Preference` Panel -> `Markdown` Tab. Then, use `^` to wrap superscript content. For example: `X^2^`.
-
-### Highlight
-
-To use this feature, please enable it first in the `Preference` Panel -> `Markdown` Tab. Then, use `==` to wrap highlight content. For example: `==highlight==`.
-
-## HTML
-
-You can use HTML to style content what pure Markdown does not support. For example, use `<span style="color:red">this text is red</span>` to add text with red color.
-
-### Embed Contents
-
-Some websites provide iframe-based embed code which you can also paste into Typora. For example:
-
-```Markdown
-<iframe height='265' scrolling='no' title='Fancy Animated SVG Menu' src='http://codepen.io/jeangontijo/embed/OxVywj/?height=265&theme-id=0&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
-```
-
-### Video
-
-You can use the `<video>` HTML tag to embed videos. For example:
-
-```Markdown
-<video src="xxx.mp4" />
-```
-
-### Other HTML Support
-
-You can find more details [here](http://support.typora.io/HTML/).
-
-[GFM]: https://help.github.com/articles/github-flavored-markdown/

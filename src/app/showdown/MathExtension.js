@@ -14,6 +14,7 @@ let blockConfig = {
 };
 module.exports = function showdownMath() {
   return [
+    // escape all `$` at code
     {
       type: "lang",
       regex: /(```)([\s\S]+?)(```)/g,
@@ -21,6 +22,14 @@ module.exports = function showdownMath() {
         return whole.replace(/¨D/g, "¨K");
       }
     },
+    {
+      type: "lang",
+      regex: /(`)((¨D)+?)([\S]+?)(`)/g,
+      replace: function (whole, left, content, right, location, text) {
+        return whole.replace(/¨D/g, "¨K");
+      }
+    },
+    // render math at quote block
     {
       type: "lang",
       regex: /(>\s¨D¨D)([\s\S]+?)(>\s¨D¨D)/g,
@@ -38,26 +47,35 @@ module.exports = function showdownMath() {
         for (let i = 0; i <= size; i++) {
           result += lines[i]
         }
-        console.error(result);
         return result;
       }
     },
+    // render math block first
     {
       type: "lang",
       regex: /(¨D¨D)([\s\S]+?)(¨D¨D)/g,
       replace: function (whole, left, content, right, location, text) {
-        // console.error('inline parse');
+        // console.error('block parse'+whole);
         return renderBlock(whole, content);
       }
     },
+    // render inline math second
     {
       type: "lang",
-      regex: /(¨D)([\s\S]+?)(¨D)/g,
+      regex: /(¨D)([\S\s]+?)(¨D)/g,
       replace: function (whole, left, content, right, location, text) {
         // console.error('block parse');
         return renderInline(whole, content);
       }
     },
+    {
+      type: "lang",
+      regex: /(`)((¨K)+?)([\S]+?)(`)/g,
+      replace: function (whole, left, content, right, location, text) {
+        return whole.replace(/¨K/g, "¨D");
+      }
+    },
+    // re-escape `$`
     {
       type: "lang",
       regex: /(```)([\s\S]+?)(```)/g,
