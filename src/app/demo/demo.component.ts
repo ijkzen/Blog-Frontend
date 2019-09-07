@@ -18,7 +18,6 @@ export class DemoComponent implements OnInit {
       .subscribe(
         (rsp) => {
           this.value = rsp;
-          console.log(/(\$)([\s\S]+?)(\$)/g.test(this.value));
         }
       );
   }

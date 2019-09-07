@@ -1,7 +1,9 @@
 import {Component, ElementRef, Input, OnChanges, OnInit} from '@angular/core';
+import {MermaidService} from '../mermaid.service';
 import * as Showdown from 'showdown';
 import * as highLight from 'showdown-highlight';
 import * as math from './MathExtension';
+import * as mermaidLabel from './MermaidExtension';
 
 @Component({
   selector: 'app-showdown',
@@ -15,13 +17,17 @@ export class ShowdownComponent implements OnInit, OnChanges {
   showdown = new Showdown.Converter(
     {
       extensions: [
+        mermaidLabel,
         highLight,
         math
       ]
     }
   );
 
-  constructor(private elementRef: ElementRef) {
+  constructor(
+    private elementRef: ElementRef,
+    private mermaidService: MermaidService
+  ) {
     this.showdown.setFlavor('github');
   }
 
@@ -33,6 +39,7 @@ export class ShowdownComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.render();
+    this.mermaidService.renderMermaid(this.elementRef.nativeElement);
   }
 
   render(): void {
