@@ -1,4 +1,5 @@
 FROM node:lts-alpine AS builder
+COPY .npmrc .npmrc
 # set working directory
 WORKDIR /app
 
