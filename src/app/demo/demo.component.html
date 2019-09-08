@@ -1,5 +1,5 @@
 <textarea #editor class="left"></textarea>
-<nz-skeleton [nzLoading]="loading" [nzParagraph]="{ rows: 60 }" class="right">
+<nz-skeleton [nzActive]="true" [nzLoading]="loading" [nzParagraph]="{ rows: 60 }" class="right">
   <app-showdown class="showdown" md="{{value}}"></app-showdown>
 </nz-skeleton>
 <button (click)="deleteText()" class="delete" nz-button nzShape="circle" nzType="primary"><i nz-icon nzTheme="outline"
