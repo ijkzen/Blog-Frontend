@@ -15,6 +15,6 @@ COPY nginx/default.conf /etc/nginx/conf.d
 
 RUN rm -rf /usr/share/nginx/html/*
 
-COPY --from=builder dist/NextTo-Front/ /usr/share/nginx/html/
+COPY --from=builder /app/dist/NextTo-Front/ /usr/share/nginx/html/
 
 CMD ["nginx", "-g", "daemon off;"]
