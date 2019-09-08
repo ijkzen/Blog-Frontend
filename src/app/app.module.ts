@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {ShowdownComponent} from './showdown/showdown.component';
 import {DemoComponent} from './demo/demo.component';
 import {FormsModule} from '@angular/forms';
-import {NzSkeletonModule} from 'ng-zorro-antd';
+import {NzButtonModule, NzIconModule, NzSkeletonModule} from 'ng-zorro-antd';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,9 @@ import {NzSkeletonModule} from 'ng-zorro-antd';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NzSkeletonModule
+    NzSkeletonModule,
+    NzButtonModule,
+    NzIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

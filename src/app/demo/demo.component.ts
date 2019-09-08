@@ -44,6 +44,10 @@ export class DemoComponent implements OnInit, OnDestroy {
     clearInterval(this.internal);
   }
 
+  deleteText() {
+    this.editor.nativeElement.value = '';
+  }
+
   ngOnDestroy(): void {
     this.destroyTimer();
   }
