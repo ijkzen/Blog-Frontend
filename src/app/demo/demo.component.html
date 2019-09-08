@@ -1,2 +1,4 @@
 <textarea #editor class="left" rows="400"></textarea>
-<app-showdown class="right" md="{{value}}"></app-showdown>
+<nz-skeleton [nzLoading]="loading" [nzParagraph]="{ rows: 60 }" class="right">
+  <app-showdown md="{{value}}"></app-showdown>
+</nz-skeleton>

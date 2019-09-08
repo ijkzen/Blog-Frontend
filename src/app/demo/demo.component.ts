@@ -9,9 +9,12 @@ import {HttpClient} from '@angular/common/http';
 export class DemoComponent implements OnInit, OnDestroy {
   @ViewChild('editor', {static: false})
   editor;
+
   value: string;
+
   internal;
 
+  loading = true;
   constructor(
     private http: HttpClient
   ) {
@@ -31,6 +34,7 @@ export class DemoComponent implements OnInit, OnDestroy {
   startTimer() {
     this.internal = setInterval(() => {
         this.value = this.editor.nativeElement.value;
+        this.loading = false;
       },
       1000
     );
