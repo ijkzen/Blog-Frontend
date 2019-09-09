@@ -22,13 +22,16 @@ export class DemoComponent implements OnInit {
       .subscribe(
         (rsp) => {
           this.value = rsp;
-          this.loading = false;
         }
       );
   }
 
   deleteText() {
     this.value = '';
+  }
+
+  cancelLoading(result: boolean) {
+    this.loading = result;
   }
 
 }

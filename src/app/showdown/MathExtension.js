@@ -5,11 +5,13 @@ const katex = require('katex');
 let inlineConfig = {
   displayMode: false,
   throwOnError: true,
+  strict: false
 };
 
 let blockConfig = {
   displayMode: true,
-  throwOnError: true
+  throwOnError: true,
+  strict: false
 };
 module.exports = function showdownMath() {
   return [
