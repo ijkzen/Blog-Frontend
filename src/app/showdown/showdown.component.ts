@@ -5,6 +5,7 @@ import * as highLight from 'showdown-highlight';
 import * as math from './MathExtension';
 import * as mermaidLabel from './MermaidExtension';
 import * as bilibiliLabel from './BiliBiliExtension';
+import * as taskList from './TaskListExtension';
 
 @Component({
   selector: 'app-showdown',
@@ -19,11 +20,19 @@ export class ShowdownComponent implements OnInit, OnChanges {
 
   showdown = new Showdown.Converter(
     {
+      simplifiedAutoLink: true,
+      strikethrough: true,
+      tables: true,
+      ghMentions: true,
+      emoji: true,
+      metadata: true,
+      tasklists: true,
       extensions: [
         bilibiliLabel,
         mermaidLabel,
         highLight,
-        math
+        math,
+        taskList
       ]
     }
   );
