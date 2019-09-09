@@ -1,8 +1,3 @@
-const mermaid = require('mermaid/dist/mermaid');
-
-mermaid.mermaidAPI.initialize({
-  startOnLoad: false
-});
 module.exports = function showdownMermaid() {
   return [
     {

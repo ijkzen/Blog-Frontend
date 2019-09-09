@@ -1,11 +1,6 @@
 import {Component, ElementRef, Input, OnChanges, OnInit} from '@angular/core';
 import {MermaidService} from '../mermaid.service';
-import * as Showdown from 'showdown';
-import * as highLight from 'showdown-highlight';
-import * as math from './MathExtension';
-import * as mermaidLabel from './MermaidExtension';
-import * as bilibiliLabel from './BiliBiliExtension';
-import * as taskList from './TaskListExtension';
+
 
 @Component({
   selector: 'app-showdown',
@@ -18,50 +13,31 @@ export class ShowdownComponent implements OnInit, OnChanges {
 
   backup: string;
 
-  showdown = new Showdown.Converter(
-    {
-      simplifiedAutoLink: true,
-      strikethrough: true,
-      tables: true,
-      ghMentions: true,
-      emoji: true,
-      metadata: true,
-      tasklists: true,
-      smoothLivePreview: true,
-      extensions: [
-        bilibiliLabel,
-        mermaidLabel,
-        highLight,
-        math,
-        taskList
-      ]
-    }
-  );
+  worker: Worker;
 
   constructor(
     private elementRef: ElementRef,
     private mermaidService: MermaidService
   ) {
-    this.showdown.setFlavor('github');
+    this.worker = new Worker('../showdown.worker', {type: 'module'});
+    this.worker.onmessage = ({data}) => {
+      this.elementRef.nativeElement.innerHTML = data;
+      this.mermaidService.renderMermaid(this.elementRef.nativeElement);
+    };
   }
 
   ngOnInit() {
     if (this.md !== undefined) {
-      this.render();
+      this.worker.postMessage(this.md);
       this.backup = this.md;
     }
   }
 
   ngOnChanges(): void {
     if (this.md !== this.backup) {
-      this.render();
-      this.mermaidService.renderMermaid(this.elementRef.nativeElement);
+      this.worker.postMessage(this.md);
       this.backup = this.md;
     }
-  }
-
-  render(): void {
-    this.elementRef.nativeElement.innerHTML = this.showdown.makeHtml(this.md);
   }
 
 }
