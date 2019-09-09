@@ -27,6 +27,7 @@ export class ShowdownComponent implements OnInit, OnChanges {
       emoji: true,
       metadata: true,
       tasklists: true,
+      smoothLivePreview: true,
       extensions: [
         bilibiliLabel,
         mermaidLabel,

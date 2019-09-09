@@ -15,6 +15,7 @@ export class DemoComponent implements OnInit, OnDestroy {
   internal;
 
   loading = true;
+
   constructor(
     private http: HttpClient
   ) {
@@ -25,6 +26,8 @@ export class DemoComponent implements OnInit, OnDestroy {
       .subscribe(
         (rsp) => {
           this.editor.nativeElement.value = rsp;
+          this.value = rsp;
+          this.loading = false;
         }
       );
 
@@ -34,9 +37,8 @@ export class DemoComponent implements OnInit, OnDestroy {
   startTimer() {
     this.internal = setInterval(() => {
         this.value = this.editor.nativeElement.value;
-        this.loading = false;
       },
-      1000
+      1000 * 10
     );
   }
 

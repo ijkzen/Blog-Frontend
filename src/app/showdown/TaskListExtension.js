@@ -6,7 +6,6 @@ module.exports = function showdownTaskList() {
       type: "output",
       regex: /(<input type="checkbox")([\s\S]+?)(>)/g,
       replace: function (whole, left, content, right, location, text) {
-        console.error(whole);
         return whole.replace("-1.6em", "0.25em");
       }
     }
