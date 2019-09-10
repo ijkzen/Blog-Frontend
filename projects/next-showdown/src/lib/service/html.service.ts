@@ -2,10 +2,10 @@ import {Injectable} from '@angular/core';
 
 import * as Showdown from 'showdown';
 import * as highLight from 'showdown-highlight';
-import * as math from '../extension/MathExtension';
-import * as mermaidLabel from '../extension/MermaidExtension';
-import * as bilibiliLabel from '../extension/BiliBiliExtension';
-import * as taskList from '../extension/TaskListExtension';
+import * as math from 'showdown-formula';
+import * as mermaidLabel from 'showdown-mermaid';
+import * as bilibiliLabel from 'showdown-bilibili';
+import * as taskList from 'showdown-tasklist';
 
 @Injectable({
   providedIn: 'root'
