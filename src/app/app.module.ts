@@ -3,15 +3,14 @@ import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {ShowdownComponent} from './showdown/showdown.component';
 import {DemoComponent} from './demo/demo.component';
 import {FormsModule} from '@angular/forms';
 import {NzButtonModule, NzIconModule, NzInputModule, NzSkeletonModule} from 'ng-zorro-antd';
+import {NextShowdownModule} from '../../projects/next-showdown/src/lib/next-showdown.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShowdownComponent,
     DemoComponent
   ],
   imports: [
@@ -22,7 +21,8 @@ import {NzButtonModule, NzIconModule, NzInputModule, NzSkeletonModule} from 'ng-
     NzSkeletonModule,
     NzButtonModule,
     NzIconModule,
-    NzInputModule
+    NzInputModule,
+    NextShowdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

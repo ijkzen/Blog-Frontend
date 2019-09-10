@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "next-showdown": [
+        "dist/next-showdown"
+      ],
+      "next-showdown/*": [
+        "dist/next-showdown/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
