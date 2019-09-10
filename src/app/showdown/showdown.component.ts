@@ -12,7 +12,7 @@ export class ShowdownComponent implements OnInit, OnChanges, OnDestroy {
   md: string;
 
   @Output()
-  rendered = new EventEmitter<boolean>();
+  rendering = new EventEmitter<boolean>();
 
   markTime = 0;
 
@@ -23,6 +23,8 @@ export class ShowdownComponent implements OnInit, OnChanges, OnDestroy {
   backup: string;
 
   worker: Worker;
+
+  count = 0;
 
   constructor(
     private elementRef: ElementRef,
@@ -41,12 +43,17 @@ export class ShowdownComponent implements OnInit, OnChanges, OnDestroy {
   ngOnInit() {
     if (this.md !== undefined) {
       this.worker.postMessage(this.md);
+      this.count = 1;
     }
     this.startTimer();
   }
 
   ngOnChanges(): void {
     this.markTime = new Date().getTime();
+    if (this.count === 1) {
+      this.worker.postMessage(this.md);
+      this.count = 0;
+    }
   }
 
   startTimer() {
@@ -71,7 +78,7 @@ export class ShowdownComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   renderedView() {
-    this.rendered.emit(false);
+    this.rendering.emit(false);
   }
 
 }
