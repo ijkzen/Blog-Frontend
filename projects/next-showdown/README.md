@@ -1,7 +1,5 @@
 # NextShowdown
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.4.
-
 ## Code scaffolding
 
 Run `ng generate component component-name --project next-showdown` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project next-showdown`.
