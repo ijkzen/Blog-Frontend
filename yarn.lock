@@ -6401,6 +6401,13 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   resolved "https://registry.npm.taobao.org/neo-async/download/neo-async-2.6.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fneo-async%2Fdownload%2Fneo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha1-rCetpmFn+ohJpq3dg39rGJrSCBw=
 
+next-showdown@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.npm.taobao.org/next-showdown/download/next-showdown-0.0.4.tgz#7dfb85788bc1eb56abf1fe1a56dde9be40026bae"
+  integrity sha1-ffuFeIvB61ar8f4aVt3pvkACa64=
+  dependencies:
+    tslib "^1.9.0"
+
 ng-zorro-antd@^8.2.1:
   version "8.2.1"
   resolved "https://registry.npm.taobao.org/ng-zorro-antd/download/ng-zorro-antd-8.2.1.tgz?cache=0&sync_timestamp=1566819567814&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fng-zorro-antd%2Fdownload%2Fng-zorro-antd-8.2.1.tgz#272568b82a21a63a13b382936602830d16779f2e"
@@ -8250,6 +8257,16 @@ shebang-regex@^1.0.0:
   resolved "https://registry.npm.taobao.org/shebang-regex/download/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
   integrity sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM=
 
+showdown-bilibili@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.npm.taobao.org/showdown-bilibili/download/showdown-bilibili-0.0.1.tgz#cf025552a0a0c47d5af58b6bf29952f57f83ed6c"
+  integrity sha1-zwJVUqCgxH1a9Ytr8plS9X+D7Ww=
+
+showdown-formula@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.npm.taobao.org/showdown-formula/download/showdown-formula-0.0.1.tgz?cache=0&sync_timestamp=1568104287965&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fshowdown-formula%2Fdownload%2Fshowdown-formula-0.0.1.tgz#773e3271bb713598f1b0da1b96419b380c1b2c33"
+  integrity sha1-dz4ycbtxNZjxsNoblkGbOAwbLDM=
+
 showdown-highlight@^2.1.3:
   version "2.1.3"
   resolved "https://registry.npm.taobao.org/showdown-highlight/download/showdown-highlight-2.1.3.tgz#4bea8c9c55f24f778af689bb96cd139c1526efef"
@@ -8258,6 +8275,16 @@ showdown-highlight@^2.1.3:
     highlight.js "^9.7.0"
     html-encoder-decoder "^1.3.2"
     showdown "^1.4.3"
+
+showdown-mermaid@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.npm.taobao.org/showdown-mermaid/download/showdown-mermaid-0.0.1.tgz?cache=0&sync_timestamp=1568104852897&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fshowdown-mermaid%2Fdownload%2Fshowdown-mermaid-0.0.1.tgz#7bf308bcff5d47408e6984e282ff6f2a51fb02ad"
+  integrity sha1-e/MIvP9dR0COaYTigv9vKlH7Aq0=
+
+showdown-tasklist@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.npm.taobao.org/showdown-tasklist/download/showdown-tasklist-0.0.1.tgz#307299983a8dd6ffdf87f5db2a55ceeeaa3e1b7e"
+  integrity sha1-MHKZmDqN1v/fh/XbKlXO7qo+G34=
 
 showdown@^1.4.3, showdown@^1.9.0:
   version "1.9.0"
