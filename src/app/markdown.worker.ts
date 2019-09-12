@@ -1,10 +1,9 @@
 /// <reference lib="webworker" />
 
-import {HtmlUtil} from 'next-showdown';
-
-const html = new HtmlUtil();
+import * as makeHtml from 'showdown-html';
 
 addEventListener('message', ({data}) => {
-  const result = html.getHtml(data);
+  const result = makeHtml(data);
+  console.error(result);
   postMessage(result);
 });

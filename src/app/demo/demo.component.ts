@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {MermaidService} from 'next-mermaid';
 
@@ -7,7 +7,7 @@ import {MermaidService} from 'next-mermaid';
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.scss']
 })
-export class DemoComponent implements OnInit, OnChanges {
+export class DemoComponent implements OnInit {
 
   @ViewChild('markdown', {static: true})
   markdown;
@@ -35,16 +35,13 @@ export class DemoComponent implements OnInit, OnChanges {
       .subscribe(
         (rsp) => {
           this.value = rsp;
+          this.worker.postMessage(this.value);
         }
       );
   }
 
   deleteText() {
     this.value = '';
-  }
-
-  ngOnChanges(): void {
-    this.worker.postMessage(this.value);
   }
 
 }
