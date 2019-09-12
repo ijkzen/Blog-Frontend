@@ -1,6 +1,6 @@
 {
   "name": "next-showdown",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "a markdown render based showdown",
   "author": "ijkzen",
   "repository": {
