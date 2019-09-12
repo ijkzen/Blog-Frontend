@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import HtmlUtil from '../../../projects/next-showdown/src/lib/Util/HtmlUtil';
 
 @Component({
   selector: 'app-demo',
@@ -12,6 +13,11 @@ export class DemoComponent implements OnInit {
 
   loading = true;
 
+  @ViewChild('preview', {static: true})
+  preview;
+
+  html = new HtmlUtil();
+
   constructor(
     private http: HttpClient
   ) {
@@ -22,6 +28,7 @@ export class DemoComponent implements OnInit {
       .subscribe(
         (rsp) => {
           this.value = rsp;
+          this.preview.nativeElement.innerHTML = this.html.getHtml(this.value);
         }
       );
   }
