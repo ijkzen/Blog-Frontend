@@ -1,6 +1,6 @@
 {
   "name": "next-showdown",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "a markdown render based showdown",
   "author": "ijkzen",
   "repository": {
@@ -14,9 +14,7 @@
   "peerDependencies": {
     "@angular/common": "^8.2.4",
     "@angular/core": "^8.2.4",
-    "@angular/platform-browser": "~8.2.4"
-  },
-  "devDependencies": {
+    "@angular/platform-browser": "~8.2.4",
     "@types/mermaid": "^8.2.0",
     "mermaid": "^8.2.6",
     "katex": "^0.11.0",
