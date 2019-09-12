@@ -5,7 +5,7 @@ import * as mermaidLabel from 'showdown-mermaid';
 import * as bilibiliLabel from 'showdown-bilibili';
 import * as taskList from 'showdown-tasklist';
 
-export default class HtmlUtil {
+export class HtmlUtil {
   private showdown = new Showdown.Converter(
     {
       simplifiedAutoLink: true,
