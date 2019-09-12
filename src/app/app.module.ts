@@ -7,6 +7,7 @@ import {DemoComponent} from './demo/demo.component';
 import {FormsModule} from '@angular/forms';
 
 import {HtmlService, MermaidService, NextShowdownModule} from 'next-showdown';
+import HtmlUtil from 'next-showdown/lib/Util/HtmlUtil';
 import {NzButtonModule, NzIconModule, NzInputModule, NzSkeletonModule} from 'ng-zorro-antd';
 
 @NgModule({
@@ -25,7 +26,7 @@ import {NzButtonModule, NzIconModule, NzInputModule, NzSkeletonModule} from 'ng-
     NzInputModule,
     NextShowdownModule
   ],
-  providers: [HtmlService, MermaidService],
+  providers: [HtmlService, MermaidService, HtmlUtil],
   bootstrap: [AppComponent]
 })
 export class AppModule {

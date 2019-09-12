@@ -1,8 +1,8 @@
 /// <reference lib="webworker" />
 
-import {HtmlService} from 'next-showdown';
+import {HtmlUtil} from 'next-showdown';
 
-const html = new HtmlService();
+const html = new HtmlUtil();
 
 addEventListener('message', ({data}) => {
   const result = html.getHtml(data);
