@@ -24,6 +24,7 @@
     "showdown-formula": "^0.0.x",
     "showdown-highlight": "^2.1.x",
     "showdown-mermaid": "^0.0.x",
-    "showdown-tasklist": "^0.0.x"
+    "showdown-tasklist": "^0.0.x",
+    "next-mermaid": "^0.0.1"
   }
 }

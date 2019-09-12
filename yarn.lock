@@ -6915,6 +6915,13 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   resolved "https://registry.npm.taobao.org/neo-async/download/neo-async-2.6.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fneo-async%2Fdownload%2Fneo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha1-rCetpmFn+ohJpq3dg39rGJrSCBw=
 
+next-mermaid@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.npm.taobao.org/next-mermaid/download/next-mermaid-0.0.1.tgz?cache=0&sync_timestamp=1568276633998&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnext-mermaid%2Fdownload%2Fnext-mermaid-0.0.1.tgz#8d39a6fd7bad9f1abc75ec904e0b22b236fdc437"
+  integrity sha1-jTmm/Xutnxq8deyQTgsisjb9xDc=
+  dependencies:
+    tslib "^1.9.0"
+
 ng-packagr@^5.4.0:
   version "5.5.0"
   resolved "https://registry.npm.taobao.org/ng-packagr/download/ng-packagr-5.5.0.tgz#e13f6f5c109d11453f2e17f7d6fe116564e8bb65"

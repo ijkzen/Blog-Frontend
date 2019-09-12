@@ -24,6 +24,12 @@
       ],
       "next-showdown/*": [
         "dist/next-showdown/*"
+      ],
+      "next-mermaid": [
+        "dist/next-mermaid"
+      ],
+      "next-mermaid/*": [
+        "dist/next-mermaid/*"
       ]
     }
   },

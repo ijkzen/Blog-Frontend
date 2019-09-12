@@ -1,7 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SecurityContext} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 
-import {MermaidService} from '../service/mermaid.service';
+import {MermaidService} from 'next-mermaid';
 import {HtmlService} from '../service/html.service';
 
 @Component({

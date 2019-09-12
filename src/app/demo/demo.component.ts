@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import HtmlUtil from '../../../projects/next-showdown/src/lib/Util/HtmlUtil';
+import {HtmlUtil} from 'next-showdown';
 
 @Component({
   selector: 'app-demo',

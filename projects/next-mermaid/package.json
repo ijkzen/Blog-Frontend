@@ -1,0 +1,10 @@
+{
+  "name": "next-mermaid",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.2.4",
+    "@angular/core": "^8.2.4",
+    "@types/mermaid": "^8.2.0",
+    "mermaid": "^8.2.6"
+  }
+}
