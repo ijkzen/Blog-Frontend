@@ -6401,10 +6401,10 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   resolved "https://registry.npm.taobao.org/neo-async/download/neo-async-2.6.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fneo-async%2Fdownload%2Fneo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha1-rCetpmFn+ohJpq3dg39rGJrSCBw=
 
-next-showdown@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.npm.taobao.org/next-showdown/download/next-showdown-0.0.4.tgz#7dfb85788bc1eb56abf1fe1a56dde9be40026bae"
-  integrity sha1-ffuFeIvB61ar8f4aVt3pvkACa64=
+next-showdown@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.npm.taobao.org/next-showdown/download/next-showdown-0.0.5.tgz#02a4f9f8b6772b9cf3f921c0bd6a629ab063339d"
+  integrity sha1-AqT5+LZ3K5zz+SHAvWpimrBjM50=
   dependencies:
     tslib "^1.9.0"
 
