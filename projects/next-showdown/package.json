@@ -1,6 +1,6 @@
 {
   "name": "next-showdown",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "a markdown render based showdown",
   "author": "ijkzen",
   "repository": {
@@ -15,8 +15,6 @@
     "@angular/common": "^8.2.4",
     "@angular/core": "^8.2.4",
     "@angular/platform-browser": "~8.2.4",
-    "@types/mermaid": "^8.2.0",
-    "mermaid": "^8.2.6",
     "katex": "^0.11.0",
     "milligram": "^1.3.0",
     "showdown": "^1.9.0",
@@ -24,7 +22,6 @@
     "showdown-formula": "^0.0.x",
     "showdown-highlight": "^2.1.x",
     "showdown-mermaid": "^0.0.x",
-    "showdown-tasklist": "^0.0.x",
-    "next-mermaid": "^0.0.1"
+    "showdown-tasklist": "^0.0.x"
   }
 }

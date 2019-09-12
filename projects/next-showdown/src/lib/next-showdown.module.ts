@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {ShowdownComponent} from './showdown/showdown.component';
-import {MermaidService} from 'next-mermaid';
 
 @NgModule({
   declarations: [ShowdownComponent],
@@ -8,7 +7,7 @@ import {MermaidService} from 'next-mermaid';
   exports: [
     ShowdownComponent,
   ],
-  providers: [MermaidService]
+  providers: []
 })
 export class NextShowdownModule {
 }
