@@ -1,6 +1,6 @@
 import {Component, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {MermaidService} from "next-showdown";
+import {MermaidService} from 'next-mermaid';
 
 @Component({
   selector: 'app-demo',

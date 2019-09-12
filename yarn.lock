@@ -6401,10 +6401,17 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   resolved "https://registry.npm.taobao.org/neo-async/download/neo-async-2.6.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fneo-async%2Fdownload%2Fneo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha1-rCetpmFn+ohJpq3dg39rGJrSCBw=
 
-next-showdown@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.npm.taobao.org/next-showdown/download/next-showdown-0.0.6.tgz?cache=0&sync_timestamp=1568268986833&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnext-showdown%2Fdownload%2Fnext-showdown-0.0.6.tgz#4263c1545f1435bdc9673cbc05d785cd26031e7b"
-  integrity sha1-QmPBVF8UNb3JZzy8BdeFzSYDHns=
+next-mermaid@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.npm.taobao.org/next-mermaid/download/next-mermaid-0.0.1.tgz?cache=0&sync_timestamp=1568276633998&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnext-mermaid%2Fdownload%2Fnext-mermaid-0.0.1.tgz#8d39a6fd7bad9f1abc75ec904e0b22b236fdc437"
+  integrity sha1-jTmm/Xutnxq8deyQTgsisjb9xDc=
+  dependencies:
+    tslib "^1.9.0"
+
+next-showdown@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.npm.taobao.org/next-showdown/download/next-showdown-0.0.9.tgz?cache=0&sync_timestamp=1568277429505&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnext-showdown%2Fdownload%2Fnext-showdown-0.0.9.tgz#782fbe1cae4ac849b0931de489739a60f6373749"
+  integrity sha1-eC++HK5KyEmwkx3kiXOaYPY3N0k=
   dependencies:
     tslib "^1.9.0"
 
