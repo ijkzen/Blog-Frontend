@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {MermaidService} from 'next-mermaid';
 
@@ -7,7 +7,7 @@ import {MermaidService} from 'next-mermaid';
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.scss']
 })
-export class DemoComponent implements OnInit {
+export class DemoComponent implements OnInit, OnDestroy {
 
   @ViewChild('markdown', {static: true})
   markdown;
@@ -17,6 +17,10 @@ export class DemoComponent implements OnInit {
   loading = true;
 
   worker: Worker;
+
+  backup: string;
+
+  interval;
 
   constructor(
     private http: HttpClient,
@@ -38,10 +42,27 @@ export class DemoComponent implements OnInit {
           this.worker.postMessage(this.value);
         }
       );
+    this.startTimer();
   }
 
   deleteText() {
     this.value = '';
+  }
+
+  startTimer() {
+    this.interval = setInterval(
+      () => {
+        if (this.backup !== this.value) {
+          this.worker.postMessage(this.value);
+          this.backup = this.value;
+        }
+      },
+      1500
+    );
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.interval);
   }
 
 }
