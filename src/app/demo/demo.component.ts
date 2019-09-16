@@ -30,7 +30,9 @@ export class DemoComponent implements OnInit, OnDestroy {
     this.worker.onmessage = ({data}) => {
       this.markdown.nativeElement.innerHTML = data;
       this.mermaidService.renderMermaid(this.markdown.nativeElement);
-      this.loading = false;
+      if (this.loading) {
+        this.loading = false;
+      }
     };
   }
 
