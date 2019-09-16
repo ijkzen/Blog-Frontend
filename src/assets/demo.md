@@ -126,3 +126,7 @@ fun main() {
 
 ```
 
+```mermaid
+graph TD
+    Start --> End
+```
