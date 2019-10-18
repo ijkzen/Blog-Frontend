@@ -10,11 +10,9 @@ import {ArticleBean} from '../../service/bean/ArticleBean';
 })
 export class ArticleInfoComponent implements OnInit {
 
-  articleId: number;
-
-  private article: string;
-
-  private loading = true;
+  article: string;
+  loading = true;
+  private articleId: number;
 
   constructor(
     private route: ActivatedRoute,
