@@ -1,6 +1,6 @@
-<div (click)="toArticle()" class="item">
+<a [routerLink]="['article', article.id]" class="item">
   <h2>{{article.title}}</h2>
   <p>{{article.abstract}}</p>>
   <p>{{article.createdTime | date:"yyyy-MM-dd"}}</p>
   <nz-divider></nz-divider>
-</div>
+</a>

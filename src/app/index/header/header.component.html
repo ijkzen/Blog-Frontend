@@ -1,0 +1,10 @@
+<nz-header style="background: white; text-align: center">
+  <ul nz-menu nzMode="horizontal" nzTheme="light">
+    <li (click)="click(item.text)" *ngFor="let item of menu" nz-menu-item>
+      <button nz-button nzType="link">
+        <i nz-icon nzTheme="outline" nzType="{{item.icon}}"></i>
+        {{item.text}}
+      </button>
+    </li>
+  </ul>
+</nz-header>

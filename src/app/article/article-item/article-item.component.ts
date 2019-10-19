@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Article} from '../../service/bean/Article';
+import {Article} from '../../service/bean/data/Article';
 import {Router} from '@angular/router';
 
 @Component({
@@ -21,6 +21,7 @@ export class ArticleItemComponent implements OnInit {
   }
 
   toArticle() {
+    console.log(this.router.config);
     this.router.navigateByUrl('article/' + this.article.id);
   }
 }

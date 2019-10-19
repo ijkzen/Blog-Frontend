@@ -13,6 +13,9 @@ import {RouterModule} from '@angular/router';
     ArticleListComponent,
     ArticleInfoComponent
   ],
+  exports: [
+    ArticleListComponent
+  ],
   imports: [
     CommonModule,
     NextShowdownModule,

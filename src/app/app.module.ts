@@ -11,6 +11,7 @@ import {MermaidService} from 'next-mermaid';
 import {NzButtonModule, NzIconModule, NzInputModule, NzSkeletonModule} from 'ng-zorro-antd';
 import {HttpsInterceptor} from './client-interceptor';
 import {ArticleModule} from './article/article.module';
+import {IndexModule} from './index/index.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {ArticleModule} from './article/article.module';
     NzIconModule,
     NzInputModule,
     NextShowdownModule,
-    ArticleModule
+    ArticleModule,
+    IndexModule
   ],
   providers: [
     HtmlService,

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ArticleService} from '../../service/article.service';
 import {ArticleListBean} from '../../service/bean/ArticleListBean';
-import {Article} from '../../service/bean/Article';
+import {Article} from '../../service/bean/data/Article';
 
 @Component({
   selector: 'app-article-list',
