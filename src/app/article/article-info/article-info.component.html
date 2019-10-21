@@ -1,7 +1,7 @@
-<div class="content">
+<div class="content" id="article">
   <nz-skeleton [nzActive]="true" [nzLoading]="loading" [nzParagraph]="{ rows: 60 }" class="content">
     <h1 style="text-align: center">{{article.title}}</h1>
-    <div style="margin-bottom: 0.5em;;width: 1012px;height: 48px;display: flex; justify-content: space-between">
+    <div #target style="margin-bottom: 0.5em;;width: 1012px;height: 48px;display: flex; justify-content: space-between">
       <span><b>Date: </b>{{article.createdTime | date: "yyyy-MM-dd"}}</span>
       <span><b>Author: </b>{{article.author}}</span>
       <span *ngIf="article.category != ''"><b>Category: </b>{{article.category}}</span>
@@ -10,3 +10,4 @@
     <next-showdown [md]="article.content"></next-showdown>
   </nz-skeleton>
 </div>
+<app-back-top *ngIf="!loading"></app-back-top>
