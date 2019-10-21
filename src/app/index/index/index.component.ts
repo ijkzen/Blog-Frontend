@@ -19,7 +19,7 @@ export class IndexComponent implements OnInit {
   clickItem(text: string) {
     console.error(text);
     switch (text) {
-      case 'home':
+      case 'Home':
         this.toHome();
         break;
       case 'category':

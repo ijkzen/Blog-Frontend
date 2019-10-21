@@ -2,16 +2,18 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {IndexComponent} from './index/index/index.component';
 import {HomeComponent} from './index/home/home.component';
+import {ArticleInfoComponent} from './article/article-info/article-info.component';
 
 const routes: Routes = [
   {
-    path: 'index',
+    path: '',
     component: IndexComponent,
     children: [
       {path: '', component: HomeComponent},
+      {path: 'home', component: HomeComponent},
+      {path: 'article/:id', component: ArticleInfoComponent}
     ]
   },
-  {path: '', redirectTo: 'index', pathMatch: 'full'},
 ];
 
 @NgModule({
