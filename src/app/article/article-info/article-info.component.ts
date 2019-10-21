@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ArticleService} from '../../service/article.service';
 import {ArticleBean} from '../../service/bean/ArticleBean';
+import {Article} from '../../service/bean/data/Article';
 
 @Component({
   selector: 'app-article-info',
@@ -10,7 +11,21 @@ import {ArticleBean} from '../../service/bean/ArticleBean';
 })
 export class ArticleInfoComponent implements OnInit {
 
-  article: string;
+  article: Article = new Article(
+    null,
+    null,
+    null,
+    null,
+    null,
+    '',
+    '',
+    0,
+    0,
+    null,
+    null,
+    null,
+    null
+  );
   loading = true;
   private articleId: number;
 
@@ -27,7 +42,7 @@ export class ArticleInfoComponent implements OnInit {
         this.articleService.getArticleById(this.articleId)
           .subscribe(
             (result: ArticleBean) => {
-              this.article = result.article.content;
+              this.article = result.article;
               this.loading = false;
             }
           );

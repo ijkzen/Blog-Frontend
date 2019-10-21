@@ -18,6 +18,10 @@ export class ArticleListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getArticlesByPage(1);
+  }
+
+  getArticlesByPage(page: number) {
     this.articleService.getArticlesByPage(1)
       .subscribe(
         (result: ArticleListBean) => {

@@ -1,5 +1,6 @@
-<div class="info">
+<div class="info content">
   <nz-skeleton [nzLoading]="loading" [nzParagraph]="{ rows: 60 }">
-    <next-showdown [md]="article"></next-showdown>
+    <h1 style="text-align: center">{{article.title}}</h1>
+    <next-showdown [md]="article.content"></next-showdown>
   </nz-skeleton>
 </div>
