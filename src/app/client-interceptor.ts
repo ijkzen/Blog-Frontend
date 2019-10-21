@@ -21,7 +21,8 @@ export class HttpsInterceptor implements HttpInterceptor {
     authRequest = request.clone({
       url: localUrl + request.url,
       headers: new HttpHeaders({
-        Authorization: token
+        Authorization: token,
+        'Content-Type': 'application/json;charset=UTF-8'
       })
     });
     return next.handle(authRequest);

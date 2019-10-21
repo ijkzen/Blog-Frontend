@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ArticleListBean} from './bean/ArticleListBean';
 import {ArticleBean} from './bean/ArticleBean';
+import {BaseBean} from './bean/BaseBean';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,6 @@ export class ArticleService {
   }
 
   viewArticle(id: number) {
-    return this.client.post<number>('/article/view', id);
+    return this.client.post<BaseBean>('/articles/view', id);
   }
 }

@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ArticleService} from '../../service/article.service';
 import {ArticleBean} from '../../service/bean/ArticleBean';
 import {Article} from '../../service/bean/data/Article';
+import {BaseBean} from '../../service/bean/BaseBean';
 
 @Component({
   selector: 'app-article-info',
@@ -51,6 +52,11 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit(): void {
+    this.articleService.viewArticle(this.articleId)
+      .subscribe(
+        (result: BaseBean) => {
+        }
+      );
   }
 
 }
