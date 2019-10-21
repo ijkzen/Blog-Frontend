@@ -9,6 +9,9 @@ import {ArticleListBean} from '../../service/bean/ArticleListBean';
 })
 export class ArticleListComponent implements OnInit {
 
+  page = 1;
+  pageSize = 45;
+
   data = new Array(15).fill({}).map((i, index) => {
     return {
       id: null,
@@ -35,11 +38,11 @@ export class ArticleListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getArticlesByPage(1);
+    this.getArticlesByPage();
   }
 
-  getArticlesByPage(page: number) {
-    this.articleService.getArticlesByPage(1)
+  getArticlesByPage() {
+    this.articleService.getArticlesByPage(this.page)
       .subscribe(
         (result: ArticleListBean) => {
           this.data = result.list;

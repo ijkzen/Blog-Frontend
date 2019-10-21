@@ -4,7 +4,7 @@ import {ArticleItemComponent} from './article-item/article-item.component';
 import {ArticleListComponent} from './article-list/article-list.component';
 import {ArticleInfoComponent} from './article-info/article-info.component';
 import {NextShowdownModule} from 'next-showdown';
-import {NzDividerModule, NzSkeletonModule} from 'ng-zorro-antd';
+import {NzDividerModule, NzPaginationModule, NzSkeletonModule} from 'ng-zorro-antd';
 import {RouterModule} from '@angular/router';
 import {ArticleRoutingModule} from './article-routing.module';
 
@@ -24,7 +24,8 @@ import {ArticleRoutingModule} from './article-routing.module';
     NzDividerModule,
     RouterModule,
     NzSkeletonModule,
-    ArticleRoutingModule
+    ArticleRoutingModule,
+    NzPaginationModule
   ]
 })
 export class ArticleModule {
