@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ArticleService} from '../../service/article.service';
 import {ArticleListBean} from '../../service/bean/ArticleListBean';
-import {Article} from '../../service/bean/data/Article';
 
 @Component({
   selector: 'app-article-list',
@@ -10,7 +9,25 @@ import {Article} from '../../service/bean/data/Article';
 })
 export class ArticleListComponent implements OnInit {
 
-  data: Article[];
+  data = new Array(15).fill({}).map((i, index) => {
+    return {
+      id: null,
+      fileName: null,
+      author: null,
+      shown: null,
+      deleted: null,
+      title: '',
+      category: '',
+      visits: 0,
+      commentId: 0,
+      createdTime: null,
+      updatedTime: null,
+      content: null,
+      abstract: null
+    };
+  });
+
+  loading = true;
 
   constructor(
     private articleService: ArticleService
@@ -26,8 +43,8 @@ export class ArticleListComponent implements OnInit {
       .subscribe(
         (result: ArticleListBean) => {
           this.data = result.list;
+          this.loading = false;
         }
       );
   }
-
 }

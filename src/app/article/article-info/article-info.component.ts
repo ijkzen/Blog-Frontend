@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterContentInit, Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ArticleService} from '../../service/article.service';
 import {ArticleBean} from '../../service/bean/ArticleBean';
@@ -9,7 +9,7 @@ import {Article} from '../../service/bean/data/Article';
   templateUrl: './article-info.component.html',
   styleUrls: ['./article-info.component.scss']
 })
-export class ArticleInfoComponent implements OnInit {
+export class ArticleInfoComponent implements OnInit, AfterContentInit {
 
   article: Article = new Article(
     null,
@@ -48,6 +48,9 @@ export class ArticleInfoComponent implements OnInit {
           );
       }
     );
+  }
+
+  ngAfterContentInit(): void {
   }
 
 }

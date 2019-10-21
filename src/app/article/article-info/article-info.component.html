@@ -1,6 +1,12 @@
 <div class="info content">
-  <nz-skeleton [nzLoading]="loading" [nzParagraph]="{ rows: 60 }">
+  <nz-skeleton [nzActive]="true" [nzLoading]="loading" [nzParagraph]="{ rows: 60 }">
     <h1 style="text-align: center">{{article.title}}</h1>
+    <div style="margin-bottom: 25px;display: flex; justify-content: space-between">
+      <span><b>Date: </b>{{article.createdTime | date: "yyyy-MM-dd"}}</span>
+      <span><b>Author: </b>{{article.author}}</span>
+      <span *ngIf="article.category != ''"><b>Category: </b>{{article.category}}</span>
+      <span><b>Read: </b>{{article.visits}}</span>
+    </div>
     <next-showdown [md]="article.content"></next-showdown>
   </nz-skeleton>
 </div>

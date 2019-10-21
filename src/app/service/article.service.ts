@@ -21,4 +21,8 @@ export class ArticleService {
   getArticleById(id: number): Observable<ArticleBean> {
     return this.client.get<ArticleBean>('/articles/' + id);
   }
+
+  viewArticle(id: number) {
+    return this.client.post<number>('/article/view', id);
+  }
 }

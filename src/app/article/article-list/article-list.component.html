@@ -1,1 +1,3 @@
-<app-article-item *ngFor="let item of data" [article]="item"></app-article-item>
+<nz-skeleton *ngFor="let item of data" [nzLoading]="loading">
+  <app-article-item [article]="item"></app-article-item>
+</nz-skeleton>
