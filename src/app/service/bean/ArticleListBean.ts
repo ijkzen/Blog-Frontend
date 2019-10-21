@@ -3,4 +3,5 @@ import {Article} from './data/Article';
 
 export class ArticleListBean extends BaseBean {
   list: Article[];
+  size: number;
 }
