@@ -8,13 +8,15 @@ import {NzBackTopModule, NzDividerModule, NzPaginationModule, NzSkeletonModule} 
 import {RouterModule} from '@angular/router';
 import {ArticleRoutingModule} from './article-routing.module';
 import {BackTopComponent} from './back-top/back-top.component';
+import {OutlineComponent} from './outline/outline.component';
 
 @NgModule({
   declarations: [
     ArticleItemComponent,
     ArticleListComponent,
     ArticleInfoComponent,
-    BackTopComponent
+    BackTopComponent,
+    OutlineComponent
   ],
   exports: [
     ArticleListComponent,
