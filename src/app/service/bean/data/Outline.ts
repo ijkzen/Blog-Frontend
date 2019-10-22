@@ -3,4 +3,5 @@ export class Outline {
   title: string;
   href: string;
   children: Outline[];
+  clicked = false;
 }

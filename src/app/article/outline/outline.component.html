@@ -1,6 +1,6 @@
 <div class="outline">
   <div *ngFor="let item of root.children">
-    <span (click)="scrollToElement(item.href)">{{item.title}}</span>
+    <span (click)="scrollToElement($event, item.href)" class="outline-title">{{item.title}}</span>
     <br>
   </div>
 </div>

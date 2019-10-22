@@ -97,7 +97,52 @@ export class OutlineComponent implements OnInit, OnChanges {
     return result;
   }
 
-  scrollToElement(id: string) {
+  scrollToElement(event: any, id: string) {
+    const collection = document.getElementsByClassName('outline-title');
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < collection.length; i++) {
+      (collection.item(i) as HTMLElement).style.textDecoration = 'none';
+    }
+    (event.target as HTMLElement).style.textDecoration = 'underline';
+
+    (event.target as HTMLElement).insertAdjacentHTML('afterend', this.getHtml(id));
     document.getElementById(id).scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+  }
+
+  getChildrenArray(href: string): Outline[] {
+    const result = this.getChildren(this.root, href);
+    if (result.clicked) {
+      return [];
+    } else {
+      result.clicked = true;
+      return result.children;
+    }
+  }
+
+  getChildren(outline: Outline, href: string): Outline {
+    if (outline.children) {
+      for (const item of outline.children) {
+        if (item.href === href) {
+          return item;
+        } else {
+          const result = this.getChildren(item, href);
+          if (result != null) {
+            return result;
+          }
+        }
+      }
+    } else {
+      return null;
+    }
+  }
+
+  getHtml(href: string): string {
+    let htmlInserted = '';
+    for (const item of this.getChildrenArray(href)) {
+      // tslint:disable-next-line:max-line-length
+      htmlInserted += '<br><span style="margin-left: 20px;cursor: pointer;" class="outline-title" (click)="scrollToElement($event, item.href)">' + item.title + '</span>';
+    }
+
+    return htmlInserted;
   }
 }
