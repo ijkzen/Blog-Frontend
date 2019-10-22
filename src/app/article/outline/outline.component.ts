@@ -19,6 +19,8 @@ export class OutlineComponent implements OnInit, OnChanges {
 
   titleMap: Map<string, number[]> = new Map<string, number[]>();
 
+  subtitleMap: Map<string, HTMLElement> = new Map<string, HTMLElement>();
+
   constructor() {
   }
 
@@ -97,21 +99,34 @@ export class OutlineComponent implements OnInit, OnChanges {
     return result;
   }
 
-  scrollToElement(event: any, id: string) {
+  scrollToElement(event: any, href: string) {
+    this.cancelUnderline();
+    this.getElement(event).style.textDecoration = 'underline';
+    this.getElement(event).insertAdjacentElement('afterend', this.createElement(href));
+    document.getElementById(href).scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+  }
+
+  getElement(event: any): HTMLElement {
+    if (event instanceof Element) {
+      return event as HTMLElement;
+    } else {
+      return (event.target as HTMLElement);
+    }
+  }
+
+  cancelUnderline() {
     const collection = document.getElementsByClassName('outline-title');
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < collection.length; i++) {
       (collection.item(i) as HTMLElement).style.textDecoration = 'none';
     }
-    (event.target as HTMLElement).style.textDecoration = 'underline';
-
-    (event.target as HTMLElement).insertAdjacentHTML('afterend', this.getHtml(id));
-    document.getElementById(id).scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
   }
 
   getChildrenArray(href: string): Outline[] {
     const result = this.getChildren(this.root, href);
     if (result.clicked) {
+      // result.clicked = false;
+      // this.subtitleMap.get(href).style.display = 'none';
       return [];
     } else {
       result.clicked = true;
@@ -140,9 +155,17 @@ export class OutlineComponent implements OnInit, OnChanges {
     let htmlInserted = '';
     for (const item of this.getChildrenArray(href)) {
       // tslint:disable-next-line:max-line-length
-      htmlInserted += '<br><span style="margin-left: 20px;cursor: pointer;" class="outline-title" (click)="scrollToElement($event, item.href)">' + item.title + '</span>';
+      htmlInserted += '<span style="margin-left: 20px;cursor: pointer;" class="outline-title">' + item.title + '</span><br>';
     }
 
-    return htmlInserted;
+    return htmlInserted.substring(0, htmlInserted.length - 5);
+  }
+
+  createElement(href): Element {
+    const element = document.createElement('div');
+    element.innerHTML = this.getHtml(href);
+    element.addEventListener('click', (ev => this.scrollToElement(element, href)));
+    this.subtitleMap.set(href, element);
+    return element;
   }
 }
