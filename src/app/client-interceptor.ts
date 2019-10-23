@@ -11,7 +11,7 @@ export class HttpsInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const localUrl = 'http://localhost:8080';
+    const localUrl = 'http://127.0.0.1:8080';
     const baseUrl = 'https://api.nextto.top';
     let token = localStorage.getItem(HttpsInterceptor.AUTHORIZATION);
     if (token === null) {
