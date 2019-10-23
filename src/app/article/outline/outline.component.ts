@@ -19,8 +19,6 @@ export class OutlineComponent implements OnInit, OnChanges {
 
   titleMap: Map<string, number[]> = new Map<string, number[]>();
 
-  subtitleMap: Map<string, HTMLElement> = new Map<string, HTMLElement>();
-
   constructor() {
   }
 
@@ -45,6 +43,7 @@ export class OutlineComponent implements OnInit, OnChanges {
       if (this.list.length !== 0) {
         this.buildTree(this.list[0].category, 0, this.list.length - 1, this.root);
         console.log(this.root);
+        this.buildElement(this.root, document.getElementById('outline-parent') as HTMLElement);
       }
     }
   }
@@ -99,10 +98,30 @@ export class OutlineComponent implements OnInit, OnChanges {
     return result;
   }
 
-  scrollToElement(event: any, href: string) {
+  buildElement(outline: Outline, parent: HTMLElement) {
+    if (outline.children !== undefined && outline.children.length !== 0) {
+      const list = document.createElement('ol');
+      parent.insertAdjacentElement('beforeend', list);
+      for (const child of outline.children) {
+        const subtitle = document.createElement('li');
+        subtitle.className = 'outline-title';
+        subtitle.innerHTML = child.title;
+        subtitle.addEventListener('click', (ev => this.scrollToElement(ev, child.href)));
+        this.buildElement(child, subtitle as HTMLElement);
+        list.insertAdjacentElement('beforeend', subtitle);
+        if (child.category !== 2) {
+          list.style.display = 'none';
+        }
+      }
+    }
+  }
+
+  scrollToElement(event: Event, href: string) {
+    console.log('href: ' + href);
+    event.stopPropagation();
     this.cancelUnderline();
     this.getElement(event).style.textDecoration = 'underline';
-    this.getElement(event).insertAdjacentElement('afterend', this.createElement(href));
+    this.setChildren(event);
     document.getElementById(href).scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
   }
 
@@ -122,50 +141,13 @@ export class OutlineComponent implements OnInit, OnChanges {
     }
   }
 
-  getChildrenArray(href: string): Outline[] {
-    const result = this.getChildren(this.root, href);
-    if (result.clicked) {
-      // result.clicked = false;
-      // this.subtitleMap.get(href).style.display = 'none';
-      return [];
-    } else {
-      result.clicked = true;
-      return result.children;
-    }
-  }
-
-  getChildren(outline: Outline, href: string): Outline {
-    if (outline.children) {
-      for (const item of outline.children) {
-        if (item.href === href) {
-          return item;
-        } else {
-          const result = this.getChildren(item, href);
-          if (result != null) {
-            return result;
-          }
-        }
+  setChildren(event: Event) {
+    if (this.getElement(event).getElementsByTagName('ol').length > 0) {
+      if (this.getElement(event).getElementsByTagName('ol').item(0).style.display === 'block') {
+        this.getElement(event).getElementsByTagName('ol').item(0).style.display = 'none';
+      } else {
+        this.getElement(event).getElementsByTagName('ol').item(0).style.display = 'block';
       }
-    } else {
-      return null;
     }
-  }
-
-  getHtml(href: string): string {
-    let htmlInserted = '';
-    for (const item of this.getChildrenArray(href)) {
-      // tslint:disable-next-line:max-line-length
-      htmlInserted += '<span style="margin-left: 20px;cursor: pointer;" class="outline-title">' + item.title + '</span><br>';
-    }
-
-    return htmlInserted.substring(0, htmlInserted.length - 5);
-  }
-
-  createElement(href): Element {
-    const element = document.createElement('div');
-    element.innerHTML = this.getHtml(href);
-    element.addEventListener('click', (ev => this.scrollToElement(element, href)));
-    this.subtitleMap.set(href, element);
-    return element;
   }
 }

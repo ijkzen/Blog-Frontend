@@ -1,7 +1,6 @@
 export class Outline {
-  category: number; // 0-10
+  category: number; // 0-6
   title: string;
   href: string;
   children: Outline[];
-  clicked = false;
 }
