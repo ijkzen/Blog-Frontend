@@ -58,5 +58,4 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
         }
       );
   }
-
 }

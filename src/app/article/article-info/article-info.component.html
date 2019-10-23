@@ -11,4 +11,5 @@
   </nz-skeleton>
 </div>
 <app-back-top *ngIf="!loading"></app-back-top>
+<app-download *ngIf="!loading" [article]="article"></app-download>
 <app-outline [article]="article"></app-outline>
