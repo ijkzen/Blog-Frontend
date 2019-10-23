@@ -8,6 +8,8 @@
       <span><b>Read: </b>{{article.visits}}</span>
     </div>
     <next-showdown [md]="article.content"></next-showdown>
+
+    <app-copyright [article]="article"></app-copyright>
   </nz-skeleton>
 </div>
 <app-back-top *ngIf="!loading"></app-back-top>

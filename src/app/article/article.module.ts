@@ -10,6 +10,7 @@ import {ArticleRoutingModule} from './article-routing.module';
 import {BackTopComponent} from './back-top/back-top.component';
 import {OutlineComponent} from './outline/outline.component';
 import {DownloadComponent} from './download/download.component';
+import {CopyrightComponent} from './copyright/copyright.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {DownloadComponent} from './download/download.component';
     ArticleInfoComponent,
     BackTopComponent,
     OutlineComponent,
-    DownloadComponent
+    DownloadComponent,
+    CopyrightComponent
   ],
   exports: [
     ArticleListComponent,
