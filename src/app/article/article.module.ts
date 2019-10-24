@@ -11,6 +11,7 @@ import {BackTopComponent} from './back-top/back-top.component';
 import {OutlineComponent} from './outline/outline.component';
 import {DownloadComponent} from './download/download.component';
 import {CopyrightComponent} from './copyright/copyright.component';
+import {CommonListComponent} from './common-list/common-list.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,13 @@ import {CopyrightComponent} from './copyright/copyright.component';
     BackTopComponent,
     OutlineComponent,
     DownloadComponent,
-    CopyrightComponent
+    CopyrightComponent,
+    CommonListComponent
   ],
   exports: [
     ArticleListComponent,
-    ArticleRoutingModule
+    ArticleRoutingModule,
+    CommonListComponent
   ],
   imports: [
     CommonModule,

@@ -31,4 +31,8 @@ export class ArticleService {
   getCategories(): Observable<CategoryBean> {
     return this.client.get<CategoryBean>('/articles/categories');
   }
+
+  getArticlesByCategory(category: string): Observable<ArticleListBean> {
+    return this.client.get<ArticleListBean>('/articles/category/' + category);
+  }
 }

@@ -1,6 +1,8 @@
 <div class="content" style="margin-top: 160px">
   <div *ngFor="let i of getRow()" nz-row nzAlign="middle" nzJustify="space-around" nzType="flex">
-    <div *ngFor="let item of categories.slice(4 * i, 4 * i + 4)" class="item" nz-col nzSpan="4">{{item.category}}
+    <div (click)="toCategoryArticles(item.category)" *ngFor="let item of categories.slice(4 * i, 4 * i + 4)"
+         class="item" nz-col
+         nzSpan="4">{{item.category}}
       [{{item.size}}]
     </div>
   </div>

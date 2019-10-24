@@ -4,6 +4,7 @@ import {IndexComponent} from './index/index/index.component';
 import {HomeComponent} from './index/home/home.component';
 import {ArticleInfoComponent} from './article/article-info/article-info.component';
 import {CategoryComponent} from './index/category/category.component';
+import {CategoryArticlesComponent} from './index/category-articles/category-articles.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
       {path: '', component: HomeComponent},
       {path: 'home', component: HomeComponent},
       {path: 'category', component: CategoryComponent},
-      {path: 'article/:id', component: ArticleInfoComponent}
+      {path: 'article/:id', component: ArticleInfoComponent},
+      {path: 'category/:category', component: CategoryArticlesComponent}
     ]
   },
 ];

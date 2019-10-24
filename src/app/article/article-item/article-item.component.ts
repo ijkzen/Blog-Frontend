@@ -22,8 +22,6 @@ export class ArticleItemComponent implements OnInit {
   }
 
   toArticle() {
-    console.log(this.route.outlet);
-    console.log(this.router.config);
     this.router.navigateByUrl('article/' + this.article.id);
   }
 }
