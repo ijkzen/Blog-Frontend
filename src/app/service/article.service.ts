@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {ArticleListBean} from './bean/ArticleListBean';
 import {ArticleBean} from './bean/ArticleBean';
 import {BaseBean} from './bean/BaseBean';
+import {CategoryBean} from './bean/CategoryBean';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,11 @@ export class ArticleService {
     return this.client.get<ArticleBean>('/articles/' + id);
   }
 
-  viewArticle(id: number) {
+  viewArticle(id: number): Observable<BaseBean> {
     return this.client.post<BaseBean>('/articles/view', id);
+  }
+
+  getCategories(): Observable<CategoryBean> {
+    return this.client.get<CategoryBean>('/articles/categories');
   }
 }

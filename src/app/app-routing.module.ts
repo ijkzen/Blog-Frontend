@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {IndexComponent} from './index/index/index.component';
 import {HomeComponent} from './index/home/home.component';
 import {ArticleInfoComponent} from './article/article-info/article-info.component';
+import {CategoryComponent} from './index/category/category.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
     children: [
       {path: '', component: HomeComponent},
       {path: 'home', component: HomeComponent},
+      {path: 'category', component: CategoryComponent},
       {path: 'article/:id', component: ArticleInfoComponent}
     ]
   },

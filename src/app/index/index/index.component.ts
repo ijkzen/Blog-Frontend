@@ -22,7 +22,7 @@ export class IndexComponent implements OnInit {
       case 'Home':
         this.toHome();
         break;
-      case 'category':
+      case 'Category':
         this.toCategory();
         break;
       case 'about':

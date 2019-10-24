@@ -1,4 +1,4 @@
-<nz-skeleton *ngFor="let item of data" [nzLoading]="loading">
+<nz-skeleton *ngFor="let item of data" [nzActive]="true" [nzLoading]="loading">
   <app-article-item [article]="item"></app-article-item>
 </nz-skeleton>
 <nz-pagination (nzPageIndexChange)="getArticlesByPage($event)" [(nzPageIndex)]="page" [nzPageSize]="15"
