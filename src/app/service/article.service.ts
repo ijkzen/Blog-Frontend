@@ -25,7 +25,7 @@ export class ArticleService {
   }
 
   viewArticle(id: number): Observable<BaseBean> {
-    return this.client.post<BaseBean>('/articles/view', id);
+    return this.client.get<BaseBean>('/articles/view/' + id);
   }
 
   getCategories(): Observable<CategoryBean> {
