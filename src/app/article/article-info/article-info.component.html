@@ -10,8 +10,31 @@
     <next-showdown [md]="article.content"></next-showdown>
 
     <app-copyright [article]="article"></app-copyright>
+    <div style="width: 100%; text-align: center; padding: 1rem">
+      <button (click)="createTplModal(title, content)" nz-button nzType="primary">赞赏</button>
+    </div>
   </nz-skeleton>
 </div>
 <app-back-top *ngIf="!loading"></app-back-top>
 <app-download *ngIf="!loading" [article]="article"></app-download>
 <app-outline [article]="article"></app-outline>
+
+
+<ng-template #title>
+  <p style="text-align: center">感谢赞赏！</p>
+</ng-template>
+
+<ng-template #content>
+  <div style="height: 200px">
+    <div class="left">
+      <i nz-icon nzTheme="outline" nzType="alipay"></i>
+      <br>
+      <img src="{{getAlipay()}}">
+    </div>
+    <div class="right">
+      <i nz-icon nzTheme="outline" nzType="wechat"></i>
+      <br>
+      <img src="{{getWechat()}}">
+    </div>
+  </div>
+</ng-template>

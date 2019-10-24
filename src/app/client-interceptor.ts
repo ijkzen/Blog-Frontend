@@ -1,25 +1,27 @@
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {LinkService} from './service/link.service';
 
 @Injectable()
 export class HttpsInterceptor implements HttpInterceptor {
 
   static AUTHORIZATION = 'Authorization';
 
-  constructor() {
+  constructor(
+    private linkService: LinkService
+  ) {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const localUrl = 'http://127.0.0.1:8080';
-    const baseUrl = 'https://api.nextto.top';
+    const baseUrl = this.linkService.getLink();
     let token = localStorage.getItem(HttpsInterceptor.AUTHORIZATION);
     if (token === null) {
       token = '';
     }
     let authRequest: HttpRequest<any>;
     authRequest = request.clone({
-      url: localUrl + request.url,
+      url: baseUrl + request.url,
       headers: new HttpHeaders({
         Authorization: token
       })

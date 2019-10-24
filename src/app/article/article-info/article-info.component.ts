@@ -1,9 +1,11 @@
-import {AfterContentInit, Component, OnInit} from '@angular/core';
+import {AfterContentInit, Component, OnInit, TemplateRef} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ArticleService} from '../../service/article.service';
 import {ArticleBean} from '../../service/bean/ArticleBean';
 import {Article} from '../../service/bean/data/Article';
 import {BaseBean} from '../../service/bean/BaseBean';
+import {LinkService} from '../../service/link.service';
+import {NzModalRef, NzModalService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-article-info',
@@ -29,10 +31,13 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
   );
   loading = true;
   private articleId: number;
+  tplModal: NzModalRef;
 
   constructor(
     private route: ActivatedRoute,
-    private articleService: ArticleService
+    private articleService: ArticleService,
+    private linkService: LinkService,
+    private modalService: NzModalService
   ) {
   }
 
@@ -57,5 +62,24 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
         (result: BaseBean) => {
         }
       );
+  }
+
+  getAlipay(): string {
+    return this.linkService.getLink() + '/donate/alipay';
+  }
+
+  getWechat(): string {
+    return this.linkService.getLink() + '/donate/wechat';
+  }
+
+  createTplModal(tplTitle: TemplateRef<{}>, tplContent: TemplateRef<{}>): void {
+    this.tplModal = this.modalService.create({
+      nzTitle: tplTitle,
+      nzContent: tplContent,
+      nzOkDisabled: true,
+      nzFooter: null,
+      nzClosable: false,
+      nzCancelDisabled: true,
+    });
   }
 }
