@@ -12,6 +12,7 @@ import {NzButtonModule, NzIconModule, NzInputModule, NzSkeletonModule} from 'ng-
 import {HttpsInterceptor} from './client-interceptor';
 import {ArticleModule} from './article/article.module';
 import {IndexModule} from './index/index.module';
+import {ChatModule} from './chat/chat.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {IndexModule} from './index/index.module';
     NzInputModule,
     NextShowdownModule,
     ArticleModule,
-    IndexModule
+    IndexModule,
+    ChatModule
   ],
   providers: [
     HtmlService,

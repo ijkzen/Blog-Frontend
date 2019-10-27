@@ -28,7 +28,7 @@ export class IndexComponent implements OnInit {
       case 'about':
         this.toAbout();
         break;
-      case 'game':
+      case 'Game':
         this.toGame();
         break;
       case 'search':
