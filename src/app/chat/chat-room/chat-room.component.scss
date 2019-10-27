@@ -1,0 +1,21 @@
+$wholeHeight: calc(100vh - 64px);
+
+.room {
+  height: 50%;
+  position: relative;
+  max-height: 50%;
+  border-bottom: 1px dashed grey;
+  overflow-y: scroll;
+}
+
+.whole {
+  width: 1012px;
+  height: $wholeHeight;
+  margin: 0 auto;
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}

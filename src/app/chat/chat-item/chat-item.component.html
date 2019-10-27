@@ -1,0 +1,15 @@
+<div *ngIf="isLeft()" class="item-left">
+  <nz-avatar nzShape="circle" nzSize="large" nzSrc="../../../assets/images/xiaoice_avatar.jpg"></nz-avatar>
+  <div class="left">
+    {{message.text}}
+  </div>
+</div>
+
+<div *ngIf="!isLeft()" class="item-right">
+  <div class="right">
+    {{message.text}}
+  </div>
+  <nz-avatar nzShape="circle" nzSize="large" nzSrc="../../../assets/images/xiaoice_avatar.jpg"></nz-avatar>
+</div>
+<br>
+<br>

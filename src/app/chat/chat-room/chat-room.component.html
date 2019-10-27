@@ -1,0 +1,12 @@
+<nz-content class="whole">
+  <div class="room" id="chat-room">
+    <app-chat-item *ngFor="let item of list" [message]="item"></app-chat-item>
+  </div>
+  <button (click)="sendMessage(message)" nz-button nzShape="round" nzSize="default"
+          nzType="primary" style="margin-top: 1rem;margin-right: 1rem;float: right">发送
+    <i nz-icon nzType="arrow-right"></i>
+  </button>
+  <textarea [(ngModel)]="message" nz-input rows="8" style="margin-top: 1rem;"></textarea>
+</nz-content>
+
+<nz-spin *ngIf="loading" class="loading" nzSimple></nz-spin>

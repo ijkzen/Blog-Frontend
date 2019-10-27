@@ -1,0 +1,35 @@
+.item-left {
+  width: 300px;
+  padding: 1rem;
+  float: left;
+  max-height: 500px;
+}
+
+.item-right {
+  width: 300px;
+  padding: 1rem;
+  float: right;
+}
+
+.left, .right {
+  width: 200px;
+  padding: 1rem;
+}
+
+.left {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 8px;
+  color: #002200;
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.right {
+  background-color: darkslategray;
+  color: white;
+  display: inline-block;
+  margin-right: 1rem;
+  border-radius: 8px;
+}
+
