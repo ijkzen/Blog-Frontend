@@ -17,7 +17,7 @@ export class ChatItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  private isLeft(): boolean {
+  isLeft(): boolean {
     return this.message.sender_id === 5175429989;
   }
 }
