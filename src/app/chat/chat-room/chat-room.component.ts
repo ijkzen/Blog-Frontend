@@ -26,7 +26,7 @@ export class ChatRoomComponent implements OnInit {
   ngOnInit() {
     const welcome = new ChatMessage();
     welcome.sender_id = 5175429989;
-    welcome.text = `你好，我是微软小冰。`;
+    welcome.text = `你好，我是微软小冰。我是微软智能框架的产物，央视主播，央美毕业生`;
     this.list[0] = welcome;
   }
 

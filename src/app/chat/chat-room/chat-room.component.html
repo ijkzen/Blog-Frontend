@@ -1,6 +1,6 @@
 <nz-content class="whole">
   <div class="room" id="chat-room">
-    <app-chat-item *ngFor="let item of list" [message]="item"></app-chat-item>
+    <app-chat-item *ngFor="let item of list" [message]="item" style="width: 100%"></app-chat-item>
   </div>
   <button (click)="sendMessage(message)" nz-button nzShape="round" nzSize="default"
           nzType="primary" style="margin-top: 1rem;margin-right: 1rem;float: right">发送
