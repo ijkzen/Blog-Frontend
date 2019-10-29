@@ -65,11 +65,11 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
   }
 
   getAlipay(): string {
-    return this.linkService.getLink() + '/donate/alipay';
+    return this.linkService.getBackendUrl() + '/donate/alipay';
   }
 
   getWechat(): string {
-    return this.linkService.getLink() + '/donate/wechat';
+    return this.linkService.getBackendUrl() + '/donate/wechat';
   }
 
   createTplModal(tplTitle: TemplateRef<{}>, tplContent: TemplateRef<{}>): void {

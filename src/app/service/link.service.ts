@@ -8,8 +8,12 @@ export class LinkService {
   constructor() {
   }
 
-  getLink(): string {
+  getBackendUrl(): string {
     // https://api.nextto.top
-    return 'http://127.0.0.1:8080';
+    return 'http://localhost:8080';
+  }
+
+  getFrontendUrl(): string {
+    return 'http://localhost:4200';
   }
 }

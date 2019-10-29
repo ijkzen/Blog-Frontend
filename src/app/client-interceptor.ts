@@ -14,7 +14,7 @@ export class HttpsInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const baseUrl = this.linkService.getLink();
+    const baseUrl = this.linkService.getBackendUrl();
     let token = localStorage.getItem(HttpsInterceptor.AUTHORIZATION);
     if (token === null) {
       token = '';

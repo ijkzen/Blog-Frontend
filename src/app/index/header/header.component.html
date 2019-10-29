@@ -1,5 +1,5 @@
 <nz-header style="background: white; text-align: center">
-  <ul nz-menu nzMode="horizontal" nzTheme="light">
+  <ul nz-menu nzMode="horizontal" nzTheme="light" style="display: inline-block">
     <li (click)="click(item.text)" *ngFor="let item of menu" nz-menu-item>
       <button nz-button nzType="link">
         <i nz-icon nzTheme="outline" nzType="{{item.icon}}"></i>
@@ -7,4 +7,6 @@
       </button>
     </li>
   </ul>
+  <a style="float: right; display: inline-block"
+     href="https://github.com/login/oauth/authorize?client_id=280efb2391f54e4992d7&scope=public_repo,user:email,delete_repo">LOGIN</a>
 </nz-header>
