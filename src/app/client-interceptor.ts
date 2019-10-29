@@ -19,6 +19,7 @@ export class HttpsInterceptor implements HttpInterceptor {
     if (token === null) {
       token = '';
     }
+    token = 'MDQ6VXNlcjMxNTMxODM2';
     let authRequest: HttpRequest<any>;
     authRequest = request.clone({
       url: baseUrl + request.url,

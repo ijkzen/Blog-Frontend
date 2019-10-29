@@ -1,7 +1,8 @@
 <div *ngIf="isLeft()" class="item-left">
   <nz-avatar nzShape="circle" nzSize="large" nzSrc="../../../assets/images/xiaoice_avatar.jpg"></nz-avatar>
   <div class="left">
-    {{message.text}}
+    <span *ngIf="!message.attachment">{{message.text}}</span>
+    <img *ngIf="message.attachment" src="{{message.attachment[0].thumbnail_60}}">
   </div>
 </div>
 

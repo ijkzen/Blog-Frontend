@@ -6,7 +6,8 @@
           nzType="primary" style="margin-top: 1rem;margin-right: 1rem;float: right">发送
     <i nz-icon nzType="arrow-right"></i>
   </button>
-  <textarea [(ngModel)]="message" nz-input rows="8" style="margin-top: 1rem;"></textarea>
+  <textarea [(ngModel)]="message" [autofocus]="true" nz-input rows="8"
+            style="margin-top: 1rem;resize: none;"></textarea>
 </nz-content>
 
 <nz-spin *ngIf="loading" class="loading" nzSimple></nz-spin>
