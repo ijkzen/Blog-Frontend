@@ -20,4 +20,8 @@ export class ChatItemComponent implements OnInit {
   isLeft(): boolean {
     return this.message.sender_id === 5175429989;
   }
+
+  getAvatar(): string {
+    return localStorage.getItem('avatarUrl');
+  }
 }
