@@ -30,4 +30,11 @@ export class HeaderComponent implements OnInit {
     this.itemTap.emit(text);
   }
 
+  getAvatar(): string {
+    return localStorage.getItem('avatarUrl');
+  }
+
+  getName(): string {
+    return localStorage.getItem('developerName');
+  }
 }
