@@ -26,11 +26,7 @@ export class SearchComponent implements OnInit {
       .subscribe(
         (result) => {
           this.data = result.list;
-          if (result.list.length === 0) {
-            this.zero = true;
-          } else {
-            this.zero = false;
-          }
+          this.zero = result.list.length === 0;
         }
       );
   }
