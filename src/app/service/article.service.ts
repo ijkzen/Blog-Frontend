@@ -35,4 +35,8 @@ export class ArticleService {
   getArticlesByCategory(category: string): Observable<ArticleListBean> {
     return this.client.get<ArticleListBean>('/articles/category/' + category);
   }
+
+  getArticlesByKeywords(keywords: string): Observable<ArticleListBean> {
+    return this.client.get<ArticleListBean>('/articles/search/' + keywords);
+  }
 }

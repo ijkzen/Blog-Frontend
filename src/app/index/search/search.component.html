@@ -1,5 +1,6 @@
 <nz-content class="content" style="text-align: center">
-  <input class="search" placeholder="关键词搜索">
+  <input #text (change)="search(text.value)" class="search" placeholder="关键词搜索">
   <br>
-  <app-common-list *ngIf="data.length != 0"></app-common-list>
+  <app-common-list *ngIf="data.length != 0" [list]="data"></app-common-list>
+  <p *ngIf="zero">该关键词下没有文章，换一个试试</p>
 </nz-content>

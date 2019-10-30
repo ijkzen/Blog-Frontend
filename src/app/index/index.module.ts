@@ -10,10 +10,11 @@ import {CategoryComponent} from './category/category.component';
 import {CategoryArticlesComponent} from './category-articles/category-articles.component';
 import {GameComponent} from './game/game.component';
 import {SearchComponent} from './search/search.component';
+import {RecordComponent} from './record/record.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, IndexComponent, HomeComponent, CategoryComponent, CategoryArticlesComponent, GameComponent, SearchComponent],
+  declarations: [HeaderComponent, IndexComponent, HomeComponent, CategoryComponent, CategoryArticlesComponent, GameComponent, SearchComponent, RecordComponent],
   imports: [
     CommonModule,
     NzLayoutModule,

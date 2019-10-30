@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Article} from '../../service/bean/data/Article';
+import {ArticleService} from '../../service/article.service';
 
 @Component({
   selector: 'app-search',
@@ -10,10 +11,25 @@ export class SearchComponent implements OnInit {
 
   data: Article[] = [];
 
-  constructor() {
+  zero = false;
+
+  constructor(
+    private articleService: ArticleService
+  ) {
   }
 
   ngOnInit() {
   }
 
+  search(keywords: string) {
+    this.articleService.getArticlesByKeywords(keywords)
+      .subscribe(
+        (result) => {
+          this.data = result.list;
+          if (result.list.length === 0) {
+            this.zero = true;
+          }
+        }
+      );
+  }
 }
