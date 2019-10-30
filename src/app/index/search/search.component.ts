@@ -28,6 +28,8 @@ export class SearchComponent implements OnInit {
           this.data = result.list;
           if (result.list.length === 0) {
             this.zero = true;
+          } else {
+            this.zero = false;
           }
         }
       );
