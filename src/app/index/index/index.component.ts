@@ -24,6 +24,7 @@ export class IndexComponent implements OnInit {
         params => {
           console.log(params.nodeId);
           if (params.nodeId) {
+            localStorage.setItem('Authorization', params.nodeId);
             this.developerService.getDeveloperInfo()
               .subscribe(
                 (result) => {
@@ -31,7 +32,6 @@ export class IndexComponent implements OnInit {
                   localStorage.setItem('developerId', '' + result.developer.id);
                   localStorage.setItem('avatarUrl', result.developer.avatar_url);
                   localStorage.setItem('htmlUrl', result.developer.html_url);
-                  localStorage.setItem('Authorization', result.developer.node_id);
                   location.replace(this.linkService.getFrontendUrl());
                 }
               );
