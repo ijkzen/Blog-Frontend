@@ -55,7 +55,7 @@ export class IndexComponent implements OnInit {
       case 'Game':
         this.toGame();
         break;
-      case 'search':
+      case 'Search':
         this.toSearch();
         break;
       default:

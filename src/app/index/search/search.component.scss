@@ -1,0 +1,16 @@
+.search {
+  border: 0;
+  border-bottom: 1px grey solid;
+  width: 60%;
+  margin-top: 6rem;
+  outline: none;
+  box-shadow: 0 0;
+}
+
+.search:active {
+  border-bottom: 2px solid black;
+}
+
+.search:focus {
+  border-bottom: 2px solid black;
+}
