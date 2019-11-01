@@ -13,6 +13,7 @@ import {HttpsInterceptor} from './client-interceptor';
 import {ArticleModule} from './article/article.module';
 import {IndexModule} from './index/index.module';
 import {ChatModule} from './chat/chat.module';
+import {MiscModule} from './misc/misc.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {ChatModule} from './chat/chat.module';
     NextShowdownModule,
     ArticleModule,
     IndexModule,
-    ChatModule
+    ChatModule,
+    MiscModule
   ],
   providers: [
     HtmlService,

@@ -9,6 +9,7 @@ import {GameComponent} from './index/game/game.component';
 import {ChatRoomComponent} from './chat/chat-room/chat-room.component';
 import {SearchComponent} from './index/search/search.component';
 import {AboutComponent} from './index/about/about.component';
+import {NotFoundComponent} from './misc/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
       {path: 'category/:category', component: CategoryArticlesComponent}
     ]
   },
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
