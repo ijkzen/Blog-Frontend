@@ -49,7 +49,7 @@ export class IndexComponent implements OnInit {
       case 'Category':
         this.toCategory();
         break;
-      case 'about':
+      case 'About':
         this.toAbout();
         break;
       case 'Game':

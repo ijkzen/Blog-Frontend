@@ -8,6 +8,7 @@ import {CategoryArticlesComponent} from './index/category-articles/category-arti
 import {GameComponent} from './index/game/game.component';
 import {ChatRoomComponent} from './chat/chat-room/chat-room.component';
 import {SearchComponent} from './index/search/search.component';
+import {AboutComponent} from './index/about/about.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
       {path: '', component: HomeComponent},
       {path: 'home', component: HomeComponent},
       {path: 'category', component: CategoryComponent},
+      {path: 'about', component: AboutComponent},
       {path: 'game', component: GameComponent},
       {path: 'search', component: SearchComponent},
       {path: 'xiaoice', component: ChatRoomComponent},

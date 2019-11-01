@@ -11,10 +11,22 @@ import {CategoryArticlesComponent} from './category-articles/category-articles.c
 import {GameComponent} from './game/game.component';
 import {SearchComponent} from './search/search.component';
 import {RecordComponent} from './record/record.component';
+import {AboutComponent} from './about/about.component';
+import {NextShowdownModule} from 'next-showdown';
 
 
 @NgModule({
-  declarations: [HeaderComponent, IndexComponent, HomeComponent, CategoryComponent, CategoryArticlesComponent, GameComponent, SearchComponent, RecordComponent],
+  declarations: [
+    HeaderComponent,
+    IndexComponent,
+    HomeComponent,
+    CategoryComponent,
+    CategoryArticlesComponent,
+    GameComponent,
+    SearchComponent,
+    RecordComponent,
+    AboutComponent
+  ],
   imports: [
     CommonModule,
     NzLayoutModule,
@@ -26,6 +38,7 @@ import {RecordComponent} from './record/record.component';
     NzGridModule,
     NzAvatarModule,
     NzInputModule,
+    NextShowdownModule,
   ]
 })
 export class IndexModule {
