@@ -20,7 +20,6 @@ import {OutlineComponent} from './outline/outline.component';
 import {DownloadComponent} from './download/download.component';
 import {CopyrightComponent} from './copyright/copyright.component';
 import {CommonListComponent} from './common-list/common-list.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -50,7 +49,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     NzIconModule,
     NzButtonModule,
     NzModalModule,
-    BrowserAnimationsModule
   ]
 })
 export class ArticleModule {

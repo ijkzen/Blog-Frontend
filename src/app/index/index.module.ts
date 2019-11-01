@@ -13,6 +13,8 @@ import {SearchComponent} from './search/search.component';
 import {RecordComponent} from './record/record.component';
 import {AboutComponent} from './about/about.component';
 import {NextShowdownModule} from 'next-showdown';
+import {ChatModule} from '../chat/chat.module';
+import {IndexRoutingModule} from './index-routing.module';
 
 
 @NgModule({
@@ -25,7 +27,7 @@ import {NextShowdownModule} from 'next-showdown';
     GameComponent,
     SearchComponent,
     RecordComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +41,8 @@ import {NextShowdownModule} from 'next-showdown';
     NzAvatarModule,
     NzInputModule,
     NextShowdownModule,
+    ChatModule,
+    IndexRoutingModule,
   ]
 })
 export class IndexModule {
