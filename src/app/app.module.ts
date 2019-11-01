@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 
 import {HtmlService, NextShowdownModule} from 'next-showdown';
 import {MermaidService} from 'next-mermaid';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NzButtonModule, NzIconModule, NzInputModule, NzSkeletonModule} from 'ng-zorro-antd';
 import {HttpsInterceptor} from './client-interceptor';
 import {ArticleModule} from './article/article.module';
@@ -22,6 +23,7 @@ import {MiscModule} from './misc/misc.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -33,7 +35,7 @@ import {MiscModule} from './misc/misc.module';
     ArticleModule,
     IndexModule,
     ChatModule,
-    MiscModule
+    MiscModule,
   ],
   providers: [
     HtmlService,
