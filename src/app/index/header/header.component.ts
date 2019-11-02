@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MenuItem} from '../MenuItem';
+import {StorageService} from '../../service/storage.service';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +20,9 @@ export class HeaderComponent implements OnInit {
   @Output()
   itemTap: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() {
+  constructor(
+    private storageService: StorageService
+  ) {
   }
 
   ngOnInit() {
@@ -31,10 +34,10 @@ export class HeaderComponent implements OnInit {
   }
 
   getAvatar(): string {
-    return localStorage.getItem('avatarUrl');
+    return this.storageService.getAvatarUrl();
   }
 
   getName(): string {
-    return localStorage.getItem('developerName');
+    return this.storageService.getDeveloperName();
   }
 }

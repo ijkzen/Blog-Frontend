@@ -1,0 +1,16 @@
+<nz-comment *ngIf="getAvatar()">
+  <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="getAvatar()"></nz-avatar>
+  <nz-comment-content>
+    <nz-form-item>
+      <textarea [(ngModel)]="content" nz-input rows="4"></textarea>
+    </nz-form-item>
+    <nz-form-item style="text-align: right">
+      <button nz-button nzType="primary" [disabled]="!getAvatar()" (click)="addComment()">
+        添加评论
+      </button>
+    </nz-form-item>
+  </nz-comment-content>
+</nz-comment>
+
+<a *ngIf="!getAvatar()" nz-button
+   href="https://github.com/login/oauth/authorize?client_id=280efb2391f54e4992d7&scope=public_repo,user:email,delete_repo">请登录后再评论</a>

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ChatMessage} from '../../service/bean/data/ChatMessage';
+import {StorageService} from '../../service/storage.service';
 
 @Component({
   selector: 'app-chat-item',
@@ -11,7 +12,9 @@ export class ChatItemComponent implements OnInit {
   @Input()
   message: ChatMessage;
 
-  constructor() {
+  constructor(
+    private storageService: StorageService
+  ) {
   }
 
   ngOnInit() {
@@ -22,6 +25,6 @@ export class ChatItemComponent implements OnInit {
   }
 
   getAvatar(): string {
-    return localStorage.getItem('avatarUrl');
+    return this.storageService.getAvatarUrl();
   }
 }

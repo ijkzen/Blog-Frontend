@@ -1,0 +1,10 @@
+<nz-comment [nzAuthor]="comment.authorName" [nzDatetime]="getDateDisplay()">
+  <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="comment.authorAvatar"></nz-avatar>
+  <nz-comment-content>
+    <p>{{comment.content}}</p>
+  </nz-comment-content>
+  <div>
+    <span style="margin: 1rem; display: inline-block;cursor: pointer" (click)="replyComment()">回复</span>
+    <span style="margin: 1rem; display: inline-block;cursor: pointer">举报</span>
+  </div>
+</nz-comment>

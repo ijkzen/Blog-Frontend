@@ -13,15 +13,30 @@
     <div style="width: 100%; text-align: center; padding: 1rem">
       <button (click)="createTplModal(title, content)" nz-button nzType="primary">赞赏</button>
     </div>
+
+    <span style="font-size: 18px;display: block;margin: 1rem">评论：</span>
+    <app-edit-comment style="width: 100%;display: block;text-align: center" [articleId]="articleId"
+                      (added)="getComments(articleId)"></app-edit-comment>
+    <span style="font-size: 18px;display: block; margin: 1rem">评论列表：</span>
+    <app-comment [comment]="comment" *ngFor="let comment of comments" (reply)="setOriginComment($event)"></app-comment>
+    <p style="text-align: center; font-size: 16px" *ngIf="comments.length == 0">暂无评论</p>
   </nz-skeleton>
 </div>
 <app-back-top *ngIf="!loading"></app-back-top>
 <app-download *ngIf="!loading" [article]="article"></app-download>
 <app-outline [article]="article"></app-outline>
 
+<nz-modal [(nzVisible)]="replyVisible" [nzTitle]="replyTitle" (nzOnOk)="replyComment()"
+          (nzOnCancel)="closeReplyDialog()" nzClosable="false">
+  <textarea rows="5" [(ngModel)]="replyContent"></textarea>
+</nz-modal>
 
 <ng-template #title>
   <p style="text-align: center">感谢赞赏！</p>
+</ng-template>
+
+<ng-template #replyTitle>
+  <p style="text-align: center">回复评论</p>
 </ng-template>
 
 <ng-template #content>

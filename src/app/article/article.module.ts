@@ -5,9 +5,10 @@ import {ArticleListComponent} from './article-list/article-list.component';
 import {ArticleInfoComponent} from './article-info/article-info.component';
 import {NextShowdownModule} from 'next-showdown';
 import {
+  NzAvatarModule,
   NzBackTopModule,
-  NzButtonModule,
-  NzDividerModule,
+  NzButtonModule, NzCommentModule,
+  NzDividerModule, NzFormModule,
   NzIconModule,
   NzModalModule,
   NzPaginationModule,
@@ -20,6 +21,9 @@ import {OutlineComponent} from './outline/outline.component';
 import {DownloadComponent} from './download/download.component';
 import {CopyrightComponent} from './copyright/copyright.component';
 import {CommonListComponent} from './common-list/common-list.component';
+import { CommentComponent } from './comment/comment.component';
+import { EditCommentComponent } from './edit-comment/edit-comment.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,9 @@ import {CommonListComponent} from './common-list/common-list.component';
     OutlineComponent,
     DownloadComponent,
     CopyrightComponent,
-    CommonListComponent
+    CommonListComponent,
+    CommentComponent,
+    EditCommentComponent
   ],
   exports: [
     ArticleListComponent,
@@ -49,6 +55,10 @@ import {CommonListComponent} from './common-list/common-list.component';
     NzIconModule,
     NzButtonModule,
     NzModalModule,
+    NzCommentModule,
+    NzAvatarModule,
+    NzFormModule,
+    FormsModule,
   ]
 })
 export class ArticleModule {

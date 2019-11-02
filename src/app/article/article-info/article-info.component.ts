@@ -6,6 +6,9 @@ import {Article} from '../../service/bean/data/Article';
 import {BaseBean} from '../../service/bean/BaseBean';
 import {LinkService} from '../../service/link.service';
 import {NzModalRef, NzModalService} from 'ng-zorro-antd';
+import {Comment} from '../../service/bean/data/Comment';
+import {CommentService} from '../../service/comment.service';
+import {StorageService} from '../../service/storage.service';
 
 @Component({
   selector: 'app-article-info',
@@ -29,15 +32,22 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
     null,
     null
   );
+
+  comments: Comment[] = [];
   loading = true;
   private articleId: number;
   tplModal: NzModalRef;
+  replyContent: string;
+  replyVisible = false;
+  originComment: Comment;
 
   constructor(
     private route: ActivatedRoute,
     private articleService: ArticleService,
     private linkService: LinkService,
-    private modalService: NzModalService
+    private modalService: NzModalService,
+    private commentService: CommentService,
+    private storageService: StorageService
   ) {
   }
 
@@ -52,6 +62,7 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
               this.loading = false;
             }
           );
+        this.getComments(this.articleId);
       }
     );
   }
@@ -81,5 +92,50 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
       nzClosable: false,
       nzCancelDisabled: true,
     });
+  }
+
+  getComments(articleId: number) {
+    this.commentService.getComments(articleId)
+      .subscribe(
+        result => {
+          this.comments = result.list;
+          console.log(this.comments);
+        }
+      );
+  }
+
+  openReplyDialog() {
+    this.replyVisible = true;
+  }
+
+  setOriginComment(origin: Comment) {
+    this.originComment = origin;
+    this.openReplyDialog();
+  }
+
+  closeReplyDialog() {
+    this.replyVisible = false;
+  }
+
+  replyComment() {
+    const comment = new Comment();
+    comment.articleId = this.articleId;
+    comment.articleUrl = location.href;
+    comment.authorId = Number(this.storageService.getDeveloperId());
+    comment.authorName = this.storageService.getDeveloperName();
+    comment.authorAvatar = this.storageService.getAvatarUrl();
+    comment.replyId = this.originComment.id;
+    comment.replyName = this.originComment.authorName;
+    comment.createdTime = new Date();
+    comment.content = this.replyContent;
+    this.commentService.addComment(comment)
+      .subscribe(
+        result => {
+          if (result.errCode === '000') {
+            this.getComments(this.articleId);
+            this.closeReplyDialog();
+          }
+        }
+      );
   }
 }
