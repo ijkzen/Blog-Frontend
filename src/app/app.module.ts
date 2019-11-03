@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {DemoComponent} from './demo/demo.component';
 import {FormsModule} from '@angular/forms';
 
 import {HtmlService, NextShowdownModule} from 'next-showdown';
@@ -15,11 +14,11 @@ import {ArticleModule} from './article/article.module';
 import {IndexModule} from './index/index.module';
 import {ChatModule} from './chat/chat.module';
 import {MiscModule} from './misc/misc.module';
+import {EditModule} from './edit/edit.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemoComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +35,7 @@ import {MiscModule} from './misc/misc.module';
     IndexModule,
     ChatModule,
     MiscModule,
+    EditModule
   ],
   providers: [
     HtmlService,

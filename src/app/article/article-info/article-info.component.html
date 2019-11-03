@@ -24,6 +24,7 @@
 </div>
 <app-back-top *ngIf="!loading"></app-back-top>
 <app-download *ngIf="!loading" [article]="article"></app-download>
+<app-edit *ngIf="!loading" [articleId]="articleId"></app-edit>
 <app-outline [article]="article"></app-outline>
 
 <nz-modal [(nzVisible)]="replyVisible" [nzTitle]="replyTitle" (nzOnOk)="replyComment()"

@@ -7,9 +7,12 @@ import {NextShowdownModule} from 'next-showdown';
 import {
   NzAvatarModule,
   NzBackTopModule,
-  NzButtonModule, NzCommentModule,
-  NzDividerModule, NzFormModule,
+  NzButtonModule,
+  NzCommentModule,
+  NzDividerModule,
+  NzFormModule,
   NzIconModule,
+  NzInputModule,
   NzModalModule,
   NzPaginationModule,
   NzSkeletonModule
@@ -21,9 +24,10 @@ import {OutlineComponent} from './outline/outline.component';
 import {DownloadComponent} from './download/download.component';
 import {CopyrightComponent} from './copyright/copyright.component';
 import {CommonListComponent} from './common-list/common-list.component';
-import { CommentComponent } from './comment/comment.component';
-import { EditCommentComponent } from './edit-comment/edit-comment.component';
+import {CommentComponent} from './comment/comment.component';
+import {EditCommentComponent} from './edit-comment/edit-comment.component';
 import {FormsModule} from '@angular/forms';
+import {EditComponent} from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,8 @@ import {FormsModule} from '@angular/forms';
     CopyrightComponent,
     CommonListComponent,
     CommentComponent,
-    EditCommentComponent
+    EditCommentComponent,
+    EditComponent
   ],
   exports: [
     ArticleListComponent,
@@ -59,6 +64,7 @@ import {FormsModule} from '@angular/forms';
     NzAvatarModule,
     NzFormModule,
     FormsModule,
+    NzInputModule,
   ]
 })
 export class ArticleModule {
