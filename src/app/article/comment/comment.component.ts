@@ -37,7 +37,7 @@ export class CommentComponent implements OnInit {
   }
 
   getDateDisplay(): string {
-    let result = '';
+    let result: string;
     result = this.formatDate(this.comment.createdTime);
     if (this.comment.replyName) {
       result += '  回复：' + this.comment.replyName;

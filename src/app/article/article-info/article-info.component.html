@@ -7,7 +7,7 @@
       <span *ngIf="article.category != ''"><b>Category: </b>{{article.category}}</span>
       <span><b>Read: </b>{{article.visits}}</span>
     </div>
-    <next-showdown [md]="article.content"></next-showdown>
+    <next-showdown [md]="article.content" style="position: relative;width: 1012px;display: block"></next-showdown>
 
     <app-copyright [article]="article"></app-copyright>
     <div style="width: 100%; text-align: center; padding: 1rem">
@@ -18,7 +18,7 @@
     <app-edit-comment style="width: 100%;display: block;text-align: center" [articleId]="articleId"
                       (added)="getComments(articleId)"></app-edit-comment>
     <span style="font-size: 18px;display: block; margin: 1rem">评论列表：</span>
-    <app-comment [comment]="comment" *ngFor="let comment of comments" (reply)="setOriginComment($event)"></app-comment>
+    <app-comment [comment]="comment" *ngFor="let comment of comments" (reply)="setOriginComment($event)" (report)="reportComment($event)"></app-comment>
     <p style="text-align: center; font-size: 16px" *ngIf="comments.length == 0">暂无评论</p>
   </nz-skeleton>
 </div>

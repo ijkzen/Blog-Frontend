@@ -35,7 +35,7 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
 
   comments: Comment[] = [];
   loading = true;
-  private articleId: number;
+  articleId: number;
   tplModal: NzModalRef;
   replyContent: string;
   replyVisible = false;
@@ -134,6 +134,31 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
           if (result.errCode === '000') {
             this.getComments(this.articleId);
             this.closeReplyDialog();
+          }
+        }
+      );
+  }
+
+  reportComment(origin: Comment) {
+    this.modalService.confirm(
+      {
+        nzTitle: '举报评论',
+        nzContent: '确定举报该评论？',
+        nzOnOk: () => this.confirmReport(origin)
+      }
+    );
+  }
+
+  confirmReport(origin: Comment) {
+    this.commentService.reportComment(origin.id)
+      .subscribe(
+        result => {
+          if (result.errCode === '000') {
+            this.modalService.success(
+              {
+                nzContent: '举报成功！'
+              }
+            );
           }
         }
       );
