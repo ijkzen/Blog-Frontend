@@ -15,6 +15,8 @@ import {IndexModule} from './index/index.module';
 import {ChatModule} from './chat/chat.module';
 import {MiscModule} from './misc/misc.module';
 import {EditModule} from './edit/edit.module';
+import {EditArticleComponent} from './edit/edit-article/edit-article.component';
+import {CompareTextComponent} from './edit/compare-text/compare-text.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,6 @@ import {EditModule} from './edit/edit.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     NzSkeletonModule,
@@ -35,14 +36,19 @@ import {EditModule} from './edit/edit.module';
     IndexModule,
     ChatModule,
     MiscModule,
-    EditModule
+    EditModule,
+    AppRoutingModule,
   ],
   providers: [
     HtmlService,
     MermaidService,
     {provide: HTTP_INTERCEPTORS, useClass: HttpsInterceptor, multi: true},
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    EditArticleComponent,
+    CompareTextComponent
+  ]
 })
 export class AppModule {
 }

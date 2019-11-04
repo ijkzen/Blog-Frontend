@@ -5,8 +5,6 @@
   max-height: 90%;
   overflow: auto;
   word-break: break-all;
-  padding: 1rem;
-  margin: 0;
 }
 
 .right {
@@ -15,7 +13,7 @@
   height: 90%;
   max-height: 90%;
   padding: 1rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   overflow-y: scroll;
   resize: none;
@@ -26,6 +24,8 @@
   width: 49%;
   height: 90%;
   overflow-y: scroll;
-  margin: 0;
+  padding: 1rem;
+  border: 1px solid #002200;
+  margin-left: 8px;
 }
 
