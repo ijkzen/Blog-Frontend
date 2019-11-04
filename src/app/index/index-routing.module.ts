@@ -10,7 +10,7 @@ import {ChatRoomComponent} from '../chat/chat-room/chat-room.component';
 import {ArticleInfoComponent} from '../article/article-info/article-info.component';
 import {CategoryArticlesComponent} from './category-articles/category-articles.component';
 
-const adminRoutes: Routes = [
+const indexRoutes: Routes = [
   {
     path: '',
     component: IndexComponent,
@@ -30,7 +30,7 @@ const adminRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(adminRoutes)
+    RouterModule.forChild(indexRoutes)
   ],
   exports: [
     RouterModule
