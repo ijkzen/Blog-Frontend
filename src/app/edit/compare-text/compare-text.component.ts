@@ -27,7 +27,7 @@ export class CompareTextComponent implements OnInit, EditArticleInterface {
         rhs: (setValue) => {
           setValue(this.changed.content);
         },
-        rhs_cmsettings: {mode: 'text/plain', readOnly: true}
+        cmsettings: {mode: 'text/plain', readOnly: 'true'}
       });
     });
   }
