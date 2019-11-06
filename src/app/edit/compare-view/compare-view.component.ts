@@ -5,11 +5,11 @@ import {ArticleService} from '../../service/article.service';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-compare-text',
-  templateUrl: './compare-text.component.html',
-  styleUrls: ['./compare-text.component.scss']
+  selector: 'app-compare-view',
+  templateUrl: './compare-view.component.html',
+  styleUrls: ['./compare-view.component.scss']
 })
-export class CompareTextComponent implements OnInit, EditArticleInterface {
+export class CompareViewComponent implements OnInit, EditArticleInterface {
 
   @Input()
   changed: Article;
@@ -17,6 +17,8 @@ export class CompareTextComponent implements OnInit, EditArticleInterface {
   origin: Article;
 
   articleId: number;
+
+  loading = true;
 
   constructor(
     private articleService: ArticleService,
@@ -32,17 +34,6 @@ export class CompareTextComponent implements OnInit, EditArticleInterface {
           .subscribe(
             result => {
               this.origin = result.article;
-              jQuery(document).ready(() => {
-                jQuery('#mergely').mergely({
-                  lhs: (setValue) => {
-                    setValue(this.origin.content);
-                  },
-                  rhs: (setValue) => {
-                    setValue(this.changed.content);
-                  },
-                  cmsettings: {mode: 'text/plain', readOnly: 'true'}
-                });
-              });
             }
           );
       }

@@ -17,6 +17,7 @@ import {MiscModule} from './misc/misc.module';
 import {EditModule} from './edit/edit.module';
 import {EditArticleComponent} from './edit/edit-article/edit-article.component';
 import {CompareTextComponent} from './edit/compare-text/compare-text.component';
+import {CompareViewComponent} from './edit/compare-view/compare-view.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {CompareTextComponent} from './edit/compare-text/compare-text.component';
   bootstrap: [AppComponent],
   entryComponents: [
     EditArticleComponent,
-    CompareTextComponent
+    CompareTextComponent,
+    CompareViewComponent
   ]
 })
 export class AppModule {

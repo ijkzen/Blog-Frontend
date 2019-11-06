@@ -1,0 +1,9 @@
+<div style="height: 90%;top: 64px">
+  <nz-skeleton [nzActive]="true" [nzLoading]="!origin" [nzParagraph]="{ rows: 60 }" class="left">
+    <next-showdown [md]="origin.content" class="showdown"></next-showdown>
+  </nz-skeleton>
+
+  <nz-skeleton [nzActive]="true" [nzLoading]="!origin" [nzParagraph]="{ rows: 60 }" class="right">
+    <next-showdown [md]="changed.content" class="showdown"></next-showdown>
+  </nz-skeleton>
+</div>

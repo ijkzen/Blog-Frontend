@@ -1,11 +1,14 @@
-import {Component, ComponentFactoryResolver, OnInit, ViewChild} from '@angular/core';
+import {Component, ComponentFactoryResolver, OnInit, Type, ViewChild} from '@angular/core';
 import {EditArticleDirective} from '../edit-article.directive';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ArticleService} from '../../service/article.service';
 import {Article} from '../../service/bean/data/Article';
 import {EditArticleComponent} from '../edit-article/edit-article.component';
 import {EditArticleInterface} from '../EditArticleInterface';
 import {CompareTextComponent} from '../compare-text/compare-text.component';
+import {NzModalService} from 'ng-zorro-antd';
+import {StorageService} from '../../service/storage.service';
+import {CompareViewComponent} from '../compare-view/compare-view.component';
 
 @Component({
   selector: 'app-edit-outline',
@@ -23,32 +26,50 @@ export class EditOutlineComponent implements OnInit {
   @ViewChild(EditArticleDirective, {static: true})
   editTemplate: EditArticleDirective;
 
+  loading = true;
+
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
     private route: ActivatedRoute,
-    private articleService: ArticleService
+    private articleService: ArticleService,
+    private modalService: NzModalService,
+    private storageService: StorageService,
+    private router: Router
   ) {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(
-      param => {
-        this.articleId = param.id;
-        this.articleService.getArticleById(this.articleId)
-          .subscribe(
-            result => {
-              if (result.errCode === '000') {
-                this.article = result.article;
-                const factory = this.componentFactoryResolver.resolveComponentFactory(EditArticleComponent);
-                const ref = this.editTemplate.viewContainerRef;
-                ref.clear();
-                const componentRef = ref.createComponent(factory);
-                (componentRef.instance as EditArticleInterface).origin = this.article;
+    if (this.storageService.getAuthorization()) {
+      this.route.params.subscribe(
+        param => {
+          this.articleId = param.id;
+          this.articleService.getArticleById(this.articleId)
+            .subscribe(
+              result => {
+                if (result.errCode === '000') {
+                  this.article = result.article;
+                  const factory = this.componentFactoryResolver.resolveComponentFactory(EditArticleComponent);
+                  const ref = this.editTemplate.viewContainerRef;
+                  ref.clear();
+                  const componentRef = ref.createComponent(factory);
+                  (componentRef.instance as EditArticleInterface).origin = this.article;
+                  this.loading = false;
+                }
               }
-            }
-          );
-      }
-    );
+            );
+        }
+      );
+    } else {
+      this.modalService.confirm({
+          nzTitle: '权限不足',
+          nzContent: '当前没有登录，请登录后再操作',
+          nzClosable: false,
+          nzCancelDisabled: true,
+          nzOnOk: instance => this.toHome(),
+          nzOkText: '确认'
+        }
+      );
+    }
   }
 
   toNext() {
@@ -57,26 +78,43 @@ export class EditOutlineComponent implements OnInit {
       case 1:
         this.toCompareText();
         break;
+
+      case 2:
+        this.toCompareView();
+        break;
+
       default:
         break;
     }
   }
 
-  toCompareText() {
-    const factory = this.componentFactoryResolver.resolveComponentFactory(CompareTextComponent);
-    const ref = this.editTemplate.viewContainerRef;
-    ref.clear();
-    const componentRef = ref.createComponent(factory);
-    (componentRef.instance as EditArticleInterface).origin = JSON.parse(localStorage.getItem('origin'));
-    (componentRef.instance as EditArticleInterface).changed = JSON.parse(localStorage.getItem('changed'));
+  toHome() {
+    this.router.navigateByUrl('');
   }
 
   toEdit() {
-    const factory = this.componentFactoryResolver.resolveComponentFactory(EditArticleComponent);
+    this.toTarget(EditArticleComponent, true);
+  }
+
+  toCompareText() {
+    this.toTarget(CompareTextComponent);
+  }
+
+  toCompareView() {
+    this.toTarget(CompareViewComponent);
+  }
+
+  toTarget(component: Type<any>, assignOrigin: boolean = false) {
+    this.loading = true;
+    const factory = this.componentFactoryResolver.resolveComponentFactory(component);
     const ref = this.editTemplate.viewContainerRef;
     ref.clear();
     const componentRef = ref.createComponent(factory);
-    (componentRef.instance as EditArticleInterface).origin = JSON.parse(localStorage.getItem('changed'));
+    (componentRef.instance as EditArticleInterface).changed = JSON.parse(localStorage.getItem('changed'));
+    if (assignOrigin) {
+      (componentRef.instance as EditArticleInterface).origin = JSON.parse(localStorage.getItem('changed'));
+    }
+    this.loading = false;
   }
 
   back() {
@@ -85,6 +123,11 @@ export class EditOutlineComponent implements OnInit {
       case 0:
         this.toEdit();
         break;
+
+      case 1:
+        this.toCompareText();
+        break;
+
       default:
         break;
     }
