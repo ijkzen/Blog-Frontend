@@ -9,6 +9,7 @@ import {NzModalRef, NzModalService} from 'ng-zorro-antd';
 import {Comment} from '../../service/bean/data/Comment';
 import {CommentService} from '../../service/comment.service';
 import {StorageService} from '../../service/storage.service';
+import {CodeService} from '../../service/code.service';
 
 @Component({
   selector: 'app-article-info',
@@ -47,7 +48,8 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
     private linkService: LinkService,
     private modalService: NzModalService,
     private commentService: CommentService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private codeService: CodeService
   ) {
   }
 
@@ -73,6 +75,10 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
         (result: BaseBean) => {
         }
       );
+    setTimeout(() => {
+        this.codeService.addCodePasteButton();
+      },
+      2000);
   }
 
   getAlipay(): string {
