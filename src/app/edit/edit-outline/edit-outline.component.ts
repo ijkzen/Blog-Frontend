@@ -9,6 +9,7 @@ import {CompareTextComponent} from '../compare-text/compare-text.component';
 import {NzModalService} from 'ng-zorro-antd';
 import {StorageService} from '../../service/storage.service';
 import {CompareViewComponent} from '../compare-view/compare-view.component';
+import {NewArticle} from '../../service/bean/data/NewArticle';
 
 @Component({
   selector: 'app-edit-outline',
@@ -27,6 +28,9 @@ export class EditOutlineComponent implements OnInit {
   editTemplate: EditArticleDirective;
 
   loading = true;
+
+  allowShowDialog = false;
+  allowDialogButtonLoading = false;
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
@@ -65,7 +69,7 @@ export class EditOutlineComponent implements OnInit {
           nzContent: '当前没有登录，请登录后再操作',
           nzClosable: false,
           nzCancelDisabled: true,
-          nzOnOk: instance => this.toHome(),
+        nzOnOk: () => this.toHome(),
           nzOkText: '确认'
         }
       );
@@ -81,6 +85,10 @@ export class EditOutlineComponent implements OnInit {
 
       case 2:
         this.toCompareView();
+        break;
+
+      case 3:
+        this.allowShowDialog = true;
         break;
 
       default:
@@ -117,6 +125,32 @@ export class EditOutlineComponent implements OnInit {
     this.loading = false;
   }
 
+  postArticle() {
+    this.allowDialogButtonLoading = true;
+    const changed: Article = JSON.parse(localStorage.getItem('changed'));
+    this.articleService.addArticle(changed)
+      .subscribe(
+        result => {
+          if (result.errCode === '000') {
+            const changedId = result.errMessage;
+            const record = new NewArticle();
+            record.developerName = this.storageService.getDeveloperName();
+            record.latest = changedId as unknown as number;
+            record.origin = this.articleId;
+            this.articleService.addNewArticleRecord(record)
+              .subscribe(
+                next => {
+                  if (next.errCode === '000') {
+                    this.dismissDialog();
+                    this.router.navigateByUrl('article/' + this.articleId);
+                  }
+                }
+              );
+          }
+        }
+      );
+  }
+
   back() {
     this.current--;
     switch (this.current) {
@@ -131,5 +165,10 @@ export class EditOutlineComponent implements OnInit {
       default:
         break;
     }
+  }
+
+  dismissDialog() {
+    this.allowShowDialog = false;
+    this.allowDialogButtonLoading = false;
   }
 }

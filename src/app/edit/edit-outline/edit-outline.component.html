@@ -19,3 +19,13 @@
 
   <nz-spin *ngIf="loading" nzSize="large" style="margin: 100px auto 0;"></nz-spin>
 </div>
+
+<nz-modal
+  (nzOnCancel)="dismissDialog()"
+  (nzOnOk)="postArticle()"
+  [nzOkLoading]="allowDialogButtonLoading"
+  [nzVisible]="allowShowDialog"
+  nzClosable="false"
+  nzContent="等站长确认修改生效后，会发送邮件，感谢您的贡献！"
+  nzTitle="确认提交修改"
+></nz-modal>

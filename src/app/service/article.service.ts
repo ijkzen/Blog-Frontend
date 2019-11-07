@@ -5,6 +5,8 @@ import {ArticleListBean} from './bean/ArticleListBean';
 import {ArticleBean} from './bean/ArticleBean';
 import {BaseBean} from './bean/BaseBean';
 import {CategoryBean} from './bean/CategoryBean';
+import {Article} from './bean/data/Article';
+import {NewArticle} from './bean/data/NewArticle';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +40,13 @@ export class ArticleService {
 
   getArticlesByKeywords(keywords: string): Observable<ArticleListBean> {
     return this.client.get<ArticleListBean>('/articles/search/' + keywords);
+  }
+
+  addArticle(article: Article): Observable<BaseBean> {
+    return this.client.post<BaseBean>('/article/new', article);
+  }
+
+  addNewArticleRecord(record: NewArticle): Observable<BaseBean> {
+    return this.client.post<BaseBean>('/article/edit', record);
   }
 }
