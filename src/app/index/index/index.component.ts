@@ -24,7 +24,6 @@ export class IndexComponent implements OnInit {
     this.route.queryParams
       .subscribe(
         params => {
-          console.log(params.nodeId);
           if (params.nodeId) {
             this.storageService.setAuthorization(params.nodeId);
             this.developerService.getDeveloperInfo()
@@ -43,7 +42,6 @@ export class IndexComponent implements OnInit {
   }
 
   clickItem(text: string) {
-    console.error(text);
     switch (text) {
       case 'Home':
         this.toHome();

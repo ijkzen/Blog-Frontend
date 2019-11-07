@@ -42,7 +42,6 @@ export class OutlineComponent implements OnInit, OnChanges {
       }
       if (this.list.length !== 0) {
         this.buildTree(this.list[0].category, 0, this.list.length - 1, this.root);
-        console.log(this.root);
         this.buildElement(this.root, document.getElementById('outline-parent') as HTMLElement);
       }
     }
@@ -117,7 +116,6 @@ export class OutlineComponent implements OnInit, OnChanges {
   }
 
   scrollToElement(event: Event, href: string) {
-    console.log('href: ' + href);
     event.stopPropagation();
     this.cancelUnderline();
     this.getElement(event).style.textDecoration = 'underline';

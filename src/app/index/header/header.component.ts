@@ -29,7 +29,6 @@ export class HeaderComponent implements OnInit {
   }
 
   click(text) {
-    console.log(text);
     this.itemTap.emit(text);
   }
 

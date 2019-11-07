@@ -30,7 +30,6 @@ export class CodeService {
           button.innerText = 'Error';
         });
       });
-      console.error(codeBlock.tagName);
       const pre = codeBlock.parentElement;
       pre.parentElement.insertBefore(button, pre);
     });
