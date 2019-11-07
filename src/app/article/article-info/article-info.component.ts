@@ -75,10 +75,6 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
         (result: BaseBean) => {
         }
       );
-    setTimeout(() => {
-        this.codeService.addCodePasteButton();
-      },
-      2000);
   }
 
   getAlipay(): string {
@@ -105,7 +101,6 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
       .subscribe(
         result => {
           this.comments = result.list;
-          console.log(this.comments);
         }
       );
   }
@@ -168,5 +163,14 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
           }
         }
       );
+  }
+
+  addCopyButton() {
+    setTimeout(
+      () => {
+        this.codeService.addCodePasteButton();
+      },
+      800
+    );
   }
 }

@@ -7,7 +7,8 @@
       <span *ngIf="article.category != ''"><b>Category: </b>{{article.category}}</span>
       <span><b>Read: </b>{{article.visits}}</span>
     </div>
-    <next-showdown [md]="article.content" style="position: relative;width: 1012px;display: block"></next-showdown>
+    <next-showdown (rendering)="addCopyButton()" [md]="article.content"
+                   style="position: relative;width: 1012px;display: block"></next-showdown>
 
     <app-copyright [article]="article"></app-copyright>
     <div style="width: 100%; text-align: center; padding: 1rem">
