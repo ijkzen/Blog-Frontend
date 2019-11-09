@@ -21,4 +21,8 @@ export class IndexService {
   view(): Observable<CountBean> {
     return this.client.get<CountBean>('/index/view');
   }
+
+  peopleCount(): Observable<CountBean> {
+    return this.client.get<CountBean>('/index/people');
+  }
 }

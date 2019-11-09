@@ -1,0 +1,19 @@
+<nz-content class="content">
+    <h2 style="text-align: center">{{title}}</h2>
+    <nz-descriptions nzBordered nzSize="default" nzTitle="网站基本信息">
+        <nz-descriptions-item nzSpan="2" nzTitle="网站总访问次数：">{{viewCount}}</nz-descriptions-item>
+        <nz-descriptions-item nzSpan="2" nzTitle="网站总访问人数：">{{peopleCount}}</nz-descriptions-item>
+        <nz-descriptions-item nzSpan="2" nzTitle="文章总数：">{{articleCount}}</nz-descriptions-item>
+        <nz-descriptions-item nzSpan="2" nzTitle="评论总数：">{{commentCount}}</nz-descriptions-item>
+    </nz-descriptions>
+
+    <div style="margin-top: 100px">
+        <div *ngFor="let i of [0, 1]" nz-row nzAlign="middle" nzJustify="space-around" nzType="flex">
+            <div (click)="clickMenuItem(item)" *ngFor="let item of menuItems.slice(4 * i, 4 * i + 4)"
+                 class="item" nz-col
+                 nzSpan="4">{{item}}
+
+            </div>
+        </div>
+    </div>
+</nz-content>

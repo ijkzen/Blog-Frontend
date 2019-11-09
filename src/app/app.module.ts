@@ -18,6 +18,7 @@ import {EditModule} from './edit/edit.module';
 import {EditArticleComponent} from './edit/edit-article/edit-article.component';
 import {CompareTextComponent} from './edit/compare-text/compare-text.component';
 import {CompareViewComponent} from './edit/compare-view/compare-view.component';
+import {AdminModule} from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {CompareViewComponent} from './edit/compare-view/compare-view.component';
     ChatModule,
     MiscModule,
     EditModule,
+    AdminModule,
     AppRoutingModule,
   ],
   providers: [

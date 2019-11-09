@@ -4,6 +4,7 @@ import {CommentsBean} from './bean/CommentsBean';
 import {Observable} from 'rxjs';
 import {Comment} from './bean/data/Comment';
 import {BaseBean} from './bean/BaseBean';
+import {CountBean} from './bean/CountBean';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,10 @@ export class CommentService {
   }
 
   getReportedComments(): Observable<CommentsBean> {
-    return this.client.get<CommentsBean>('/report/list');
+    return this.client.get<CommentsBean>('/comment/report/list');
+  }
+
+  getCount(): Observable<CountBean> {
+    return this.client.get<CountBean>('/comment/count');
   }
 }

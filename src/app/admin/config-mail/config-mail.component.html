@@ -1,0 +1,16 @@
+<div class="content" style="padding-top: 100px">
+    <h2 style="text-align: center">配置邮件</h2>
+    <label style="margin-top: 2rem">邮箱地址：</label>
+    <input [(ngModel)]="email" nz-input>
+    <label style="margin-top: 1rem">密码：</label>
+    <input [(ngModel)]="password" nz-input type="password">
+    <label style="margin-top: 1rem">SMTP</label>
+    <input [(ngModel)]="host" nz-input>
+    <label style="margin-top: 1rem">端口：</label>
+    <input [(ngModel)]="port" nz-input>
+    <label [(nzChecked)]="startTls" nz-checkbox style="margin-top: 1rem">启用StartTls</label>
+
+    <button (click)="configMail()" nz-button nzType="primary" style="float: right;margin-right: 1rem;margin-top: 1rem">
+        提交
+    </button>
+</div>
