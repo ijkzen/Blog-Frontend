@@ -7,7 +7,9 @@ import {
     NzDescriptionsModule,
     NzGridModule,
     NzInputModule,
-    NzLayoutModule
+    NzLayoutModule,
+    NzModalModule,
+    NzNotificationModule
 } from 'ng-zorro-antd';
 import {AdminRoutingModule} from './admin-routing.module';
 import {ConfigMailComponent} from './config-mail/config-mail.component';
@@ -26,7 +28,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
         ReactiveFormsModule,
         NzCheckboxModule,
         FormsModule,
-        NzButtonModule
+        NzButtonModule,
+        NzModalModule,
+        NzNotificationModule
     ]
 })
 export class AdminModule {

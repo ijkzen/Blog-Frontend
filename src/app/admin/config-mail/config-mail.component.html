@@ -14,3 +14,14 @@
         提交
     </button>
 </div>
+
+<nz-modal (nzOnOk)="testMail()" [(nzVisible)]="testDialogVisible" [nzOkLoading]="testDialogOkLoading">
+    <div>
+        <label>接收方邮件地址：</label>
+        <input [(ngModel)]="test.receiver" nz-input>
+        <label>主题</label>
+        <input [(ngModel)]="test.subject" nz-input>
+        <label>内容</label>
+        <input [(ngModel)]="test.text" nz-input>
+    </div>
+</nz-modal>
