@@ -160,7 +160,7 @@ export class AdminComponent implements OnInit {
     }
 
     toConfigOOS() {
-
+        this.router.navigateByUrl('config/oss');
     }
 
     toConfigSSH() {

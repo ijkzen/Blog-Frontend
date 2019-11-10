@@ -9,15 +9,16 @@ import {
     NzInputModule,
     NzLayoutModule,
     NzModalModule,
-    NzNotificationModule
+    NzNotificationModule,
+    NzRadioModule
 } from 'ng-zorro-antd';
 import {AdminRoutingModule} from './admin-routing.module';
 import {ConfigMailComponent} from './config-mail/config-mail.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import {ConfigOssComponent} from './config-oss/config-oss.component';
 
 @NgModule({
-    declarations: [AdminComponent, ConfigMailComponent],
+    declarations: [AdminComponent, ConfigMailComponent, ConfigOssComponent],
     imports: [
         CommonModule,
         NzLayoutModule,
@@ -30,7 +31,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
         FormsModule,
         NzButtonModule,
         NzModalModule,
-        NzNotificationModule
+        NzNotificationModule,
+        NzRadioModule
     ]
 })
 export class AdminModule {

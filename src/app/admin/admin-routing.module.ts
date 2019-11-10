@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {AdminComponent} from './admin/admin.component';
 import {ConfigMailComponent} from './config-mail/config-mail.component';
+import {ConfigOssComponent} from './config-oss/config-oss.component';
 
 const adminRoutes: Routes = [
     {
@@ -12,6 +13,10 @@ const adminRoutes: Routes = [
     {
         path: 'config/mail',
         component: ConfigMailComponent
+    },
+    {
+        path: 'config/oss',
+        component: ConfigOssComponent
     }
 ];
 
