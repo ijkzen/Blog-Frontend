@@ -1,0 +1,16 @@
+<div class="content" style="padding-top: 100px">
+    <nz-table #urlCount [nzData]="list">
+        <thead>
+        <tr>
+            <th>URL</th>
+            <th>Count</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of urlCount.data">
+            <td>{{item.category}}</td>
+            <td>{{item.size}}</td>
+        </tr>
+        </tbody>
+    </nz-table>
+</div>

@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 import {AdminComponent} from './admin/admin.component';
 import {ConfigMailComponent} from './config-mail/config-mail.component';
 import {ConfigOssComponent} from './config-oss/config-oss.component';
+import {UrlCountComponent} from './url-count/url-count.component';
 
 const adminRoutes: Routes = [
     {
@@ -17,6 +18,10 @@ const adminRoutes: Routes = [
     {
         path: 'config/oss',
         component: ConfigOssComponent
+    },
+    {
+        path: 'url/list',
+        component: UrlCountComponent
     }
 ];
 

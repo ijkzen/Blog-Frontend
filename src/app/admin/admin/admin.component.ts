@@ -175,7 +175,7 @@ export class AdminComponent implements OnInit {
     }
 
     toAPICondition() {
-
+        this.router.navigateByUrl('url/list');
     }
 
     toReportList() {

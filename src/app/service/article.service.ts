@@ -49,4 +49,8 @@ export class ArticleService {
   addNewArticleRecord(record: NewArticle): Observable<BaseBean> {
     return this.client.post<BaseBean>('/article/edit', record);
   }
+
+  getUrlCount(): Observable<CategoryBean> {
+    return this.client.get<CategoryBean>('/url/list');
+  }
 }
