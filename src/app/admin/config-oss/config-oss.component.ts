@@ -19,6 +19,7 @@ export class ConfigOssComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.oss.category = 'aliyun';
     }
 
     commitOSS() {
