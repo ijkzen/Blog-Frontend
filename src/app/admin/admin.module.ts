@@ -18,7 +18,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ConfigOssComponent} from './config-oss/config-oss.component';
 
 @NgModule({
-    declarations: [AdminComponent, ConfigMailComponent, ConfigOssComponent],
+    declarations: [
+        AdminComponent,
+        ConfigMailComponent,
+        ConfigOssComponent
+    ],
     imports: [
         CommonModule,
         NzLayoutModule,

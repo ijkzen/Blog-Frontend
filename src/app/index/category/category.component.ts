@@ -32,10 +32,11 @@ export class CategoryComponent implements OnInit {
     if (length === 0) {
       return [];
     } else {
-      if (length / 5 !== 0) {
-        return Array((length / 5) + 1).fill(0).map((x, i) => i);
+      if (length / 4 !== 0) {
+        return Array(Math.floor((length / 4)) + 1).fill(0).map((x, i) => i);
       } else {
-        return Array((length / 5)).fill(0).map((x, i) => i);
+        console.error(Array((length / 4)).fill(0).map((x, i) => i));
+        return Array((length / 4)).fill(0).map((x, i) => i);
       }
     }
   }

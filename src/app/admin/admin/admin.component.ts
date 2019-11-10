@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {StorageService} from '../../service/storage.service';
 import {Router} from '@angular/router';
-import {NzModalService} from 'ng-zorro-antd';
+import {NzModalService, NzNotificationService} from 'ng-zorro-antd';
 import {DeveloperService} from '../../service/developer.service';
 import {IndexService} from '../../service/index.service';
 import {ArticleService} from '../../service/article.service';
 import {CommentService} from '../../service/comment.service';
 import {MenuService} from '../../service/menu.service';
+import {SshService} from '../../service/ssh.service';
 
 @Component({
     selector: 'app-admin',
@@ -35,7 +36,9 @@ export class AdminComponent implements OnInit {
         private indexService: IndexService,
         private articlesService: ArticleService,
         private commentService: CommentService,
-        private menuItemService: MenuService
+        private menuItemService: MenuService,
+        private sshService: SshService,
+        private notificationService: NzNotificationService
     ) {
     }
 
@@ -164,7 +167,11 @@ export class AdminComponent implements OnInit {
     }
 
     toConfigSSH() {
-
+        this.modalService.confirm({
+            nzTitle: '添加ssh私钥文件',
+            nzContent: '请选择用户目录下的 .ssh/id_rsa 文件，此文件用于向Github提交文本，不会用作他途',
+            nzOnOk: () => this.selectSsh()
+        });
     }
 
     toAPICondition() {
@@ -185,5 +192,28 @@ export class AdminComponent implements OnInit {
 
     toNewComment() {
 
+    }
+
+    selectSsh() {
+        document.getElementById('ssh-select').click();
+    }
+
+    uploadSsh(files: FileList) {
+        this.sshService.postSsh(files.item(0))
+            .subscribe(
+                result => {
+                    if (result.errCode === '000') {
+                        this.notificationService.success(
+                            '文件发送成功',
+                            '(=・ω・=)'
+                        );
+                    } else {
+                        this.notificationService.error(
+                            '文件发送失败',
+                            '请到服务器查看详情'
+                        );
+                    }
+                }
+            );
     }
 }
