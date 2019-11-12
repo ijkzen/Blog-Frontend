@@ -179,7 +179,7 @@ export class AdminComponent implements OnInit {
     }
 
     toReportList() {
-
+        this.router.navigateByUrl('comment/report');
     }
 
     toEditArticleList() {

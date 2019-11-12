@@ -18,13 +18,15 @@ import {ConfigMailComponent} from './config-mail/config-mail.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ConfigOssComponent} from './config-oss/config-oss.component';
 import {UrlCountComponent} from './url-count/url-count.component';
+import {ReportCommentComponent} from './report-comment/report-comment.component';
 
 @NgModule({
     declarations: [
         AdminComponent,
         ConfigMailComponent,
         ConfigOssComponent,
-        UrlCountComponent
+        UrlCountComponent,
+        ReportCommentComponent
     ],
     imports: [
         CommonModule,

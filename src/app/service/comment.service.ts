@@ -39,4 +39,12 @@ export class CommentService {
   getCount(): Observable<CountBean> {
     return this.client.get<CountBean>('/comment/count');
   }
+
+  batchDeleteComment(list: number[]): Observable<BaseBean> {
+    return this.client.post<BaseBean>('/comment/batchDelete', list);
+  }
+
+  batchCancelReportComment(list: number[]): Observable<BaseBean> {
+    return this.client.post<BaseBean>('/comment/batchCancel', list);
+  }
 }
