@@ -25,7 +25,7 @@
             ></td>
             <td>{{item.authorName}}</td>
             <td (click)="showCommentContent(item.content)"><span class="report-content">{{item.content}}</span></td>
-            <td><a routerLink="article/{{item.articleId}}">{{item.articleUrl}}</a></td>
+            <td><a routerLink="/article/{{item.articleId}}">{{item.articleUrl}}</a></td>
         </tr>
         </tbody>
 
