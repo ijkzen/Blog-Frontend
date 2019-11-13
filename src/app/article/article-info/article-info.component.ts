@@ -31,6 +31,7 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
     null,
     null,
     null,
+      null,
     null
   );
 

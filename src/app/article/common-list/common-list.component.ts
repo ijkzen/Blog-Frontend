@@ -23,7 +23,8 @@ export class CommonListComponent implements OnInit {
       createdTime: null,
       updatedTime: null,
       content: null,
-      abstract: null
+      contributors: null,
+      abstract: null,
     };
   });
 

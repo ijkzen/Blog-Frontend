@@ -137,6 +137,9 @@ export class EditOutlineComponent implements OnInit {
             record.developerName = this.storageService.getDeveloperName();
             record.latest = changedId as unknown as number;
             record.origin = this.articleId;
+            record.articleName = this.article.title;
+            record.fileName = this.article.fileName;
+            record.processed = false;
             this.articleService.addNewArticleRecord(record)
               .subscribe(
                 next => {
