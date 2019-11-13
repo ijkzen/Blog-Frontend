@@ -77,6 +77,58 @@ export class ReportCommentComponent implements OnInit {
   }
 
   isIndeterminate(): boolean {
-    return this.list;
+    return this.list.length > 0 && this.list.length < this.commentDisplayList.length;
+  }
+
+  isSelectAll(): boolean {
+    return this.list.length === this.commentDisplayList.length;
+  }
+
+  isSelectNone(): boolean {
+    return this.list.length === 0;
+  }
+
+  deleteComments() {
+    this.isLoading = true;
+    this.commentService.batchDeleteComment(this.list)
+      .subscribe(
+        result => {
+          if (result.errCode === '000') {
+            this.isLoading = false;
+            this.commentDisplayList.forEach((value => {
+              if (this.list.includes(value.id)) {
+                value.reported = false;
+              }
+            }));
+
+            this.list = [];
+            this.modalService.success({
+              nzContent: '删除成功'
+            });
+          }
+        }
+      );
+  }
+
+  cancelReport() {
+    this.isLoading = true;
+    this.commentService.batchCancelReportComment(this.list)
+      .subscribe(
+        result => {
+          if (result.errCode === '000') {
+            this.isLoading = false;
+            this.commentDisplayList.forEach((value => {
+              if (this.list.includes(value.id)) {
+                value.reported = false;
+              }
+            }));
+
+            this.list = [];
+            this.modalService.success({
+              nzContent: '取消举报成功'
+            });
+          }
+        }
+      );
   }
 }

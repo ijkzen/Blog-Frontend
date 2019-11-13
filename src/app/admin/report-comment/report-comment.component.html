@@ -1,4 +1,13 @@
 <div class="content" style="padding-top: 100px">
+  <div style="padding: 1rem">
+    <button (click)="deleteComments()" [disabled]="isSelectNone()" nz-button nzType="primary"
+            style="margin-right: 1rem">删除评论
+    </button>
+    <button (click)="cancelReport()" [disabled]="isSelectNone()" nz-button nzType="primary" style="margin-right: 1rem;">
+      取消举报
+    </button>
+    <span *ngIf="!isSelectNone()">已选择 {{list.length}} 项</span>
+  </div>
   <nz-table
       #reportList
       (nzCurrentPageDataChange)="handlePageData($event)"
@@ -10,7 +19,9 @@
     <thead>
     <tr>
       <th
+        [nzChecked]="isSelectAll()"
         (nzCheckedChange)="selectPage($event)"
+        [nzIndeterminate]="isIndeterminate()"
         nzShowCheckbox
       ></th>
       <th>用户名称</th>
@@ -32,7 +43,5 @@
       <td><a routerLink="/article/{{item.articleId}}">{{item.articleUrl}}</a></td>
     </tr>
     </tbody>
-
-
   </nz-table>
 </div>
