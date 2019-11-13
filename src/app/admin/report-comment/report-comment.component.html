@@ -1,34 +1,38 @@
 <div class="content" style="padding-top: 100px">
-    <nz-table
-        #reportList
-        [nzData]="commentList"
-        nzShowPagination
-        nzShowSizeChanger
-    >
-        <thead>
-        <tr>
-            <th
-                    nzShowCheckbox
+  <nz-table
+      #reportList
+      (nzCurrentPageDataChange)="handlePageData($event)"
+      [nzData]="commentList"
+      [nzLoading]="isLoading"
+      nzShowPagination
+      nzShowSizeChanger
+  >
+    <thead>
+    <tr>
+      <th
+        (nzCheckedChange)="selectPage($event)"
+        nzShowCheckbox
+      ></th>
+      <th>用户名称</th>
+      <th>内容</th>
+      <th>文章</th>
+    </tr>
+    </thead>
 
-            ></th>
-            <th>用户名称</th>
-            <th>内容</th>
-            <th>文章</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr *ngFor="let item of reportList.data">
-            <td
-                    [nzDisabled]="!item.reported"
-                    nzShowCheckbox
-            ></td>
-            <td>{{item.authorName}}</td>
-            <td (click)="showCommentContent(item.content)"><span class="report-content">{{item.content}}</span></td>
-            <td><a routerLink="/article/{{item.articleId}}">{{item.articleUrl}}</a></td>
-        </tr>
-        </tbody>
+    <tbody>
+    <tr *ngFor="let item of reportList.data">
+      <td
+        (nzCheckedChange)="selectItem($event, item.id)"
+        [nzChecked]="isSelect(item.id)"
+        [nzDisabled]="!item.reported"
+        nzShowCheckbox
+      ></td>
+      <td>{{item.authorName}}</td>
+      <td (click)="showCommentContent(item.content)"><span class="report-content">{{item.content}}</span></td>
+      <td><a routerLink="/article/{{item.articleId}}">{{item.articleUrl}}</a></td>
+    </tr>
+    </tbody>
 
 
-    </nz-table>
+  </nz-table>
 </div>
