@@ -19,6 +19,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ConfigOssComponent} from './config-oss/config-oss.component';
 import {UrlCountComponent} from './url-count/url-count.component';
 import {ReportCommentComponent} from './report-comment/report-comment.component';
+import {EditArticleListComponent} from './edit-article-list/edit-article-list.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import {ReportCommentComponent} from './report-comment/report-comment.component'
         ConfigMailComponent,
         ConfigOssComponent,
         UrlCountComponent,
-        ReportCommentComponent
+        ReportCommentComponent,
+        EditArticleListComponent
     ],
     imports: [
         CommonModule,

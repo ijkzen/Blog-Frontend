@@ -183,7 +183,7 @@ export class AdminComponent implements OnInit {
     }
 
     toEditArticleList() {
-
+        this.router.navigateByUrl('edit-article/list');
     }
 
     toConfigDonate() {

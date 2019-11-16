@@ -6,6 +6,7 @@ import {ConfigMailComponent} from './config-mail/config-mail.component';
 import {ConfigOssComponent} from './config-oss/config-oss.component';
 import {UrlCountComponent} from './url-count/url-count.component';
 import {ReportCommentComponent} from './report-comment/report-comment.component';
+import {EditArticleListComponent} from './edit-article-list/edit-article-list.component';
 
 const adminRoutes: Routes = [
     {
@@ -27,6 +28,10 @@ const adminRoutes: Routes = [
     {
         path: 'comment/report',
         component: ReportCommentComponent
+    },
+    {
+        path: 'edit-article/list',
+        component: EditArticleListComponent
     }
 ];
 
