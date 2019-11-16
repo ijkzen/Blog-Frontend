@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NewArticle} from '../../service/bean/data/NewArticle';
 import {EditService} from '../../service/edit.service';
+import {Router} from '@angular/router';
+import {StorageService} from "../../service/storage.service";
 
 @Component({
     selector: 'app-edit-article-list',
@@ -14,7 +16,9 @@ export class EditArticleListComponent implements OnInit {
     list: NewArticle[] = [];
 
     constructor(
-        private editService: EditService
+        private editService: EditService,
+        private router: Router,
+        private storageService: StorageService
     ) {
     }
 
@@ -28,4 +32,8 @@ export class EditArticleListComponent implements OnInit {
             );
     }
 
+    toCompare(origin: number, changed: number, id: number) {
+        this.router.navigateByUrl(`compare/${origin}/${changed}`);
+        this.storageService.setNewArticleId(id);
+    }
 }

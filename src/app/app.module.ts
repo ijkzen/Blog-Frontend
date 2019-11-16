@@ -19,6 +19,8 @@ import {EditArticleComponent} from './edit/edit-article/edit-article.component';
 import {CompareTextComponent} from './edit/compare-text/compare-text.component';
 import {CompareViewComponent} from './edit/compare-view/compare-view.component';
 import {AdminModule} from './admin/admin.module';
+import {OnlyCompareTextComponent} from './admin/only-compare-text/only-compare-text.component';
+import {OnlyCompareViewComponent} from './admin/only-compare-view/only-compare-view.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import {AdminModule} from './admin/admin.module';
   entryComponents: [
     EditArticleComponent,
     CompareTextComponent,
-    CompareViewComponent
+    CompareViewComponent,
+    OnlyCompareTextComponent,
+    OnlyCompareViewComponent
   ]
 })
 export class AppModule {

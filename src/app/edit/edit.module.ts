@@ -12,26 +12,29 @@ import {NextShowdownModule} from 'next-showdown';
 
 
 @NgModule({
-  declarations: [
-    EditArticleComponent,
-    EditArticleDirective,
-    EditOutlineComponent,
-    CompareTextComponent,
-    CompareViewComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    NzSkeletonModule,
-    NzInputModule,
-    NzStepsModule,
-    EditRoutingModule,
-    NzButtonModule,
-    NzIconModule,
-    NzSpinModule,
-    NextShowdownModule,
-    NzModalModule
-  ]
+    declarations: [
+        EditArticleComponent,
+        EditArticleDirective,
+        EditOutlineComponent,
+        CompareTextComponent,
+        CompareViewComponent
+    ],
+    exports: [
+        EditArticleDirective
+    ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        NzSkeletonModule,
+        NzInputModule,
+        NzStepsModule,
+        EditRoutingModule,
+        NzButtonModule,
+        NzIconModule,
+        NzSpinModule,
+        NextShowdownModule,
+        NzModalModule
+    ]
 })
 export class EditModule {
 }

@@ -7,6 +7,7 @@ import {ConfigOssComponent} from './config-oss/config-oss.component';
 import {UrlCountComponent} from './url-count/url-count.component';
 import {ReportCommentComponent} from './report-comment/report-comment.component';
 import {EditArticleListComponent} from './edit-article-list/edit-article-list.component';
+import {OnlyCompareOutlineComponent} from './only-compare-outline/only-compare-outline.component';
 
 const adminRoutes: Routes = [
     {
@@ -32,6 +33,10 @@ const adminRoutes: Routes = [
     {
         path: 'edit-article/list',
         component: EditArticleListComponent
+    },
+    {
+        path: 'compare/:origin/:changed',
+        component: OnlyCompareOutlineComponent
     }
 ];
 

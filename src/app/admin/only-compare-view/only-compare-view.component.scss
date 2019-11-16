@@ -1,0 +1,28 @@
+.left {
+  width: 49%;
+  float: left;
+  height: 95%;
+  position: relative;
+  padding: 1rem;
+}
+
+.right {
+  width: 49%;
+  float: right;
+  position: relative;
+  height: 95%;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.showdown {
+  position: absolute;
+  width: 95%;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 1rem;
+  border: 1px solid #002200;
+  margin-left: 8px;
+}
+
+

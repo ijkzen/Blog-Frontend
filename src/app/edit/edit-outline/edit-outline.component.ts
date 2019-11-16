@@ -139,6 +139,7 @@ export class EditOutlineComponent implements OnInit {
             record.origin = this.articleId;
             record.articleName = this.article.title;
             record.fileName = this.article.fileName;
+            record.articleUrl = location.href;
             record.processed = false;
             this.articleService.addNewArticleRecord(record)
               .subscribe(

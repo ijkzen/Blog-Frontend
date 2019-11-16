@@ -17,7 +17,7 @@
             <td>{{item.origin}}</td>
             <td>{{item.latest}}</td>
             <td>
-                <button nz-button nzType="primary">查看</button>
+                <button nz-button nzType="primary" (click)="toCompare(item.origin, item.latest, item.id)">查看</button>
             </td>
         </tr>
         </tbody>

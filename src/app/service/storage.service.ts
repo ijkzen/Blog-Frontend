@@ -57,4 +57,12 @@ export class StorageService {
   setDeveloperHtml(html: string) {
     localStorage.setItem(StorageService.HTML_URL, html);
   }
+
+  getNewArticleId(): string {
+    return localStorage.getItem('NewArticleId');
+  }
+
+  setNewArticleId(newArticleId: number) {
+    localStorage.setItem('NewArticleId', newArticleId + '');
+  }
 }

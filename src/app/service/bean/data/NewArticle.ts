@@ -5,5 +5,6 @@ export class NewArticle {
   latest: number;
   articleName: string;
   fileName: string;
+  articleUrl: string;
   processed: boolean;
 }

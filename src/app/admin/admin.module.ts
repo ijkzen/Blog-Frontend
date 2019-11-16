@@ -10,7 +10,7 @@ import {
     NzLayoutModule,
     NzModalModule,
     NzNotificationModule,
-    NzRadioModule,
+    NzRadioModule, NzSkeletonModule, NzStepsModule,
     NzTableModule
 } from 'ng-zorro-antd';
 import {AdminRoutingModule} from './admin-routing.module';
@@ -20,6 +20,11 @@ import {ConfigOssComponent} from './config-oss/config-oss.component';
 import {UrlCountComponent} from './url-count/url-count.component';
 import {ReportCommentComponent} from './report-comment/report-comment.component';
 import {EditArticleListComponent} from './edit-article-list/edit-article-list.component';
+import { OnlyCompareTextComponent } from './only-compare-text/only-compare-text.component';
+import { OnlyCompareOutlineComponent } from './only-compare-outline/only-compare-outline.component';
+import { OnlyCompareViewComponent } from './only-compare-view/only-compare-view.component';
+import {EditModule} from "../edit/edit.module";
+import {NextShowdownModule} from "next-showdown";
 
 @NgModule({
     declarations: [
@@ -28,7 +33,10 @@ import {EditArticleListComponent} from './edit-article-list/edit-article-list.co
         ConfigOssComponent,
         UrlCountComponent,
         ReportCommentComponent,
-        EditArticleListComponent
+        EditArticleListComponent,
+        OnlyCompareTextComponent,
+        OnlyCompareOutlineComponent,
+        OnlyCompareViewComponent
     ],
     imports: [
         CommonModule,
@@ -44,7 +52,11 @@ import {EditArticleListComponent} from './edit-article-list/edit-article-list.co
         NzModalModule,
         NzNotificationModule,
         NzRadioModule,
-        NzTableModule
+        NzTableModule,
+        NzStepsModule,
+        EditModule,
+        NzSkeletonModule,
+        NextShowdownModule
     ]
 })
 export class AdminModule {

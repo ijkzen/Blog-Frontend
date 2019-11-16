@@ -1,0 +1,16 @@
+<div style="width: 70%;margin: 0 auto;padding: 10px">
+    <nz-steps [nzCurrent]="current">
+        <nz-step (click)="toCompareText()" nzTitle="文本对比"></nz-step>
+        <nz-step (click)="toCompareView()" nzTitle="视图对比"></nz-step>
+    </nz-steps>
+</div>
+
+<ng-template appEditArticleDirective></ng-template>
+
+<button nz-button nzType="danger" style="position: absolute;left: 20%;bottom: 30px; z-index: 7" (click)="cancelEdit()">
+    取消修改
+</button>
+
+<button nz-button nzType="primary" style="position: absolute; right: 20%; bottom: 30px; z-index: 7"
+        (click)="applyEdit()">确认修改
+</button>
