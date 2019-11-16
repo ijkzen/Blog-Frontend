@@ -1,0 +1,25 @@
+<div class="content">
+    <nz-table #editArticle [nzData]="list" [nzLoading]="isLoading">
+        <thead>
+        <tr>
+            <th>开发者</th>
+            <th>文章名</th>
+            <th>原文章编号</th>
+            <th>修改文章编号</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let item of editArticle.data">
+            <td>{{item.developerName}}</td>
+            <td>{{item.articleName}}</td>
+            <td>{{item.origin}}</td>
+            <td>{{item.latest}}</td>
+            <td>
+                <button nz-button nzType="primary">查看</button>
+            </td>
+        </tr>
+        </tbody>
+    </nz-table>
+</div>
