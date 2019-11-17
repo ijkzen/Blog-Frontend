@@ -30,6 +30,7 @@ import {OnlyCompareViewComponent} from './only-compare-view/only-compare-view.co
 import {EditModule} from '../edit/edit.module';
 import {NextShowdownModule} from 'next-showdown';
 import {ConfigDonateComponent} from './config-donate/config-donate.component';
+import {ConfigArticlesComponent} from './config-articles/config-articles.component';
 
 @NgModule({
     declarations: [
@@ -42,7 +43,8 @@ import {ConfigDonateComponent} from './config-donate/config-donate.component';
         OnlyCompareTextComponent,
         OnlyCompareOutlineComponent,
         OnlyCompareViewComponent,
-        ConfigDonateComponent
+        ConfigDonateComponent,
+        ConfigArticlesComponent
     ],
     imports: [
         CommonModule,

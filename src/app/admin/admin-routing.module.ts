@@ -9,6 +9,7 @@ import {ReportCommentComponent} from './report-comment/report-comment.component'
 import {EditArticleListComponent} from './edit-article-list/edit-article-list.component';
 import {OnlyCompareOutlineComponent} from './only-compare-outline/only-compare-outline.component';
 import {ConfigDonateComponent} from './config-donate/config-donate.component';
+import {ConfigArticlesComponent} from './config-articles/config-articles.component';
 
 const adminRoutes: Routes = [
     {
@@ -42,6 +43,10 @@ const adminRoutes: Routes = [
     {
         path: 'config/donate',
         component: ConfigDonateComponent
+    },
+    {
+        path: 'config/articles',
+        component: ConfigArticlesComponent
     }
 ];
 

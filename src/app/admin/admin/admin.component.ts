@@ -149,8 +149,8 @@ export class AdminComponent implements OnInit {
             case '添加捐赠图片':
                 this.toConfigDonate();
                 break;
-            case '新增评论':
-                this.toNewComment();
+            case '管理文章':
+                this.toOperateArticle();
                 break;
             default:
                 break;
@@ -190,8 +190,8 @@ export class AdminComponent implements OnInit {
         this.router.navigateByUrl('config/donate');
     }
 
-    toNewComment() {
-
+    toOperateArticle() {
+        this.router.navigateByUrl('config/articles');
     }
 
     selectSsh() {

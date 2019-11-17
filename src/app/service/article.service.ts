@@ -50,7 +50,15 @@ export class ArticleService {
     return this.client.post<BaseBean>('/article/edit', record);
   }
 
+  deleteArticle(articleId: number): Observable<BaseBean> {
+    return this.client.delete<BaseBean>('/article/' + articleId);
+  }
+
   getUrlCount(): Observable<CategoryBean> {
     return this.client.get<CategoryBean>('/url/list');
+  }
+
+  getFullArticles(): Observable<ArticleListBean> {
+    return this.client.get<ArticleListBean>('/articles/full');
   }
 }
