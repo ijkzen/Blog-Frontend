@@ -9,11 +9,10 @@ export class LinkService {
   }
 
   getBackendUrl(): string {
-    // https://api.nextto.top
-    return 'http://localhost:8080';
+      return 'https://api.ijkzen.tech';
   }
 
   getFrontendUrl(): string {
-    return 'http://localhost:4200';
+      return 'https://ijkzen.tech';
   }
 }
