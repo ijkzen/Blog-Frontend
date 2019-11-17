@@ -26,7 +26,10 @@ export class AdminComponent implements OnInit {
 
     commentCount: number;
 
-    menuItems: string[];
+    menuItems: string[] = [
+        '配置邮件', '对象存储', '添加.ssh', 'API访问情况',
+        '举报评论列表', '文章修改记录', '添加捐赠图片', '管理文章'
+    ];
 
     constructor(
         private storageService: StorageService,
@@ -53,7 +56,6 @@ export class AdminComponent implements OnInit {
                         this.getPeopleCount();
                         this.getArticleCount();
                         this.getCommentCount();
-                        this.menuItems = this.menuItemService.getMenuItems();
                     } else {
                         this.noAuthorization();
                     }
