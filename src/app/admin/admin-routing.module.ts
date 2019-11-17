@@ -8,6 +8,7 @@ import {UrlCountComponent} from './url-count/url-count.component';
 import {ReportCommentComponent} from './report-comment/report-comment.component';
 import {EditArticleListComponent} from './edit-article-list/edit-article-list.component';
 import {OnlyCompareOutlineComponent} from './only-compare-outline/only-compare-outline.component';
+import {ConfigDonateComponent} from './config-donate/config-donate.component';
 
 const adminRoutes: Routes = [
     {
@@ -37,6 +38,10 @@ const adminRoutes: Routes = [
     {
         path: 'compare/:origin/:changed',
         component: OnlyCompareOutlineComponent
+    },
+    {
+        path: 'config/donate',
+        component: ConfigDonateComponent
     }
 ];
 

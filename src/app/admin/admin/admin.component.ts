@@ -187,7 +187,7 @@ export class AdminComponent implements OnInit {
     }
 
     toConfigDonate() {
-
+        this.router.navigateByUrl('config/donate');
     }
 
     toNewComment() {
