@@ -13,6 +13,6 @@ export class LinkService {
   }
 
   getFrontendUrl(): string {
-      return 'https://ijkzen.tech';
+    return 'https://www.ijkzen.tech';
   }
 }
