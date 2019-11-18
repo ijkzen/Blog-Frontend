@@ -28,6 +28,7 @@ import {CommentComponent} from './comment/comment.component';
 import {EditCommentComponent} from './edit-comment/edit-comment.component';
 import {FormsModule} from '@angular/forms';
 import {EditComponent} from './edit/edit.component';
+import {ContributorsComponent} from './contributors/contributors.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {EditComponent} from './edit/edit.component';
     CommonListComponent,
     CommentComponent,
     EditCommentComponent,
-    EditComponent
+    EditComponent,
+    ContributorsComponent
   ],
   exports: [
     ArticleListComponent,

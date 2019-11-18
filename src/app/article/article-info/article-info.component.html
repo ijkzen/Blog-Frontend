@@ -10,6 +10,7 @@
     <next-showdown (rendering)="addCopyButton()" [md]="article.content"
                    style="position: relative;width: 1012px;display: block"></next-showdown>
 
+    <app-contributors [contributors]="article.contributors"></app-contributors>
     <app-copyright [article]="article"></app-copyright>
     <div style="width: 100%; text-align: center; padding: 1rem">
       <button (click)="createTplModal(title, content)" nz-button nzType="primary">赞赏</button>
@@ -19,7 +20,8 @@
     <app-edit-comment style="width: 100%;display: block;text-align: center" [articleId]="articleId"
                       (added)="getComments(articleId)"></app-edit-comment>
     <span style="font-size: 18px;display: block; margin: 1rem">评论列表：</span>
-    <app-comment [comment]="comment" *ngFor="let comment of comments" (reply)="setOriginComment($event)" (report)="reportComment($event)"></app-comment>
+    <app-comment (reply)="setOriginComment($event)" (report)="reportComment($event)" *ngFor="let comment of comments"
+                 [comment]="comment"></app-comment>
     <p style="text-align: center; font-size: 16px" *ngIf="comments.length == 0">暂无评论</p>
   </nz-skeleton>
 </div>
