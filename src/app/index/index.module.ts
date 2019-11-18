@@ -15,6 +15,7 @@ import {AboutComponent} from './about/about.component';
 import {NextShowdownModule} from 'next-showdown';
 import {ChatModule} from '../chat/chat.module';
 import {IndexRoutingModule} from './index-routing.module';
+import {BeianComponent} from './beian/beian.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {IndexRoutingModule} from './index-routing.module';
     SearchComponent,
     RecordComponent,
     AboutComponent,
+    BeianComponent,
   ],
   imports: [
     CommonModule,
