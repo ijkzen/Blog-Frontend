@@ -71,6 +71,6 @@ export class HeaderComponent implements OnInit {
     }
 
     toAdmin() {
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/admin');
     }
 }
