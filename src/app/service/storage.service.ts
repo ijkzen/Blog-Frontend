@@ -65,4 +65,9 @@ export class StorageService {
   setNewArticleId(newArticleId: number) {
     localStorage.setItem('NewArticleId', newArticleId + '');
   }
+
+  removeAll() {
+    localStorage.clear();
+    location.reload();
+  }
 }

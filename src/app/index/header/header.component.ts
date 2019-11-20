@@ -1,6 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MenuItem} from '../MenuItem';
 import {StorageService} from '../../service/storage.service';
+import {NzModalService} from 'ng-zorro-antd';
+import {Router} from '@angular/router';
+import {DeveloperService} from '../../service/developer.service';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +24,10 @@ export class HeaderComponent implements OnInit {
   itemTap: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(
-    private storageService: StorageService
+      private storageService: StorageService,
+      private modalService: NzModalService,
+      private router: Router,
+      private developerService: DeveloperService
   ) {
   }
 
@@ -39,4 +45,32 @@ export class HeaderComponent implements OnInit {
   getName(): string {
     return this.storageService.getDeveloperName();
   }
+
+    openAdminDialog() {
+        this.developerService.checkMaster()
+            .subscribe(
+                result => {
+                    if (result.errCode === '000') {
+                        this.modalService.confirm(
+                            {
+                                nzTitle: '操作',
+                                nzContent: '',
+                                nzOkText: '管理',
+                                nzCancelText: '登出',
+                                nzOnOk: () => this.toAdmin(),
+                                nzOnCancel: () => this.logout()
+                            }
+                        );
+                    }
+                }
+            );
+    }
+
+    logout() {
+        this.storageService.removeAll();
+    }
+
+    toAdmin() {
+        this.router.navigateByUrl('/home');
+    }
 }

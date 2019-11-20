@@ -11,6 +11,7 @@
      href="https://github.com/login/oauth/authorize?client_id=280efb2391f54e4992d7&scope=public_repo,user:email,delete_repo">LOGIN</a>
   <div *ngIf="getName()" style="float: right; display: inline-block; alignment: center">
     <nz-avatar [nzSrc]="getAvatar()" style="display: block;margin: 1rem auto"></nz-avatar>
-    <span style="display: block; line-height: 12px;">{{getName() | uppercase}}</span>
+      <span (click)="openAdminDialog()"
+            style="display: block; line-height: 12px;font-size: 10px;cursor: pointer">{{getName() | uppercase}}</span>
   </div>
 </nz-header>
