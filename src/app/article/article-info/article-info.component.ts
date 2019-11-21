@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, OnInit, TemplateRef} from '@angular/core';
+import {AfterContentInit, Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ArticleService} from '../../service/article.service';
 import {ArticleBean} from '../../service/bean/ArticleBean';
@@ -31,17 +31,24 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
     null,
     null,
     null,
-      null,
+    null,
     null
   );
 
   comments: Comment[] = [];
   loading = true;
   articleId: number;
-  tplModal: NzModalRef;
+  donateDialog: NzModalRef;
   replyContent: string;
-  replyVisible = false;
   originComment: Comment;
+
+  @ViewChild('replyTitle', {static: false})
+  replyTitle: TemplateRef<{}>;
+
+  @ViewChild('reply', {static: false})
+  reply: TemplateRef<{}>;
+
+  replyDialog: NzModalRef;
 
   constructor(
     private route: ActivatedRoute,
@@ -62,7 +69,6 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
           .subscribe(
             (result: ArticleBean) => {
               this.article = result.article;
-              this.loading = false;
             }
           );
         this.getComments(this.articleId);
@@ -87,7 +93,7 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
   }
 
   createTplModal(tplTitle: TemplateRef<{}>, tplContent: TemplateRef<{}>): void {
-    this.tplModal = this.modalService.create({
+    this.donateDialog = this.modalService.create({
       nzTitle: tplTitle,
       nzContent: tplContent,
       nzOkDisabled: true,
@@ -106,17 +112,18 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
       );
   }
 
-  openReplyDialog() {
-    this.replyVisible = true;
-  }
-
-  setOriginComment(origin: Comment) {
+  openReplayDialog(origin: Comment) {
     this.originComment = origin;
-    this.openReplyDialog();
+    this.replyDialog = this.modalService.create({
+      nzTitle: this.replyTitle,
+      nzContent: this.reply,
+      nzClosable: false,
+      nzOnOk: () => this.replyComment()
+    });
   }
 
   closeReplyDialog() {
-    this.replyVisible = false;
+    this.replyDialog.close();
   }
 
   replyComment() {
@@ -169,7 +176,13 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
   addCopyButton() {
     setTimeout(
       () => {
-        this.codeService.addCodePasteButton();
+        this.loading = false;
+        setTimeout(
+          () => {
+            this.codeService.addCodePasteButton();
+          },
+          300
+        );
       },
       800
     );

@@ -20,7 +20,7 @@
     <app-edit-comment style="width: 100%;display: block;text-align: center" [articleId]="articleId"
                       (added)="getComments(articleId)"></app-edit-comment>
     <span style="font-size: 18px;display: block; margin: 1rem">评论列表：</span>
-    <app-comment (reply)="setOriginComment($event)" (report)="reportComment($event)" *ngFor="let comment of comments"
+    <app-comment (reply)="openReplayDialog($event)" (report)="reportComment($event)" *ngFor="let comment of comments"
                  [comment]="comment"></app-comment>
     <p style="text-align: center; font-size: 16px" *ngIf="comments.length == 0">暂无评论</p>
   </nz-skeleton>
@@ -29,11 +29,6 @@
 <app-download *ngIf="!loading" [article]="article"></app-download>
 <app-edit *ngIf="!loading" [articleId]="articleId"></app-edit>
 <app-outline [article]="article"></app-outline>
-
-<nz-modal [(nzVisible)]="replyVisible" [nzTitle]="replyTitle" (nzOnOk)="replyComment()"
-          (nzOnCancel)="closeReplyDialog()" nzClosable="false">
-  <textarea rows="5" [(ngModel)]="replyContent"></textarea>
-</nz-modal>
 
 <ng-template #title>
   <p style="text-align: center">感谢赞赏！</p>
@@ -56,4 +51,8 @@
       <img src="{{getWechat()}}">
     </div>
   </div>
+</ng-template>
+
+<ng-template #reply>
+  <textarea [(ngModel)]="replyContent" rows="5"></textarea>
 </ng-template>
