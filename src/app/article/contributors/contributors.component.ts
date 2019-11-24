@@ -10,7 +10,7 @@ export class ContributorsComponent implements OnInit, OnChanges {
   @Input()
   contributors: string;
 
-  items: string[];
+  items: string[] = [];
 
   constructor() {
   }
@@ -19,7 +19,9 @@ export class ContributorsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    this.items = this.contributors.split(',');
+    if (this.contributors !== null) {
+      this.items = this.contributors.split(',');
+    }
   }
 
 }
