@@ -84,7 +84,15 @@ export class OutlineComponent implements OnInit, OnChanges {
 
   getHref(title: string): string {
     let result: string;
-    const titleTmp = title.toLowerCase().replace(/\s/g, '-');
+    const titleTmp = title.replace(/ /g, '-')
+    // replace previously escaped chars (&, ¨ and $)
+        .replace(/&amp;/g, '')
+        .replace(/¨T/g, '')
+        .replace(/¨D/g, '')
+        // replace rest of the chars (&~$ are repeated as they might have been escaped)
+        // borrowed from github's redcarpet (some they should produce similar results)
+        .replace(/[&+$,\/:;=?@"#{}|^¨~\[\]`\\*)(%.!'<>]/g, '')
+        .toLowerCase();
     if (this.titleMap.get(titleTmp) === undefined) {
       this.titleMap.set(titleTmp, [0]);
       result = titleTmp;
