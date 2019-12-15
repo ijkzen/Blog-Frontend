@@ -33,7 +33,7 @@ export class CommentComponent implements OnInit {
 
   formatDate(date: Date): string {
     const tmp = new Date(date);
-    return tmp.getFullYear() + '-' + tmp.getMonth() + '-' + tmp.getDay();
+    return tmp.getFullYear() + '-' + tmp.getMonth() + '-' + tmp.getDate();
   }
 
   getDateDisplay(): string {
