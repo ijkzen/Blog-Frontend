@@ -28,7 +28,8 @@ export class AdminComponent implements OnInit {
 
     menuItems: string[] = [
         '配置邮件', '对象存储', '添加.ssh', 'API访问情况',
-        '举报评论列表', '文章修改记录', '添加捐赠图片', '管理文章'
+        '举报评论列表', '文章修改记录', '添加捐赠图片', '管理文章',
+        'IP地区'
     ];
 
     constructor(
@@ -127,8 +128,6 @@ export class AdminComponent implements OnInit {
     }
 
     clickMenuItem(item: string) {
-        // '配置邮件', '对象存储', '添加.ssh', 'API访问情况',
-        //     '举报评论列表', '文章修改记录', '添加捐赠图片', '新增评论'
         switch (item) {
             case '配置邮件':
                 this.toConfigMail();
@@ -153,6 +152,9 @@ export class AdminComponent implements OnInit {
                 break;
             case '管理文章':
                 this.toOperateArticle();
+                break;
+          case 'IP地区':
+                this.toIpCount();
                 break;
             default:
                 break;
@@ -195,6 +197,10 @@ export class AdminComponent implements OnInit {
     toOperateArticle() {
         this.router.navigateByUrl('config/articles');
     }
+
+    toIpCount() {
+        this.router.navigateByUrl('/index/ip');
+  }
 
     selectSsh() {
         document.getElementById('ssh-select').click();

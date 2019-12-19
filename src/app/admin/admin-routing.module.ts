@@ -10,6 +10,7 @@ import {EditArticleListComponent} from './edit-article-list/edit-article-list.co
 import {OnlyCompareOutlineComponent} from './only-compare-outline/only-compare-outline.component';
 import {ConfigDonateComponent} from './config-donate/config-donate.component';
 import {ConfigArticlesComponent} from './config-articles/config-articles.component';
+import {IpCountComponent} from './ip-count/ip-count.component';
 
 const adminRoutes: Routes = [
     {
@@ -47,7 +48,11 @@ const adminRoutes: Routes = [
     {
         path: 'config/articles',
         component: ConfigArticlesComponent
-    }
+    },
+  {
+        path: 'index/ip',
+        component: IpCountComponent
+  }
 ];
 
 @NgModule({

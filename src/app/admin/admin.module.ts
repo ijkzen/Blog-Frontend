@@ -31,6 +31,7 @@ import {EditModule} from '../edit/edit.module';
 import {NextShowdownModule} from 'next-showdown';
 import {ConfigDonateComponent} from './config-donate/config-donate.component';
 import {ConfigArticlesComponent} from './config-articles/config-articles.component';
+import { IpCountComponent } from './ip-count/ip-count.component';
 
 @NgModule({
     declarations: [
@@ -44,7 +45,8 @@ import {ConfigArticlesComponent} from './config-articles/config-articles.compone
         OnlyCompareOutlineComponent,
         OnlyCompareViewComponent,
         ConfigDonateComponent,
-        ConfigArticlesComponent
+        ConfigArticlesComponent,
+        IpCountComponent
     ],
     imports: [
         CommonModule,

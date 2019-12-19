@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {BaseBean} from './bean/BaseBean';
 import {CountBean} from './bean/CountBean';
+import {IpCountsBean} from './bean/IpCountsBean';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,9 @@ export class IndexService {
 
   peopleCount(): Observable<CountBean> {
     return this.client.get<CountBean>('/index/people');
+  }
+
+  ipCount(): Observable<IpCountsBean> {
+    return this.client.get<IpCountsBean>('/index/record');
   }
 }
