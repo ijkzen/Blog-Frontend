@@ -27,7 +27,7 @@ import {OnlyCompareViewComponent} from './admin/only-compare-view/only-compare-v
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,

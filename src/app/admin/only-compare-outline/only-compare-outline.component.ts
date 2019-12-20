@@ -5,6 +5,7 @@ import {OnlyCompareViewComponent} from '../only-compare-view/only-compare-view.c
 import {EditService} from '../../service/edit.service';
 import {NzModalService} from 'ng-zorro-antd';
 import {StorageService} from '../../service/storage.service';
+import {Location} from '@angular/common';
 
 @Component({
     selector: 'app-only-compare-outline',
@@ -22,7 +23,8 @@ export class OnlyCompareOutlineComponent implements OnInit {
         private componentFactoryResolver: ComponentFactoryResolver,
         private editService: EditService,
         private modalService: NzModalService,
-        private storageService: StorageService
+        private storageService: StorageService,
+        private location: Location
     ) {
     }
 
@@ -60,7 +62,7 @@ export class OnlyCompareOutlineComponent implements OnInit {
                         this.modalService.success({
                             nzContent: '已删除此条修改',
                             nzOnOk: () => {
-                                window.history.back();
+                                this.location.back();
                             }
                         });
                     }
@@ -76,7 +78,7 @@ export class OnlyCompareOutlineComponent implements OnInit {
                         this.modalService.success({
                             nzContent: '已应用此条修改',
                             nzOnOk: () => {
-                                window.history.back();
+                              this.location.back();
                             }
                         });
                     }
