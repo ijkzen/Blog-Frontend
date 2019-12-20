@@ -22,4 +22,4 @@ jobs:
     - name: YARN Init
       run: yarn
     - name: YARN Build
-      run: yarn build
+      run: yarn run build:ssr
