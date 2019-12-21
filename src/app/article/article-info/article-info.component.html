@@ -1,5 +1,5 @@
 <div class="content" id="article">
-  <nz-skeleton [nzActive]="true" [nzLoading]="loading" [nzParagraph]="{ rows: 60 }" class="content">
+  <div class="content">
     <h1 style="text-align: center">{{article.title}}</h1>
     <div #target style="margin-bottom: 0.5em;;width: 1012px;height: 48px;display: flex; justify-content: space-between">
       <span><i nz-icon nzTheme="outline" nzType="calendar"></i>&nbsp;{{article.createdTime | date: "yyyy-MM-dd"}}</span>
@@ -24,7 +24,7 @@
     <app-comment (reply)="openReplayDialog($event)" (report)="reportComment($event)" *ngFor="let comment of comments"
                  [comment]="comment"></app-comment>
     <p style="text-align: center; font-size: 16px" *ngIf="comments.length == 0">暂无评论</p>
-  </nz-skeleton>
+  </div>
 </div>
 <app-back-top *ngIf="!loading"></app-back-top>
 <app-download *ngIf="!loading" [article]="article"></app-download>

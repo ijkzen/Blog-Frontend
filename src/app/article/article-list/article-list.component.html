@@ -1,6 +1,4 @@
-<nz-skeleton *ngFor="let item of data" [nzActive]="true" [nzLoading]="loading">
-  <app-article-item [article]="item"></app-article-item>
-</nz-skeleton>
+<app-article-item *ngFor="let item of data" [article]="item"></app-article-item>
 <nz-pagination (nzPageIndexChange)="getArticlesByPage($event)" [(nzPageIndex)]="page" [nzPageSize]="15"
                [nzSize]="'small'"
                [nzTotal]="totalSize" nzShowQuickJumper style="padding: 1rem 1rem 1rem 1rem"></nz-pagination>
