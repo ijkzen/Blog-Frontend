@@ -4,6 +4,8 @@ COPY .npmrc /root/.npmrc
 WORKDIR /app
 # install and cache app dependencies
 COPY . /app
+# print registry url
+RUN npm config get registry
 # install dependencies and build the angular app
 RUN yarn && yarn run build:ssr
 
