@@ -1,6 +1,6 @@
-<div (click)="toArticle()" class="item">
-    <h2 style="cursor: pointer">{{article.title}}</h2>
-  <p>{{article.abstract}}</p>
-  <p>{{article.createdTime | date:"yyyy-MM-dd"}}</p>
-  <nz-divider></nz-divider>
+<div class="item">
+    <h2 style="cursor: pointer"><a routerLink="/article/{{article.id}}">{{article.title}}</a></h2>
+    <p>{{article.abstract}}</p>
+    <p>{{article.createdTime | date:"yyyy-MM-dd"}}</p>
+    <nz-divider></nz-divider>
 </div>

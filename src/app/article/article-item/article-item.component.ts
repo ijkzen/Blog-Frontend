@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Article} from '../../service/bean/data/Article';
-import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-article-item',
@@ -12,16 +11,9 @@ export class ArticleItemComponent implements OnInit {
   @Input()
   article: Article;
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute
-  ) {
+  constructor() {
   }
 
   ngOnInit() {
-  }
-
-  toArticle() {
-    this.router.navigateByUrl('article/' + this.article.id);
   }
 }
