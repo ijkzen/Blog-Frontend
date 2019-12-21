@@ -2,10 +2,11 @@
   <nz-skeleton [nzActive]="true" [nzLoading]="loading" [nzParagraph]="{ rows: 60 }" class="content">
     <h1 style="text-align: center">{{article.title}}</h1>
     <div #target style="margin-bottom: 0.5em;;width: 1012px;height: 48px;display: flex; justify-content: space-between">
-      <span><b>Date: </b>{{article.createdTime | date: "yyyy-MM-dd"}}</span>
-      <span><b>Author: </b>{{article.author}}</span>
-      <span *ngIf="article.category != ''"><b>Category: </b>{{article.category}}</span>
-      <span><b>Read: </b>{{article.visits}}</span>
+      <span><i nz-icon nzTheme="outline" nzType="calendar"></i>&nbsp;{{article.createdTime | date: "yyyy-MM-dd"}}</span>
+      <span><i nz-icon nzTheme="outline" nzType="user"></i>&nbsp;{{article.author}}</span>
+      <span *ngIf="article.category != ''"><i nz-icon nzTheme="outline"
+                                              nzType="folder"></i>&nbsp;{{article.category}}</span>
+      <span><i nz-icon nzTheme="outline" nzType="eye"></i>&nbsp;{{article.visits}}</span>
     </div>
     <next-showdown (rendering)="addCopyButton()" [md]="article.content"
                    style="position: relative;width: 1012px;display: block"></next-showdown>
