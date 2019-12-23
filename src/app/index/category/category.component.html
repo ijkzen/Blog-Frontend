@@ -1,8 +1,8 @@
 <nz-content class="content" style="padding-top: 160px">
   <div *ngFor="let i of getRow()" nz-row nzAlign="middle" nzJustify="space-between" nzType="flex">
-    <div (click)="toCategoryArticles(item.category)" *ngFor="let item of categories.slice(4 * i, 4 * i + 4)"
+    <div *ngFor="let item of categories.slice(4 * i, 4 * i + 4)"
          class="item" nz-col
-         nzSpan="4">{{item.category}}
+         nzSpan="4"><a routerLink="/category/{{item.category}}">{{item.category}}</a>
       [{{item.size}}]
     </div>
   </div>

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Category} from '../../service/bean/data/Category';
 import {ArticleService} from '../../service/article.service';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -14,7 +13,6 @@ export class CategoryComponent implements OnInit {
 
   constructor(
     private articleService: ArticleService,
-    private router: Router
   ) {
   }
 
@@ -39,9 +37,5 @@ export class CategoryComponent implements OnInit {
         return Array((length / 4)).fill(0).map((x, i) => i);
       }
     }
-  }
-
-  toCategoryArticles(category: string) {
-    this.router.navigateByUrl('category/' + category);
   }
 }
