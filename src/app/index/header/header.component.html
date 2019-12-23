@@ -1,10 +1,10 @@
 <nz-header style="background: white; text-align: center">
   <ul nz-menu nzMode="horizontal" nzTheme="light" style="display: inline-block">
-    <li (click)="click(item.text)" *ngFor="let item of menu" nz-menu-item>
-      <button nz-button nzType="link">
+    <li *ngFor="let item of menu" nz-menu-item>
+      <span>
         <i nz-icon nzTheme="outline" nzType="{{item.icon}}"></i>
-        {{item.text}}
-      </button>
+        <a routerLink="/{{item.text.toLowerCase()}}">{{item.text}}</a>
+      </span>
     </li>
   </ul>
   <a *ngIf="getName() == null" style="float: right; display: inline-block"

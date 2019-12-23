@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MenuItem} from '../MenuItem';
 import {StorageService} from '../../service/storage.service';
 import {NzModalService} from 'ng-zorro-antd';
@@ -20,9 +20,6 @@ export class HeaderComponent implements OnInit {
     {icon: 'search', text: 'Search'}
   ];
 
-  @Output()
-  itemTap: EventEmitter<string> = new EventEmitter<string>();
-
   constructor(
       private storageService: StorageService,
       private modalService: NzModalService,
@@ -32,10 +29,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  click(text) {
-    this.itemTap.emit(text);
   }
 
   getAvatar(): string {

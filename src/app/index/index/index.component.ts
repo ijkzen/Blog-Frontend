@@ -40,46 +40,4 @@ export class IndexComponent implements OnInit {
         }
       );
   }
-
-  clickItem(text: string) {
-    switch (text) {
-      case 'Home':
-        this.toHome();
-        break;
-      case 'Category':
-        this.toCategory();
-        break;
-      case 'About':
-        this.toAbout();
-        break;
-      case 'Game':
-        this.toGame();
-        break;
-      case 'Search':
-        this.toSearch();
-        break;
-      default:
-        break;
-    }
-  }
-
-  toHome() {
-    this.router.navigateByUrl('home');
-  }
-
-  toCategory() {
-    this.router.navigateByUrl('category');
-  }
-
-  toAbout() {
-    this.router.navigateByUrl('about');
-  }
-
-  toGame() {
-    this.router.navigateByUrl('game');
-  }
-
-  toSearch() {
-    this.router.navigateByUrl('search');
-  }
 }
