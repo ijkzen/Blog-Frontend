@@ -42,6 +42,7 @@ export class OutlineComponent implements OnInit, OnChanges {
       }
       if (this.list.length !== 0) {
         this.buildTree(this.list[0].category, 0, this.list.length - 1, this.root);
+        this.clearOldNodes();
         this.buildElement(this.root, document.getElementById('outline-parent') as HTMLElement);
       }
     }
@@ -85,14 +86,14 @@ export class OutlineComponent implements OnInit, OnChanges {
   getHref(title: string): string {
     let result: string;
     const titleTmp = title.replace(/ /g, '-')
-    // replace previously escaped chars (&, ¨ and $)
-        .replace(/&amp;/g, '')
-        .replace(/¨T/g, '')
-        .replace(/¨D/g, '')
-        // replace rest of the chars (&~$ are repeated as they might have been escaped)
-        // borrowed from github's redcarpet (some they should produce similar results)
-        .replace(/[&+$,\/:;=?@"#{}|^¨~\[\]`\\*)(%.!'<>]/g, '')
-        .toLowerCase();
+      // replace previously escaped chars (&, ¨ and $)
+      .replace(/&amp;/g, '')
+      .replace(/¨T/g, '')
+      .replace(/¨D/g, '')
+      // replace rest of the chars (&~$ are repeated as they might have been escaped)
+      // borrowed from github's redcarpet (some they should produce similar results)
+      .replace(/[&+$,\/:;=?@"#{}|^¨~\[\]`\\*)(%.!'<>]/g, '')
+      .toLowerCase();
     if (this.titleMap.get(titleTmp) === undefined) {
       this.titleMap.set(titleTmp, [0]);
       result = titleTmp;
@@ -154,6 +155,17 @@ export class OutlineComponent implements OnInit, OnChanges {
       } else {
         this.getElement(event).getElementsByTagName('ol').item(0).style.display = 'block';
       }
+    }
+  }
+
+  clearOldNodes() {
+    const collection = document.getElementsByClassName('outline-title');
+    for (let i = 0; i < collection.length; i++) {
+      (collection.item(i) as HTMLElement).remove();
+    }
+    const titles = document.getElementById('outline-parent').getElementsByTagName('ol');
+    for (let i = 0; i < titles.length; i++) {
+      (titles.item(i) as HTMLElement).remove();
     }
   }
 }

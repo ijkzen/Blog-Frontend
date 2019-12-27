@@ -61,4 +61,12 @@ export class ArticleService {
   getFullArticles(): Observable<ArticleListBean> {
     return this.client.get<ArticleListBean>('/articles/full');
   }
+
+  getPreviousArticle(current: number): Observable<ArticleBean> {
+    return this.client.get<ArticleBean>('/articles/previous/' + current);
+  }
+
+  getNextArticle(current: number): Observable<ArticleBean> {
+    return this.client.get<ArticleBean>('/articles/next/' + current);
+  }
 }

@@ -29,6 +29,7 @@ import {EditCommentComponent} from './edit-comment/edit-comment.component';
 import {FormsModule} from '@angular/forms';
 import {EditComponent} from './edit/edit.component';
 import {ContributorsComponent} from './contributors/contributors.component';
+import {ArticleNavigationComponent} from './article-navigation/article-navigation.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {ContributorsComponent} from './contributors/contributors.component';
     CommentComponent,
     EditCommentComponent,
     EditComponent,
-    ContributorsComponent
+    ContributorsComponent,
+    ArticleNavigationComponent
   ],
   exports: [
     ArticleListComponent,

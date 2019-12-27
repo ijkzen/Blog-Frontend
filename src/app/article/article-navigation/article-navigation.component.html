@@ -1,0 +1,4 @@
+<div class="navigation">
+  <span *ngIf="previous" class="left"><b>< </b> <a routerLink="/article/{{previous.id}}">{{previous.title }}</a> </span>
+  <span *ngIf="next" class="right"><a routerLink="/article/{{next.id}}">{{next.title}}</a> <b> ></b></span>
+</div>
