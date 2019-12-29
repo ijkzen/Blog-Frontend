@@ -1,4 +1,4 @@
-FROM node:lts AS builder
+FROM node AS builder
 COPY .npmrc /root/.npmrc
 # set working directory
 WORKDIR /app
