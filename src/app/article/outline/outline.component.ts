@@ -30,6 +30,7 @@ export class OutlineComponent implements OnInit, OnChanges {
     if (this.article === null) {
       return;
     } else {
+      this.clearOldNodes();
       this.root.title = this.article.title;
       const pattern = /(#{1,10})\s{1,4}(.+)/g;
       let result = pattern.exec(this.article.content);
@@ -42,7 +43,6 @@ export class OutlineComponent implements OnInit, OnChanges {
       }
       if (this.list.length !== 0) {
         this.buildTree(this.list[0].category, 0, this.list.length - 1, this.root);
-        this.clearOldNodes();
         this.buildElement(this.root, document.getElementById('outline-parent') as HTMLElement);
       }
     }
@@ -167,5 +167,8 @@ export class OutlineComponent implements OnInit, OnChanges {
     for (let i = 0; i < titles.length; i++) {
       (titles.item(i) as HTMLElement).remove();
     }
+    this.root = new Outline();
+    this.list = [];
+    this.titleMap = new Map<string, number[]>();
   }
 }

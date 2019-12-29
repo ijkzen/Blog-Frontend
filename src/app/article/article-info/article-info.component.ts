@@ -82,8 +82,6 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
         (result: BaseBean) => {
         }
       );
-
-    this.clearOldNodes();
   }
 
   getAlipay(): string {
@@ -188,16 +186,5 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
       },
       800
     );
-  }
-
-  clearOldNodes() {
-    const collection = document.getElementsByClassName('outline-title');
-    for (let i = 0; i < collection.length; i++) {
-      (collection.item(i) as HTMLElement).remove();
-    }
-    const titles = document.getElementById('outline-parent').getElementsByTagName('ol');
-    for (let i = 0; i < titles.length; i++) {
-      (titles.item(i) as HTMLElement).remove();
-    }
   }
 }
