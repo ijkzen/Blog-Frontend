@@ -69,6 +69,7 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
           .subscribe(
             (result: ArticleBean) => {
               this.article = result.article;
+              this.setTitle();
             }
           );
         this.getComments(this.articleId);
@@ -78,10 +79,14 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
 
   ngAfterContentInit(): void {
     this.articleService.viewArticle(this.articleId)
-      .subscribe(
-        (result: BaseBean) => {
-        }
-      );
+        .subscribe(
+            (result: BaseBean) => {
+            }
+        );
+  }
+
+  setTitle() {
+    document.title = 'IJKZEN ' + this.article.title;
   }
 
   getAlipay(): string {
