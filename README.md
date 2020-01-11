@@ -8,7 +8,7 @@
 	<img src="https://img.shields.io/github/issues/ijkzen/Blog-Frontend">
 	<img src="https://img.shields.io/github/stars/ijkzen/Blog-Frontend">
 	<img src="https://img.shields.io/github/license/ijkzen/Blog-Frontend">
-	<img src="https://img.shields.io/badge/language-TypeScript-orange.svg"
+	<img src="https://img.shields.io/badge/language-TypeScript-orange.svg">
 </div>
 
 ## ✨ Features
