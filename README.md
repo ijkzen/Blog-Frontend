@@ -1,7 +1,9 @@
 <h1 align="center">Blog-Frontend</h1>
 <div align="center"> 
     A modern personal blog written by angular
-    <br>
+</div>
+
+<div align="center"> 
 	<img src="https://github.com/ijkzen/Blog-Frontend/workflows/Build//badge.svg">
 	<img src="https://img.shields.io/github/issues/ijkzen/Blog-Frontend">
 	<img src="https://img.shields.io/github/stars/ijkzen/Blog-Frontend">
