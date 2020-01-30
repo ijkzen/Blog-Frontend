@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Article} from '../../service/bean/data/Article';
+import {PlatformService} from '../../service/platform.service';
 
 @Component({
   selector: 'app-copyright',
@@ -13,11 +14,15 @@ export class CopyrightComponent implements OnInit {
 
   link: string;
 
-  constructor() {
+  constructor(
+      private platformService: PlatformService
+  ) {
   }
 
   ngOnInit() {
-    this.link = location.href;
+    if (this.platformService.isBrowser()) {
+      this.link = location.href;
+    }
   }
 
 }

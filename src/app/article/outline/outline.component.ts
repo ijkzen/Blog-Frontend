@@ -2,6 +2,7 @@ import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {Article} from '../../service/bean/data/Article';
 import {Outline} from '../../service/bean/data/Outline';
 import {OutlineTemp} from '../../service/bean/data/OutlineTemp';
+import {PlatformService} from "../../service/platform.service";
 
 @Component({
   selector: 'app-outline',
@@ -19,7 +20,9 @@ export class OutlineComponent implements OnInit, OnChanges {
 
   titleMap: Map<string, number[]> = new Map<string, number[]>();
 
-  constructor() {
+  constructor(
+      private platformService: PlatformService
+  ) {
   }
 
   ngOnInit() {
@@ -30,20 +33,22 @@ export class OutlineComponent implements OnInit, OnChanges {
     if (this.article === null) {
       return;
     } else {
-      this.clearOldNodes();
-      this.root.title = this.article.title;
-      const pattern = /(#{1,10})\s{1,4}(.+)/g;
-      let result = pattern.exec(this.article.content);
-      while (result) {
-        const tmp = new OutlineTemp();
-        tmp.category = result[1].length;
-        tmp.title = result[2];
-        this.list[this.list.length] = tmp;
-        result = pattern.exec(this.article.content);
-      }
-      if (this.list.length !== 0) {
-        this.buildTree(this.list[0].category, 0, this.list.length - 1, this.root);
-        this.buildElement(this.root, document.getElementById('outline-parent') as HTMLElement);
+      if (this.platformService.isBrowser()) {
+        this.clearOldNodes();
+        this.root.title = this.article.title;
+        const pattern = /(#{1,10})\s{1,4}(.+)/g;
+        let result = pattern.exec(this.article.content);
+        while (result) {
+          const tmp = new OutlineTemp();
+          tmp.category = result[1].length;
+          tmp.title = result[2];
+          this.list[this.list.length] = tmp;
+          result = pattern.exec(this.article.content);
+        }
+        if (this.list.length !== 0) {
+          this.buildTree(this.list[0].category, 0, this.list.length - 1, this.root);
+          this.buildElement(this.root, document.getElementById('outline-parent') as HTMLElement);
+        }
       }
     }
   }
