@@ -2,7 +2,7 @@ import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {Article} from '../../service/bean/data/Article';
 import {Outline} from '../../service/bean/data/Outline';
 import {OutlineTemp} from '../../service/bean/data/OutlineTemp';
-import {PlatformService} from "../../service/platform.service";
+import {PlatformService} from '../../service/platform.service';
 
 @Component({
   selector: 'app-outline',
