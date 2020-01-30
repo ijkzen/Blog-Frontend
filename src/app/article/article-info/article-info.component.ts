@@ -10,30 +10,33 @@ import {Comment} from '../../service/bean/data/Comment';
 import {CommentService} from '../../service/comment.service';
 import {StorageService} from '../../service/storage.service';
 import {CodeService} from '../../service/code.service';
+import {makeStateKey, TransferState} from '@angular/platform-browser';
+
+const ARTICLE_INFO_KEY = makeStateKey<Article>('article-info');
 
 @Component({
-  selector: 'app-article-info',
-  templateUrl: './article-info.component.html',
-  styleUrls: ['./article-info.component.scss']
+    selector: 'app-article-info',
+    templateUrl: './article-info.component.html',
+    styleUrls: ['./article-info.component.scss']
 })
 export class ArticleInfoComponent implements OnInit, AfterContentInit {
 
-  article: Article = new Article(
-    null,
-    null,
-    null,
-    null,
-    null,
-    '',
-    '',
-    0,
-    0,
-    null,
-    null,
-    null,
-    null,
-    null
-  );
+    article: Article = new Article(
+        null,
+        null,
+        null,
+        null,
+        null,
+        '',
+        '',
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null
+    );
 
   comments: Comment[] = [];
   loading = true;
@@ -51,49 +54,59 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
   replyDialog: NzModalRef;
 
   constructor(
-    private route: ActivatedRoute,
-    private articleService: ArticleService,
-    private linkService: LinkService,
-    private modalService: NzModalService,
-    private commentService: CommentService,
-    private storageService: StorageService,
-    private codeService: CodeService
+      private route: ActivatedRoute,
+      private articleService: ArticleService,
+      private linkService: LinkService,
+      private modalService: NzModalService,
+      private commentService: CommentService,
+      private storageService: StorageService,
+      private codeService: CodeService,
+      private readonly transferState: TransferState
   ) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(
       param => {
-        this.articleId = param.id;
-        this.articleService.getArticleById(this.articleId)
-          .subscribe(
-            (result: ArticleBean) => {
-              this.article = result.article;
-              this.setTitle();
-            }
-          );
-        this.getComments(this.articleId);
+          this.articleId = param.id;
+          if (this.transferState.hasKey(ARTICLE_INFO_KEY)) {
+              this.article = this.transferState.get(ARTICLE_INFO_KEY, null).article;
+          } else {
+              this.getArticle();
+          }
+          this.getComments(this.articleId);
       }
     );
   }
 
-  ngAfterContentInit(): void {
-    this.articleService.viewArticle(this.articleId)
-        .subscribe(
-            (result: BaseBean) => {
-            }
-        );
-  }
+    ngAfterContentInit(): void {
+        this.articleService.viewArticle(this.articleId)
+            .subscribe(
+                (result: BaseBean) => {
+                }
+            );
+    }
 
-  setTitle() {
-    document.title = 'IJKZEN ' + this.article.title;
-  }
+    getArticle() {
+        this.articleService.getArticleById(this.articleId)
+            .subscribe(
+                (result: ArticleBean) => {
+                    this.transferState.set(ARTICLE_INFO_KEY, result);
+                    this.article = result.article;
+                    this.setTitle();
+                }
+            );
+    }
 
-  getAlipay(): string {
-    return this.linkService.getBackendUrl() + '/donate/alipay';
-  }
+    setTitle() {
+        document.title = 'IJKZEN ' + this.article.title;
+    }
 
-  getWechat(): string {
+    getAlipay(): string {
+        return this.linkService.getBackendUrl() + '/donate/alipay';
+    }
+
+    getWechat(): string {
     return this.linkService.getBackendUrl() + '/donate/wechat';
   }
 

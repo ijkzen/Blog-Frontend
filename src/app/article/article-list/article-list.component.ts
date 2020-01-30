@@ -1,8 +1,8 @@
-import { Article } from './../../service/bean/data/Article';
-import { Component, OnInit } from '@angular/core';
-import { ArticleService } from '../../service/article.service';
-import { ArticleListBean } from '../../service/bean/ArticleListBean';
-import { TransferState, makeStateKey } from '@angular/platform-browser';
+import {Article} from './../../service/bean/data/Article';
+import {Component, OnInit} from '@angular/core';
+import {ArticleService} from '../../service/article.service';
+import {ArticleListBean} from '../../service/bean/ArticleListBean';
+import {makeStateKey, TransferState} from '@angular/platform-browser';
 
 const LOADED_KEY = makeStateKey<boolean>('loaded');
 const ARTICLE_LIST_KEY = makeStateKey<ArticleListBean>('article-list');
@@ -38,7 +38,6 @@ export class ArticleListComponent implements OnInit {
   }
 
   getArticlesByPage(id: number) {
-    console.log(this.loading);
     this.articleService
       .getArticlesByPage(id)
       .subscribe((result: ArticleListBean) => {
@@ -47,7 +46,7 @@ export class ArticleListComponent implements OnInit {
         this.loading = false;
         this.transferState.set(LOADED_KEY, this.loading);
         this.transferState.set(ARTICLE_LIST_KEY, result);
-        console.log('get list');
+
       });
   }
 }
