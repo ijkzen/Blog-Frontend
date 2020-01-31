@@ -71,7 +71,7 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
           this.articleId = param.id;
           if (
               this.transferState.hasKey(ARTICLE_INFO_KEY) &&
-              this.transferState.get(ARTICLE_INFO_KEY, null).article.id === this.articleId
+              this.transferState.get(ARTICLE_INFO_KEY, null).article.id === Number(this.articleId)
           ) {
               this.article = this.transferState.get(ARTICLE_INFO_KEY, null).article;
           } else {
