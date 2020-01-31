@@ -69,7 +69,10 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
     this.route.params.subscribe(
       param => {
           this.articleId = param.id;
-          if (this.transferState.hasKey(ARTICLE_INFO_KEY)) {
+          if (
+              this.transferState.hasKey(ARTICLE_INFO_KEY) &&
+              this.transferState.get(ARTICLE_INFO_KEY, null).article.id === this.articleId
+          ) {
               this.article = this.transferState.get(ARTICLE_INFO_KEY, null).article;
           } else {
               this.getArticle();
