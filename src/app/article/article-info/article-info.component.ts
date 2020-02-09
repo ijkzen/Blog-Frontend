@@ -91,6 +91,7 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit, AfterView
 
   ngAfterViewInit(): void {
     this.addCopyButton();
+    this.loading = false;
   }
 
   ngAfterContentInit(): void {
