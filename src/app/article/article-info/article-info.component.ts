@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ArticleService} from '../../service/article.service';
 import {ArticleBean} from '../../service/bean/ArticleBean';
@@ -11,40 +11,45 @@ import {CommentService} from '../../service/comment.service';
 import {StorageService} from '../../service/storage.service';
 import {CodeService} from '../../service/code.service';
 import {makeStateKey, TransferState} from '@angular/platform-browser';
+import {MermaidService} from 'next-mermaid';
+import {PlatformService} from '../../service/platform.service';
 
 const ARTICLE_INFO_KEY = makeStateKey<Article>('article-info');
 
 @Component({
-    selector: 'app-article-info',
-    templateUrl: './article-info.component.html',
-    styleUrls: ['./article-info.component.scss']
+  selector: 'app-article-info',
+  templateUrl: './article-info.component.html',
+  styleUrls: ['./article-info.component.scss']
 })
-export class ArticleInfoComponent implements OnInit, AfterContentInit {
+export class ArticleInfoComponent implements OnInit, AfterContentInit, AfterViewInit {
 
-    article: Article = new Article(
-        null,
-        null,
-        null,
-        null,
-        null,
-        '',
-        '',
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null
-    );
+  @ViewChild('target', {static: false})
+  target;
+
+  article: Article = new Article(
+    null,
+    null,
+    null,
+    null,
+    null,
+    '',
+    '',
+    0,
+    0,
+    null,
+    null,
+    null,
+    null,
+    null
+  );
 
   comments: Comment[] = [];
+
   loading = true;
   articleId: number;
   donateDialog: NzModalRef;
   replyContent: string;
   originComment: Comment;
-
   @ViewChild('replyTitle', {static: false})
   replyTitle: TemplateRef<{}>;
 
@@ -54,62 +59,68 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
   replyDialog: NzModalRef;
 
   constructor(
-      private route: ActivatedRoute,
-      private articleService: ArticleService,
-      private linkService: LinkService,
-      private modalService: NzModalService,
-      private commentService: CommentService,
-      private storageService: StorageService,
-      private codeService: CodeService,
-      private readonly transferState: TransferState
+    private route: ActivatedRoute,
+    private articleService: ArticleService,
+    private linkService: LinkService,
+    private modalService: NzModalService,
+    private commentService: CommentService,
+    private storageService: StorageService,
+    private codeService: CodeService,
+    private readonly transferState: TransferState,
+    private mermaidService: MermaidService,
+    private platformService: PlatformService
   ) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(
       param => {
-          this.articleId = param.id;
-          if (
-              this.transferState.hasKey(ARTICLE_INFO_KEY) &&
-              this.transferState.get(ARTICLE_INFO_KEY, null).article.id === Number(this.articleId)
-          ) {
-              this.article = this.transferState.get(ARTICLE_INFO_KEY, null).article;
-          } else {
-              this.getArticle();
-          }
-          this.getComments(this.articleId);
+        this.articleId = param.id;
+        if (
+          this.transferState.hasKey(ARTICLE_INFO_KEY) &&
+          this.transferState.get(ARTICLE_INFO_KEY, null).article.id === Number(this.articleId)
+        ) {
+          this.article = this.transferState.get(ARTICLE_INFO_KEY, null).article;
+        } else {
+          this.getArticle();
+        }
+        this.getComments(this.articleId);
       }
     );
   }
 
-    ngAfterContentInit(): void {
-        this.articleService.viewArticle(this.articleId)
-            .subscribe(
-                (result: BaseBean) => {
-                }
-            );
-    }
+  ngAfterViewInit(): void {
+    this.addCopyButton();
+  }
 
-    getArticle() {
-        this.articleService.getArticleById(this.articleId)
-            .subscribe(
-                (result: ArticleBean) => {
-                    this.transferState.set(ARTICLE_INFO_KEY, result);
-                    this.article = result.article;
-                    this.setTitle();
-                }
-            );
-    }
+  ngAfterContentInit(): void {
+    this.articleService.viewArticle(this.articleId)
+      .subscribe(
+        (result: BaseBean) => {
+        }
+      );
+  }
 
-    setTitle() {
-        document.title = 'IJKZEN ' + this.article.title;
-    }
+  getArticle() {
+    this.articleService.getArticleById(this.articleId)
+      .subscribe(
+        (result: ArticleBean) => {
+          this.transferState.set(ARTICLE_INFO_KEY, result);
+          this.article = result.article;
+          this.setTitle();
+        }
+      );
+  }
 
-    getAlipay(): string {
-        return this.linkService.getBackendUrl() + '/donate/alipay';
-    }
+  setTitle() {
+    document.title = 'IJKZEN ' + this.article.title;
+  }
 
-    getWechat(): string {
+  getAlipay(): string {
+    return this.linkService.getBackendUrl() + '/donate/alipay';
+  }
+
+  getWechat(): string {
     return this.linkService.getBackendUrl() + '/donate/wechat';
   }
 
@@ -195,17 +206,9 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit {
   }
 
   addCopyButton() {
-    setTimeout(
-      () => {
-        this.loading = false;
-        setTimeout(
-          () => {
-            this.codeService.addCodePasteButton();
-          },
-          300
-        );
-      },
-      800
-    );
+    if (this.article.content !== null && this.platformService.isBrowser() && this.target !== undefined) {
+      this.codeService.addCodePasteButton();
+      this.mermaidService.renderMermaid(this.target.nativeElement);
+    }
   }
 }

@@ -1,7 +1,7 @@
-<div class="content">
+<div #target class="content">
   <div class="content" id="article">
     <h1 style="text-align: center">{{article.title}}</h1>
-    <div #target style="margin-bottom: 0.5em;;width: 1012px;height: 48px;display: flex; justify-content: space-between">
+    <div style="margin-bottom: 0.5em;;width: 1012px;height: 48px;display: flex; justify-content: space-between">
       <span><i nz-icon nzTheme="outline" nzType="calendar"></i>&nbsp;{{article.createdTime | date: "yyyy-MM-dd"}}</span>
       <span><i nz-icon nzTheme="outline" nzType="user"></i>&nbsp;{{article.author}}</span>
       <span *ngIf="article.category != ''"><i nz-icon nzTheme="outline"
