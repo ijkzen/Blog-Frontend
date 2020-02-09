@@ -39,5 +39,7 @@ export class IndexComponent implements OnInit {
           }
         }
       );
+
+    document.title = 'IJKZEN';
   }
 }
