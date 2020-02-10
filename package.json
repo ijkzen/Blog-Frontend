@@ -25,7 +25,7 @@
     "@angular/platform-browser-dynamic": "^9.0.0",
     "@angular/platform-server": "~9.0.0",
     "@angular/router": "^9.0.0",
-    "@nguniversal/express-engine": "^8.2.6",
+    "@nguniversal/express-engine": "^9.0.0",
     "@nguniversal/module-map-ngfactory-loader": "v8.2.6",
     "@types/jquery": "^3.3.31",
     "@types/mermaid": "^8.2.1",

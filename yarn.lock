@@ -976,10 +976,17 @@
     rxjs "6.5.3"
     webpack-sources "1.4.3"
 
-"@nguniversal/express-engine@^8.2.6":
-  version "8.2.6"
-  resolved "https://registry.npm.taobao.org/@nguniversal/express-engine/download/@nguniversal/express-engine-8.2.6.tgz#3930551727b5be1256f0aefa1ffd3c37cb420f9f"
-  integrity sha1-OTBVFye1vhJW8K76H/08N8tCD58=
+"@nguniversal/common@9.0.0":
+  version "9.0.0"
+  resolved "https://registry.npm.taobao.org/@nguniversal/common/download/@nguniversal/common-9.0.0.tgz#11e8f050b4add11dc808d62726ce77b58e6a105b"
+  integrity sha1-EejwULSt0R3ICNYnJs53tY5qEFs=
+
+"@nguniversal/express-engine@^9.0.0":
+  version "9.0.0"
+  resolved "https://registry.npm.taobao.org/@nguniversal/express-engine/download/@nguniversal/express-engine-9.0.0.tgz#06badf0ac8e2a1d9d210d8077a1e5ae3539ae593"
+  integrity sha1-BrrfCsjiodnSENgHeh5a41Oa5ZM=
+  dependencies:
+    "@nguniversal/common" "9.0.0"
 
 "@nguniversal/module-map-ngfactory-loader@v8.2.6":
   version "8.2.6"
