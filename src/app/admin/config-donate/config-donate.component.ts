@@ -10,10 +10,10 @@ import {DonateService} from '../../service/donate.service';
 })
 export class ConfigDonateComponent implements OnInit {
 
-    @ViewChild('alipay', {static: false})
+    @ViewChild('alipay')
     alipay: ElementRef;
 
-    @ViewChild('wechat', {static: false})
+    @ViewChild('wechat')
     wechat: ElementRef;
 
     constructor(

@@ -11,7 +11,7 @@ import {EditArticleInterface} from '../EditArticleInterface';
 })
 export class EditArticleComponent implements OnInit, OnDestroy, EditArticleInterface, AfterViewInit {
 
-  @ViewChild('markdown', {static: false})
+  @ViewChild('markdown')
   markdown;
 
   loading = true;

@@ -23,7 +23,7 @@ const ARTICLE_INFO_KEY = makeStateKey<Article>('article-info');
 })
 export class ArticleInfoComponent implements OnInit, AfterContentInit, AfterViewInit {
 
-  @ViewChild('target', {static: false})
+  @ViewChild('target')
   target;
 
   article: Article = new Article(
@@ -50,10 +50,10 @@ export class ArticleInfoComponent implements OnInit, AfterContentInit, AfterView
   donateDialog: NzModalRef;
   replyContent: string;
   originComment: Comment;
-  @ViewChild('replyTitle', {static: false})
+  @ViewChild('replyTitle')
   replyTitle: TemplateRef<{}>;
 
-  @ViewChild('reply', {static: false})
+  @ViewChild('reply')
   reply: TemplateRef<{}>;
 
   replyDialog: NzModalRef;
