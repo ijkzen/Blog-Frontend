@@ -19,7 +19,7 @@ export class ArticleService {
   }
 
   getArticlesByPage(page: number): Observable<ArticleListBean> {
-    return this.client.get<ArticleListBean>('/articles/list/DESC/' + page);
+    return this.client.get<ArticleListBean>('/articles/list/10/' + page);
   }
 
   getArticleById(id: number): Observable<ArticleBean> {
