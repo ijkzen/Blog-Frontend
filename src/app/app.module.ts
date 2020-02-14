@@ -1,27 +1,26 @@
-import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-import { HtmlService, NextShowdownModule } from 'next-showdown';
-import { MermaidService } from 'next-mermaid';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NzButtonModule, NzInputModule, NzSkeletonModule } from 'ng-zorro-antd';
-import { HttpsInterceptor } from './client-interceptor';
-import { ArticleModule } from './article/article.module';
-import { IndexModule } from './index/index.module';
-import { ChatModule } from './chat/chat.module';
-import { MiscModule } from './misc/misc.module';
-import { EditModule } from './edit/edit.module';
-import { EditArticleComponent } from './edit/edit-article/edit-article.component';
-import { CompareTextComponent } from './edit/compare-text/compare-text.component';
-import { CompareViewComponent } from './edit/compare-view/compare-view.component';
-import { AdminModule } from './admin/admin.module';
-import { PrebootModule } from 'preboot';
-import { OnlyCompareTextComponent } from './admin/only-compare-text/only-compare-text.component';
-import { OnlyCompareViewComponent } from './admin/only-compare-view/only-compare-view.component';
-import { NZ_ICONS, NzIconModule } from 'ng-zorro-antd/icon';
+import {BrowserModule, BrowserTransferStateModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {FormsModule} from '@angular/forms';
+import {HtmlService, NextShowdownModule} from 'next-showdown';
+import {MermaidService} from 'next-mermaid';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NzButtonModule, NzInputModule, NzSkeletonModule} from 'ng-zorro-antd';
+import {HttpsInterceptor} from './client-interceptor';
+import {ArticleModule} from './article/article.module';
+import {IndexModule} from './index/index.module';
+import {ChatModule} from './chat/chat.module';
+import {MiscModule} from './misc/misc.module';
+import {EditModule} from './edit/edit.module';
+import {EditArticleComponent} from './edit/edit-article/edit-article.component';
+import {CompareTextComponent} from './edit/compare-text/compare-text.component';
+import {CompareViewComponent} from './edit/compare-view/compare-view.component';
+import {AdminModule} from './admin/admin.module';
+import {OnlyCompareTextComponent} from './admin/only-compare-text/only-compare-text.component';
+import {OnlyCompareViewComponent} from './admin/only-compare-view/only-compare-view.component';
+import {NZ_ICONS, NzIconModule} from 'ng-zorro-antd/icon';
 import {
   AlipayOutline,
   AppstoreOutline,
@@ -40,7 +39,7 @@ import {
   UserOutline,
   WechatOutline
 } from '@ant-design/icons-angular/icons';
-import { IconDefinition } from '@ant-design/icons-angular';
+import {IconDefinition} from '@ant-design/icons-angular';
 
 const icons: IconDefinition[] = [
   UploadOutline,
@@ -65,7 +64,6 @@ const icons: IconDefinition[] = [
   declarations: [AppComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    PrebootModule.withConfig({ appRoot: 'app-root' }),
     BrowserTransferStateModule,
     BrowserAnimationsModule,
     HttpClientModule,

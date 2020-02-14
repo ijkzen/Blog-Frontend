@@ -16,7 +16,6 @@
     "dev:ssr": "ng run NextTo-Front:serve-ssr",
     "serve:ssr": "node dist/server/main.js",
     "build:ssr": "ng build --prod && ng run NextTo-Front:server:production",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "prerender": "ng run NextTo-Front:prerender"
   },
   "private": true,
@@ -46,7 +45,6 @@
     "next-mermaid": "^0.0.1",
     "next-showdown": "^0.1.0",
     "ng-zorro-antd": "^8.5.2",
-    "preboot": "^7.0.0",
     "rxjs": "~6.5.4",
     "showdown": "^1.9.0",
     "showdown-bilibili": "^0.0.1",
