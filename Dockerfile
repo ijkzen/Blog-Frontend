@@ -1,12 +1,16 @@
-FROM node:lts AS builder
-COPY .npmrc /root/.npmrc
-# set working directory
+FROM alpine AS builder
 WORKDIR /app
-# install and cache app dependencies
-COPY . /app
-# print registry url
-RUN npm config get registry
-# install dependencies and build the angular app
-RUN yarn && yarn run build:ssr
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && apk add --no-cache --update nodejs nodejs-npm
+COPY package.json package-lock.json /app/
+COPY .npmrc /root/.npmrc
+RUN npm install
 
-CMD ["yarn", "run", "serve:ssr"]
+FROM alpine
+WORKDIR /app
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && apk add --no-cache --update nodejs nodejs-npm
+COPY --from=builder /app/node_modules ./node_modules
+COPY .npmrc /root/.npmrc
+COPY . .
+RUN npm run build:ssr
+
+CMD ["npm", "run", "serve:ssr"]

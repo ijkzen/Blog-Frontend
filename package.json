@@ -16,6 +16,7 @@
     "dev:ssr": "ng run NextTo-Front:serve-ssr",
     "serve:ssr": "node dist/server/main.js",
     "build:ssr": "ng build --prod && ng run NextTo-Front:server:production",
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "prerender": "ng run NextTo-Front:prerender"
   },
   "private": true,
