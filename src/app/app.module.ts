@@ -11,7 +11,6 @@ import {NzButtonModule, NzInputModule, NzSkeletonModule} from 'ng-zorro-antd';
 import {HttpsInterceptor} from './client-interceptor';
 import {ArticleModule} from './article/article.module';
 import {IndexModule} from './index/index.module';
-import {ChatModule} from './chat/chat.module';
 import {MiscModule} from './misc/misc.module';
 import {EditModule} from './edit/edit.module';
 import {EditArticleComponent} from './edit/edit-article/edit-article.component';
@@ -75,7 +74,6 @@ const icons: IconDefinition[] = [
     NextShowdownModule,
     ArticleModule,
     IndexModule,
-    ChatModule,
     MiscModule,
     EditModule,
     AdminModule,

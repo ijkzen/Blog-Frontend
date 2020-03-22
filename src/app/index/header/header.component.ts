@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
     {icon: 'home', text: 'Home'},
     {icon: 'appstore', text: 'Category'},
     {icon: 'smile', text: 'About'},
-    {icon: 'play-circle', text: 'Game'},
     {icon: 'search', text: 'Search'}
   ];
 
