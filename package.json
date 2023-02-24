@@ -39,7 +39,7 @@
     "katex": "^0.11.0",
     "localstorage-polyfill": "^1.0.1",
     "mergely": "^4.0.15",
-    "mermaid": "^8.4.5",
+    "mermaid": "^10.0.0",
     "milligram": "^1.3.0",
     "mock-browser": "^0.92.14",
     "next-mermaid": "^0.0.1",
