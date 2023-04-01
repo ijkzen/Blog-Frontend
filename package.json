@@ -35,7 +35,7 @@
     "codemirror": "^5.50.2",
     "core-js": "^3.6.4",
     "express": "^4.15.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "katex": "^0.11.0",
     "localstorage-polyfill": "^1.0.1",
     "mergely": "^4.0.15",
